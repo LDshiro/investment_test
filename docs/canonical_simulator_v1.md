@@ -20,6 +20,15 @@
 
 broker paper trading や future live execution は別の truth source を持ちえますが、まず比較対象として canonical simulator を固定します。
 
+## Step 04B の位置づけ
+
+Step 04B では、この contract を土台にして opt-in の `canonical_v1` simulator を historical shadow packet に sidecar として書き出します。
+
+- legacy historical shadow packet は既定のまま残します
+- canonical simulator は比較用の sidecar output です
+- reconciliation で legacy と canonical の差分を明示します
+- `use_for_shadow_packets` は将来の切替フラグですが、Step 04B ではまだ default packet を置き換えません
+
 ## 入力
 
 - predictor return: `returns_cc.csv`
@@ -80,3 +89,72 @@ Step 04A では、これらを追加しません。今の simulator が何を mo
 - live は actual execution friction と operational failure mode を持ちます。
 
 したがって、canonical simulator は live の代用品ではなく、live 差分を測るための基準です。
+
+## Step 04B canonical PnL formula
+
+Step 04B の opt-in canonical path では、legacy shadow と違って cost を fill price に埋め込まず、cash cost として明示的に分けて記録します。
+
+- `return_oc_i = close_i / open_i - 1`
+- `target_notional_i = nav_start_jpy * weight_i`
+- `quantity_i = target_notional_i / open_i`
+- `gross_pnl_i = quantity_i * (close_i - open_i)`
+- `entry_cost_i = abs(target_notional_i) * entry_cost_bps / 10000`
+- `exit_cost_i = abs(quantity_i * close_i) * exit_cost_bps / 10000`
+- `borrow_cost_i = abs(target_notional_i) * (borrow_fee_bps_annual / annualization_days) / 10000` for shorts only
+- `net_pnl_i = gross_pnl_i - entry_cost_i - exit_cost_i - borrow_cost_i`
+
+この path でも価格 source は corrected bundle の adjusted open / adjusted close です。fractional quantity は shadow mode の default として許容します。
+
+## Legacy との差
+
+- legacy shadow: assumed execution price に cost bps を埋め込む
+- canonical shadow: open/close mid price はそのまま使い、execution cost を別勘定で落とす
+- legacy quantity: open assumed execution price ベース
+- canonical quantity: adjusted open price ベース
+- 両者とも risk gate 後の同じ target weight を使う
+
+したがって、Step 04B の reconciliation では gross return 差だけでなく cost return 差も必ず確認します。
+
+## Step 04B で書かれる sidecar files
+
+`configs/profiles/shadow_corrected_canonical_local.yaml` で `run` すると、legacy packet files に加えて次を書きます。
+
+- `canonical_orders.csv`
+- `canonical_fills.csv`
+- `canonical_positions.csv`
+- `canonical_pnl.csv`
+- `canonical_simulation_result.json`
+- `sim_reconciliation.csv`
+- `sim_reconciliation.json`
+- `sim_reconciliation.md`
+
+STOP 日は trade を作りませんが、zero-trade canonical artifact と reconciliation は書きます。
+
+## 実行方法
+
+1 日分の opt-in canonical shadow は次です。
+
+```bash
+python -m leadlag.cli run --config configs/profiles/shadow_corrected_canonical_local.yaml
+```
+
+default profile をそのまま比較対象として回す場合は次です。
+
+```bash
+python -m leadlag.cli run --config configs/profiles/shadow_corrected_local.yaml
+```
+
+## Reconciliation の読み方
+
+`sim_reconciliation.md` は少なくとも次を確認するための human-readable summary です。
+
+- `legacy_net_return`
+- `canonical_net_return`
+- `net_return_diff_bps`
+- `legacy_gross_exposure`
+- `canonical_gross_exposure`
+- `legacy_cost_return`
+- `canonical_cost_return`
+- tolerance 内かどうか
+
+Step 04B では tolerance breach は advisory が default です。差分が tolerance を超えても、`fail_on_tolerance_breach=true` にしない限り shadow run 自体は止めません。

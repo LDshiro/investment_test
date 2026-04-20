@@ -1,0 +1,13 @@
+extends:
+  - shadow_replay_v1.yaml
+
+canonical_required_packet_files:
+  - canonical_pnl.csv
+  - canonical_simulation_result.json
+  - sim_reconciliation.json
+
+canonical_reconciliation:
+  require_status_pass: true
+  max_abs_net_return_diff_bps: 1.0
+  max_abs_gross_return_diff_bps: 1.0
+  max_abs_cost_return_diff_bps: 1.0

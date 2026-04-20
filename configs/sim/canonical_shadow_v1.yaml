@@ -1,0 +1,13 @@
+simulator:
+  name: canonical_v1
+  enabled: true
+  use_for_shadow_packets: false
+  write_canonical_artifacts: true
+  write_reconciliation: true
+  allow_fractional_quantity: true
+  cost_application: separate_cash_cost
+  entry_price: adjusted_open
+  exit_price: adjusted_close
+  reconciliation:
+    tolerance_net_return_bps: 1.0
+    fail_on_tolerance_breach: false

@@ -159,17 +159,24 @@ leadlag-stack/
 
 ファイル: `src/leadlag/cli.py`
 
-エントリポイントです。現在使えるコマンドは 3 つです。
+エントリポイントです。現在使える主要コマンドは次です。
 
 - `validate-config`
 - `inspect-bundle`
+- `validate-data-contract`
 - `run`
+- `run-batch`
+- `weekly-review`
+- `weekly-gates`
 
 #### `validate-config`
 YAML を読み込み、Pydantic で検証します。
 
 #### `inspect-bundle`
 corrected bundle を読み込み、Table 1 の exact match window を探索し、その要約を表示します。
+
+#### `validate-data-contract`
+corrected bundle を `corrected_bundle_v1` contract で検証し、validation report と file hash artifact を出力します。
 
 #### `run`
 `run.mode` と `data.source` を見て処理を分岐します。
@@ -660,6 +667,24 @@ python -m leadlag.cli inspect-bundle --config configs/profiles/backtest_correcte
 - sample filter の開始日・終了日・gap sum を出す
 
 ためのものです。
+
+### data contract の検証
+
+```bash
+python -m leadlag.cli validate-data-contract \
+  --bundle-dir data/normalized/corrected_bundle \
+  --contract configs/data_contracts/corrected_bundle_v1.yaml \
+  --output-dir artifacts/data_contract/corrected_bundle_v1
+```
+
+standalone script 版を使うなら:
+
+```bash
+python scripts/validate_data_contract.py \
+  --bundle-dir data/normalized/corrected_bundle \
+  --contract configs/data_contracts/corrected_bundle_v1.yaml \
+  --output-dir artifacts/data_contract/corrected_bundle_v1
+```
 
 ### 9.3 backtest の実行
 
@@ -1206,3 +1231,84 @@ python scripts/export_environment_snapshot.py --refresh-locks
 ```
 
 この step は setup / docs / environment metadata を整えるもので、strategy math や risk / promotion logic は変更しません。詳細は `docs/environment_reproducibility.md` を参照してください。
+
+---
+
+## 20. Data Contract Freeze
+
+Step 03 では、corrected Yahoo bundle の interpretation を `corrected_bundle_v1` として固定します。これは strategy logic を変える step ではなく、required files、ticker universe、factor alias、hash、validation output を機械検証可能にする step です。
+
+最初の検証は次です。
+
+```bash
+python scripts/validate_data_contract.py \
+  --bundle-dir data/normalized/corrected_bundle \
+  --contract configs/data_contracts/corrected_bundle_v1.yaml \
+  --output-dir artifacts/data_contract/corrected_bundle_v1
+```
+
+artifact は `artifacts/data_contract/corrected_bundle_v1/` に出力されます。詳細な policy と canonical interpretation は `docs/data_contract_corrected_bundle_v1.md` を参照してください。
+
+---
+
+## 21. Canonical Simulator Audit
+
+Step 04A では、current historical shadow packet path を `canonical_simulator_v1` contract と golden-day audit で監査できるようにします。これは simulator を改善する step ではなく、今の packet 生成挙動を inspectable にする step です。
+
+最初の実行は次です。
+
+```bash
+python scripts/audit_simulator_golden_days.py \
+  --config configs/profiles/shadow_corrected_local.yaml \
+  --simulator-contract configs/simulator/canonical_simulator_v1.yaml \
+  --output-dir artifacts/simulator_audit/canonical_v1 \
+  --refresh
+```
+
+artifact は `artifacts/simulator_audit/canonical_v1/` に出力されます。詳細は `docs/canonical_simulator_v1.md` と `docs/golden_day_audit.md` を参照してください。
+
+---
+
+## 22. Opt-In Canonical Shadow Simulator
+
+Step 04B では、legacy historical shadow packet を既定のまま残しつつ、cash-cost 明示型の canonical simulator を sidecar として同じ packet directory に書けるようにします。
+
+最初の実行は次です。
+
+```bash
+python -m leadlag.cli run --config configs/profiles/shadow_corrected_canonical_local.yaml
+```
+
+主な sidecar files は次です。
+
+- `canonical_orders.csv`
+- `canonical_fills.csv`
+- `canonical_positions.csv`
+- `canonical_pnl.csv`
+- `canonical_simulation_result.json`
+- `sim_reconciliation.csv`
+- `sim_reconciliation.json`
+- `sim_reconciliation.md`
+
+default legacy path を比較対象としてそのまま回す場合は次です。
+
+```bash
+python -m leadlag.cli run --config configs/profiles/shadow_corrected_local.yaml
+```
+
+詳細は `docs/canonical_simulator_v1.md` を参照してください。
+
+---
+
+## 23. Shadow Replay Validation
+
+Step 05 では、60 営業日 historical shadow replay を legacy / canonical の両方で監査する `validate-shadow-replay` を追加します。
+
+```bash
+python -m leadlag.cli validate-shadow-replay \
+  --batch-dir runs/<batch_dir> \
+  --validation-config configs/validation/shadow_replay_v1.yaml \
+  --output-dir artifacts/shadow_replay_validation/debug_run
+```
+
+canonical replay では `configs/validation/shadow_replay_canonical_v1.yaml` を使います。詳細は `docs/shadow_replay_validation.md` を参照してください。

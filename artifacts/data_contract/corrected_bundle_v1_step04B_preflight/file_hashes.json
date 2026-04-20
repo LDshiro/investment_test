@@ -1,0 +1,38 @@
+{
+  "carhart4_japan_daily.csv": {
+    "sha256": "6626c42c241ef6ecf66c9ab116c23f5dff1c7607d980831a40b777171cfc5e33",
+    "size_bytes": 240680
+  },
+  "close_prices_adj.csv": {
+    "sha256": "f4de26ee1cc507266e097acf527b56fb6b9451b0c66312bc24668cfaa490b607",
+    "size_bytes": 1818919
+  },
+  "common_dates_core.csv": {
+    "sha256": "b01b687327d69be250d392f0c44d1efdc86cd17bd0da19bb938da75693d39a81",
+    "size_bytes": 41750
+  },
+  "common_dates_full.csv": {
+    "sha256": "2508abf132c79870aaa6bb894898be859161f43d740b061b84c804e234e8b108",
+    "size_bytes": 19574
+  },
+  "ff3_japan_daily.csv": {
+    "sha256": "83684708fcb86a2fc8d389a455da7b9a23ea0b09f4aac7a0ba130835760edeaf",
+    "size_bytes": 197832
+  },
+  "mom_japan_daily.csv": {
+    "sha256": "3546a1c41d3944650a7bad0621916d404a87a74039a2a23e7753cc1b1ea13923",
+    "size_bytes": 88767
+  },
+  "open_prices_adj.csv": {
+    "sha256": "a84da1b6e49ba68dddae4aea69addd58241b03be55737ad4771aaf1ecba20405",
+    "size_bytes": 1970645
+  },
+  "returns_cc.csv": {
+    "sha256": "f587c7b08476ea078013549193c3d28dc08111360000d0fe1ec69160d33b955b",
+    "size_bytes": 2254774
+  },
+  "returns_oc_jp.csv": {
+    "sha256": "3ba6b9094b222e24a429a97f180bac4e08f3aadf7996507fcad4b790fd9c76ec",
+    "size_bytes": 1241909
+  }
+}

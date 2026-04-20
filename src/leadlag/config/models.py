@@ -122,6 +122,24 @@ class RuntimeSection(BaseModel):
     jobs: List[str] = Field(default_factory=list)
 
 
+class SimulatorReconciliationSection(BaseModel):
+    tolerance_net_return_bps: float = 1.0
+    fail_on_tolerance_breach: bool = False
+
+
+class SimulatorSection(BaseModel):
+    name: str = "canonical_v1"
+    enabled: bool = False
+    use_for_shadow_packets: bool = False
+    write_canonical_artifacts: bool = False
+    write_reconciliation: bool = False
+    allow_fractional_quantity: bool = True
+    cost_application: Literal["separate_cash_cost"] = "separate_cash_cost"
+    entry_price: Literal["adjusted_open"] = "adjusted_open"
+    exit_price: Literal["adjusted_close"] = "adjusted_close"
+    reconciliation: SimulatorReconciliationSection = Field(default_factory=SimulatorReconciliationSection)
+
+
 class AppConfig(BaseModel):
     run: RunSection
     calendar: CalendarSection
@@ -135,3 +153,4 @@ class AppConfig(BaseModel):
     packet: PacketSection
     batch: BatchSection = Field(default_factory=BatchSection)
     runtime: RuntimeSection = Field(default_factory=RuntimeSection)
+    simulator: SimulatorSection = Field(default_factory=SimulatorSection)

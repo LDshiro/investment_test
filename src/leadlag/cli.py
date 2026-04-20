@@ -6,6 +6,7 @@ from pathlib import Path
 
 from leadlag.config.loader import load_app_config
 from leadlag.data_contract import validate_corrected_bundle, write_validation_outputs
+from leadlag.ops import validate_shadow_replay
 from leadlag.runtime.packets import ensure_packet_layout
 from leadlag.runtime.corrected_backtest import inspect_corrected_bundle, run_corrected_backtest
 from leadlag.runtime.corrected_shadow import run_corrected_shadow
@@ -42,6 +43,27 @@ def cmd_validate_data_contract(bundle_dir: str, contract_path: str, output_dir: 
         )
     )
     return 0 if result.passed else 1
+
+
+def cmd_validate_shadow_replay(batch_dir: str, validation_config: str, output_dir: str) -> int:
+    result = validate_shadow_replay(
+        batch_dir=Path(batch_dir),
+        validation_config=Path(validation_config),
+        output_dir=Path(output_dir),
+    )
+    print(
+        json.dumps(
+            {
+                "status": result.status,
+                "passed": result.passed,
+                "summary": result.summary,
+                "output_dir": str(Path(output_dir).resolve()),
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0 if result.status != "FAIL" else 1
 
 
 def cmd_run(config_path: str, trade_date: str | None = None) -> int:
@@ -113,6 +135,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_data_contract.add_argument('--contract', required=True)
     p_data_contract.add_argument('--output-dir', required=True)
 
+    p_shadow_replay = sub.add_parser('validate-shadow-replay')
+    p_shadow_replay.add_argument('--batch-dir', required=True)
+    p_shadow_replay.add_argument('--validation-config', required=True)
+    p_shadow_replay.add_argument('--output-dir', required=True)
+
     p_run = sub.add_parser('run')
     p_run.add_argument('--config', required=True)
     p_run.add_argument('--trade-date', required=False)
@@ -143,6 +170,8 @@ def main() -> int:
         return cmd_inspect_bundle(args.config)
     if args.command == 'validate-data-contract':
         return cmd_validate_data_contract(args.bundle_dir, args.contract, args.output_dir)
+    if args.command == 'validate-shadow-replay':
+        return cmd_validate_shadow_replay(args.batch_dir, args.validation_config, args.output_dir)
     if args.command == 'run':
         return cmd_run(args.config, trade_date=args.trade_date)
     if args.command == 'run-batch':

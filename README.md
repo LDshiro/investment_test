@@ -1247,3 +1247,49 @@ python scripts/audit_simulator_golden_days.py \
 ```
 
 artifact は `artifacts/simulator_audit/canonical_v1/` に出力されます。詳細は `docs/canonical_simulator_v1.md` と `docs/golden_day_audit.md` を参照してください。
+
+---
+
+## 22. Opt-In Canonical Shadow Simulator
+
+Step 04B では、legacy historical shadow packet を既定のまま残しつつ、cash-cost 明示型の canonical simulator を sidecar として同じ packet directory に書けるようにします。
+
+最初の実行は次です。
+
+```bash
+python -m leadlag.cli run --config configs/profiles/shadow_corrected_canonical_local.yaml
+```
+
+主な sidecar files は次です。
+
+- `canonical_orders.csv`
+- `canonical_fills.csv`
+- `canonical_positions.csv`
+- `canonical_pnl.csv`
+- `canonical_simulation_result.json`
+- `sim_reconciliation.csv`
+- `sim_reconciliation.json`
+- `sim_reconciliation.md`
+
+default legacy path を比較対象としてそのまま回す場合は次です。
+
+```bash
+python -m leadlag.cli run --config configs/profiles/shadow_corrected_local.yaml
+```
+
+詳細は `docs/canonical_simulator_v1.md` を参照してください。
+
+---
+
+## 23. Shadow Replay Validation
+
+Step 05 では、60 営業日 historical shadow replay を legacy / canonical の両方で監査する `validate-shadow-replay` を追加します。
+
+```bash
+python -m leadlag.cli validate-shadow-replay \
+  --batch-dir runs/<batch_dir> \
+  --validation-config configs/validation/shadow_replay_v1.yaml \
+  --output-dir artifacts/shadow_replay_validation/debug_run
+```
+
+canonical replay では `configs/validation/shadow_replay_canonical_v1.yaml` を使います。詳細は `docs/shadow_replay_validation.md` を参照してください。

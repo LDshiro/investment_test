@@ -1,0 +1,26 @@
+{
+  "trade_date": "2025-09-11",
+  "legacy_net_return": -0.0033809936253375,
+  "canonical_net_return": -0.0033843746189629,
+  "net_return_diff": -3.380993625399717e-06,
+  "net_return_diff_bps": -0.03380993625399717,
+  "legacy_gross_exposure": 0.75,
+  "canonical_gross_exposure": 0.75,
+  "legacy_cost_return": -0.001496617121998,
+  "canonical_cost_return": -0.0014981137391201,
+  "status": "PASS",
+  "notes": [
+    "Legacy shadow embeds execution cost into assumed fill prices; canonical_v1 records execution cost as separate cash cost.",
+    "Gross return diff: -0.0188 bps; cost return diff: -0.0150 bps."
+  ],
+  "tolerance_net_return_bps": 1.0,
+  "within_tolerance": true,
+  "diagnostics": {
+    "gross_return_diff": -1.8843765034000284e-06,
+    "gross_return_diff_bps": -0.018843765034000284,
+    "cost_return_diff": -1.4966171220998688e-06,
+    "cost_return_diff_bps": -0.014966171220998688,
+    "legacy_borrow_pnl_jpy": 0.0,
+    "canonical_borrow_cost_jpy": 0.0
+  }
+}

@@ -1,0 +1,2 @@
+trade_date,nav_start_jpy,nav_end_jpy,gross_pnl_jpy,cost_jpy,borrow_cost_jpy,net_pnl_jpy,gross_return,cost_return,net_return,gross_exposure,net_exposure,turnover_entry,turnover_exit,n_positions,execution_cost_jpy,status
+2025-10-27,1000000.0,1004744.4975076186,6250.748255874514,1506.2507482558747,0.0,4744.497507618639,0.006250748255874514,-0.0015062507482558746,0.004744497507618639,0.75,0.75,0.75,0.7562507482558746,5,1506.2507482558747,GO

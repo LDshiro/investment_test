@@ -6,8 +6,7 @@ duckdb==1.5.2
 fonttools==4.62.1
 iniconfig==2.3.0
 kiwisolver==1.5.0
-# Editable install with no version control (leadlag-stack==0.1.0)
--e c:\users\shiro\onedrive\ドキュメント\spyder\misocp\investment
+-e git+https://github.com/LDshiro/investment_test.git@62b1190501ac96e8ae4306d2098af359ab45cf90#egg=leadlag_stack
 librt==0.9.0
 matplotlib==3.10.8
 mypy==1.20.1

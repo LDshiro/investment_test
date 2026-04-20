@@ -9,6 +9,10 @@ import subprocess
 import sys
 import tempfile
 from typing import Any, Iterable
+from urllib.parse import urlparse, parse_qs, unquote
+from urllib.request import url2pathname
+
+import tomllib
 
 from baseline_common import file_record, read_json, render_command, utc_now_iso, write_json, write_text
 
@@ -144,6 +148,51 @@ def baseline_python_version(repo: Path | None = None) -> str | None:
     return normalize_python_version(version)
 
 
+def _normalize_name_token(value: str) -> str:
+    return re.sub(r"[-_.]+", "-", value.strip()).lower()
+
+
+def repo_project_name(repo: Path) -> str | None:
+    pyproject = repo / "pyproject.toml"
+    if not pyproject.exists():
+        return None
+    payload = tomllib.loads(pyproject.read_text(encoding="utf-8"))
+    project = payload.get("project", {})
+    name = project.get("name")
+    if not name:
+        return None
+    return _normalize_name_token(str(name))
+
+
+def _parse_file_url_path(target: str) -> Path | None:
+    parsed = urlparse(target)
+    if parsed.scheme != "file":
+        return None
+    netloc = f"//{parsed.netloc}" if parsed.netloc else ""
+    path_text = url2pathname(unquote(f"{netloc}{parsed.path}"))
+    if not path_text:
+        return None
+    return Path(path_text)
+
+
+def _editable_target_matches_repo(target: str, repo: Path) -> bool:
+    project_name = repo_project_name(repo)
+    parsed = urlparse(target)
+    if parsed.scheme == "file":
+        file_path = _parse_file_url_path(target)
+        if file_path is not None:
+            target_resolved = file_path.resolve(strict=False)
+            repo_resolved = repo.resolve(strict=False)
+            if os.path.normcase(str(target_resolved)) == os.path.normcase(str(repo_resolved)):
+                return True
+    if target.startswith("git+") and project_name:
+        fragment = parse_qs(parsed.fragment)
+        egg_values = fragment.get("egg", [])
+        if egg_values and _normalize_name_token(egg_values[0]) == project_name:
+            return True
+    return False
+
+
 def normalize_editable_line(line: str, repo: Path) -> str:
     stripped = line.strip()
     if not stripped.lower().startswith("-e "):
@@ -151,6 +200,8 @@ def normalize_editable_line(line: str, repo: Path) -> str:
 
     target = stripped[3:].strip().strip('"').strip("'")
     if target == ".":
+        return "-e ."
+    if _editable_target_matches_repo(target, repo):
         return "-e ."
 
     target_path = Path(target)

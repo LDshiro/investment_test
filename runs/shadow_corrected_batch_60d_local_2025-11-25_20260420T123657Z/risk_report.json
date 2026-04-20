@@ -1,0 +1,58 @@
+{
+  "status": "GO",
+  "gate_results": {
+    "no_common_dates": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "missing_price": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "missing_factor": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "unapproved_patch": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "tradable_names_too_few": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "cost_too_high": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "gross_exposure_exceeded": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "max_single_name_abs_exceeded": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    },
+    "universe_shrinkage": {
+      "triggered": false,
+      "severity": "ok",
+      "message": "not triggered"
+    }
+  },
+  "expected_cost_bps": 15.0,
+  "gross_exposure": 0.75,
+  "net_exposure": 0.75,
+  "max_name_abs": 0.15,
+  "tradable_names": 17,
+  "selected_names": 5,
+  "paper_gross_exposure": 2.0,
+  "paper_net_exposure": 0.0
+}

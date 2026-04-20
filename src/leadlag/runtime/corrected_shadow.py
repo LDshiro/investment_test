@@ -17,6 +17,13 @@ from leadlag.portfolio.weights import long_short_equal_weight, scale_weights_to_
 from leadlag.reporting.daily import build_daily_summary
 from leadlag.runtime.meta import hash_config, hash_data_root, hash_tree, make_run_id, patch_version
 from leadlag.runtime.packets import ensure_packet_layout
+from leadlag.sim.canonical import (
+    build_zero_trade_result,
+    simulate_intraday_open_close,
+    simulation_result_frames,
+    simulation_result_payload,
+)
+from leadlag.sim.reconciliation import reconcile_shadow_packet, write_reconciliation_outputs
 from leadlag_repro.config import ReproConfig
 from leadlag_repro.corrected_bundle import (
     build_prior_expand26to28,
@@ -251,6 +258,77 @@ def _orders_and_fills(
         pd.DataFrame(fill_rows),
         pd.DataFrame(pos_rows),
         pnl_df,
+    )
+
+
+def _canonical_simulation_result(
+    cfg: AppConfig,
+    trade_date: pd.Timestamp,
+    prices: pd.DataFrame,
+    tradable_weights: pd.Series,
+    gate_result: dict[str, Any],
+    expected_cost_bps: float,
+) -> object:
+    if gate_result["status"] == "STOP":
+        result = build_zero_trade_result(
+            trade_date=trade_date.date().isoformat(),
+            nav_start_jpy=cfg.run.shadow_nav_jpy,
+            status="STOP",
+            notes=["Hard gate status STOP; canonical simulator emitted no trades."],
+            diagnostics={
+                "legacy_run_status": gate_result["status"],
+                "expected_cost_bps": float(expected_cost_bps),
+                "selected_names": int(gate_result["selected_names"]),
+                "tradable_names": int(gate_result["tradable_names"]),
+                "pre_gate_gross_exposure": float(tradable_weights.abs().sum()),
+                "pre_gate_net_exposure": float(tradable_weights.sum()),
+                "use_for_shadow_packets": bool(cfg.simulator.use_for_shadow_packets),
+            },
+            entry_cost_bps=open_side_cost_bps(cfg),
+            exit_cost_bps=close_side_cost_bps(cfg),
+            borrow_fee_bps_annual=cfg.costs.borrow_fee_bps_annual,
+            annualization_days=cfg.strategy.annualization_days or 252,
+            allow_fractional_quantity=cfg.simulator.allow_fractional_quantity,
+        )
+        return result
+
+    result = simulate_intraday_open_close(
+        trade_date=trade_date.date().isoformat(),
+        weights=tradable_weights,
+        open_prices=prices["open_adj"],
+        close_prices=prices["close_adj"],
+        nav_start_jpy=cfg.run.shadow_nav_jpy,
+        entry_cost_bps=open_side_cost_bps(cfg),
+        exit_cost_bps=close_side_cost_bps(cfg),
+        borrow_fee_bps_annual=cfg.costs.borrow_fee_bps_annual,
+        annualization_days=cfg.strategy.annualization_days or 252,
+        allow_fractional_quantity=cfg.simulator.allow_fractional_quantity,
+    )
+    result.status = gate_result["status"]
+    result.diagnostics.update(
+        {
+            "legacy_run_status": gate_result["status"],
+            "expected_cost_bps": float(expected_cost_bps),
+            "selected_names": int(gate_result["selected_names"]),
+            "tradable_names": int(gate_result["tradable_names"]),
+            "use_for_shadow_packets": bool(cfg.simulator.use_for_shadow_packets),
+        }
+    )
+    if cfg.simulator.use_for_shadow_packets:
+        result.notes.append("use_for_shadow_packets is reserved in Step 04B; legacy packet files remain canonical defaults.")
+    return result
+
+
+def _write_canonical_simulation_outputs(packet_dir: Path, simulation_result: object) -> None:
+    frames = simulation_result_frames(simulation_result)
+    frames["orders"].to_csv(packet_dir / "canonical_orders.csv", index=False)
+    frames["fills"].to_csv(packet_dir / "canonical_fills.csv", index=False)
+    frames["positions"].to_csv(packet_dir / "canonical_positions.csv", index=False)
+    frames["pnl"].to_csv(packet_dir / "canonical_pnl.csv", index=False)
+    payload = simulation_result_payload(simulation_result)
+    (packet_dir / "canonical_simulation_result.json").write_text(
+        json.dumps(payload, ensure_ascii=False, indent=2),
+        encoding="utf-8",
     )
 
 
@@ -528,6 +606,27 @@ def run_corrected_shadow_prepared(
     (packet_dir / "risk_report.json").write_text(json.dumps(risk_report, ensure_ascii=False, indent=2), encoding="utf-8")
     (packet_dir / "alerts.json").write_text(json.dumps({"alerts": alerts}, ensure_ascii=False, indent=2), encoding="utf-8")
 
+    canonical_result = None
+    reconciliation_result = None
+    if cfg.simulator.enabled:
+        canonical_result = _canonical_simulation_result(
+            cfg,
+            trade_date,
+            prices,
+            tradable_weights,
+            gate_result,
+            expected_cost_bps,
+        )
+        if cfg.simulator.write_canonical_artifacts or cfg.simulator.write_reconciliation:
+            _write_canonical_simulation_outputs(packet_dir, canonical_result)
+        if cfg.simulator.write_reconciliation:
+            reconciliation_result = reconcile_shadow_packet(
+                packet_dir,
+                tolerance_net_return_bps=cfg.simulator.reconciliation.tolerance_net_return_bps,
+                fail_on_tolerance_breach=cfg.simulator.reconciliation.fail_on_tolerance_breach,
+            )
+            write_reconciliation_outputs(reconciliation_result, packet_dir)
+
     top_longs = _top_names(signal_tradeable)
     top_shorts = _bottom_names(signal_tradeable)
     summary = build_daily_summary(
@@ -566,6 +665,12 @@ def run_corrected_shadow_prepared(
         "shadow_net_return": float(pnl_df.iloc[0]["net_return"]),
         "paper_counterfactual_return": paper_counterfactual,
     }
+    if canonical_result is not None and canonical_result.pnl is not None:
+        status["canonical_status"] = canonical_result.status
+        status["canonical_net_return"] = float(canonical_result.pnl.net_return)
+    if reconciliation_result is not None:
+        status["reconciliation_status"] = reconciliation_result.status
+        status["net_return_diff_bps"] = float(reconciliation_result.net_return_diff_bps)
     return packet_dir, status
 
 

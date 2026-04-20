@@ -1,0 +1,25 @@
+required_packet_files:
+  - summary.md
+  - run.json
+  - signals.csv
+  - orders_shadow.csv
+  - fills_shadow.csv
+  - positions.csv
+  - pnl.csv
+  - risk_report.json
+  - alerts.json
+
+optional_packet_files:
+  - figure_signals.png
+  - figure_equity_curve.png
+
+allow_statuses:
+  - GO
+  - WARN
+  - STOP
+
+max_failed_days: 0
+max_missing_required_files: 0
+require_batch_summary: true
+require_monotonic_trade_dates: true
+require_unique_trade_dates: true

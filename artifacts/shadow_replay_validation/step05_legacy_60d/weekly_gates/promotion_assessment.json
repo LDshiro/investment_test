@@ -1,0 +1,48 @@
+{
+  "promotion_status": "HOLD_SHADOW",
+  "reason": "promotion requirements not yet met",
+  "metrics": {
+    "window_weeks": 4,
+    "lookback_weeks": 4,
+    "latest_week_label": "2025-W48",
+    "latest_week_status": "GO",
+    "go_weeks": 3,
+    "warn_weeks": 1,
+    "stop_weeks": 0,
+    "total_trade_days": 17,
+    "total_completed_days": 17,
+    "total_failed_days": 0,
+    "total_stop_days": 0,
+    "total_warn_days": 0,
+    "total_critical_alert_days": 0,
+    "total_triggered_gate_days": 0,
+    "total_shadow_return_compounded": -0.010313733106061762,
+    "total_paper_return_compounded": -0.008976761537340505,
+    "weighted_shadow_hit_rate": 0.4117647058823529,
+    "weighted_avg_expected_cost_bps": 15.0,
+    "weighted_avg_tradable_names": 17.0,
+    "weighted_avg_selected_names": 5.0,
+    "weighted_avg_gross_exposure": 0.75,
+    "weighted_avg_alert_count": 1.0,
+    "total_active_return_diff_compounded": -0.0013369715687212569
+  },
+  "failed_checks": [
+    "non_negative_shadow_return"
+  ],
+  "blocked_checks": [],
+  "recommended_live_overrides": {
+    "run": {
+      "mode": "live_dryrun"
+    },
+    "risk": {
+      "allow_short": false,
+      "max_gross": 0.5,
+      "max_single_name_abs": 0.1
+    },
+    "deployment": {
+      "max_live_names": 2,
+      "fixed_ticket_notional_jpy": 50000,
+      "expected_objective": "Measure live-vs-shadow execution friction, not maximize PnL."
+    }
+  }
+}

@@ -25,11 +25,28 @@ def test_python_version_parsing_and_match() -> None:
 
 
 def test_normalize_freeze_lines_rewrites_repo_editable(tmp_path: Path) -> None:
+    (tmp_path / "pyproject.toml").write_text(
+        "[project]\nname = 'leadlag-stack'\n",
+        encoding="utf-8",
+    )
     lines = [
         "# comment",
         f"-e {tmp_path}",
         "numpy==2.4.4",
         "",
+    ]
+    normalized = normalize_freeze_lines(lines, tmp_path)
+    assert normalized == ["-e .", "numpy==2.4.4"]
+
+
+def test_normalize_freeze_lines_rewrites_repo_vcs_editable(tmp_path: Path) -> None:
+    (tmp_path / "pyproject.toml").write_text(
+        "[project]\nname = 'leadlag-stack'\n",
+        encoding="utf-8",
+    )
+    lines = [
+        "-e git+https://github.com/example/investment_test.git@abc123#egg=leadlag_stack",
+        "numpy==2.4.4",
     ]
     normalized = normalize_freeze_lines(lines, tmp_path)
     assert normalized == ["-e .", "numpy==2.4.4"]

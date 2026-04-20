@@ -1,0 +1,18 @@
+# 60-trade-day historical shadow replay profile.
+# Extends the generic local batch profile and replays the latest 60 valid trade dates
+# inside the Table 1 exact-match sample window.
+
+extends:
+  - shadow_corrected_batch_local.yaml
+
+run:
+  name: shadow_corrected_batch_60d_local
+
+batch:
+  date_source: sample_filter
+  end_date: 2025-11-28
+  max_days: 60
+  trade_dates: []
+  skip_existing_packets: true
+  stop_on_error: true
+  write_batch_summary: true

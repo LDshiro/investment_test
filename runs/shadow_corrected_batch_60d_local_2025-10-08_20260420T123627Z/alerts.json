@@ -1,0 +1,10 @@
+{
+  "alerts": [
+    {
+      "severity": "warning",
+      "code": "scaled_for_single_name_cap",
+      "message": "Scaled weights by 0.750000 to satisfy max_single_name_abs=0.1500.",
+      "factor": 0.7499999999999999
+    }
+  ]
+}

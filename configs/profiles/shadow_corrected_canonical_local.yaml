@@ -1,0 +1,6 @@
+extends:
+  - shadow_corrected_local.yaml
+  - ../sim/canonical_shadow_v1.yaml
+
+run:
+  name: shadow_corrected_canonical_local
