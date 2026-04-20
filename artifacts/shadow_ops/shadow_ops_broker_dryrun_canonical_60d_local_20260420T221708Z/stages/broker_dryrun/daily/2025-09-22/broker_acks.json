@@ -1,0 +1,192 @@
+[
+  {
+    "broker_id": "null_broker_v1",
+    "broker_mode": "DRY_RUN",
+    "client_order_id": "DRYRUN-CLIENT-919e74eff80f26e1",
+    "broker_order_id": "DRYRUN-ORDER-919e74eff80f26e180c9",
+    "ack_status": "accepted_dryrun",
+    "message": "Order accepted by NullBrokerAdapter dry-run path.",
+    "received_at": "2026-04-20T22:17:17.304329+00:00",
+    "payload_checksum": "919e74eff80f26e180c9af3e1ad2418bad3a27fef3cd693573ccb015561be8a5",
+    "diagnostics": [
+      "no_network_requests",
+      "live_submission_disabled"
+    ],
+    "metadata": {
+      "payload": {
+        "broker_id": "null_broker_v1",
+        "broker_mode": "DRY_RUN",
+        "client_order_id": "DRYRUN-CLIENT-919e74eff80f26e1",
+        "symbol": "1617.T",
+        "market": "JP",
+        "side": "BUY",
+        "quantity": 3.742511235018728,
+        "notional_jpy": 150000.0,
+        "order_type": "MARKET",
+        "tif": "DAY",
+        "limit_price": null,
+        "allow_live_submission": false,
+        "source_packet_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_canonical_batch_60d_local_2025-09-22_20260420T123746Z",
+        "metadata": {
+          "close_side": "SELL",
+          "intended_close_qty": 3.742511235018728,
+          "open_price_adj": 40040.0,
+          "close_price_adj": 40240.0,
+          "target_weight": 0.15
+        }
+      }
+    }
+  },
+  {
+    "broker_id": "null_broker_v1",
+    "broker_mode": "DRY_RUN",
+    "client_order_id": "DRYRUN-CLIENT-d795f6d9730c40fa",
+    "broker_order_id": "DRYRUN-ORDER-d795f6d9730c40fa592f",
+    "ack_status": "accepted_dryrun",
+    "message": "Order accepted by NullBrokerAdapter dry-run path.",
+    "received_at": "2026-04-20T22:17:17.304863+00:00",
+    "payload_checksum": "d795f6d9730c40fa592f8bf5b19103292fa6062ccc3727c8f36af54ade6f7d7e",
+    "diagnostics": [
+      "no_network_requests",
+      "live_submission_disabled"
+    ],
+    "metadata": {
+      "payload": {
+        "broker_id": "null_broker_v1",
+        "broker_mode": "DRY_RUN",
+        "client_order_id": "DRYRUN-CLIENT-d795f6d9730c40fa",
+        "symbol": "1621.T",
+        "market": "JP",
+        "side": "BUY",
+        "quantity": 5.545897477799773,
+        "notional_jpy": 150000.0,
+        "order_type": "MARKET",
+        "tif": "DAY",
+        "limit_price": null,
+        "allow_live_submission": false,
+        "source_packet_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_canonical_batch_60d_local_2025-09-22_20260420T123746Z",
+        "metadata": {
+          "close_side": "SELL",
+          "intended_close_qty": 5.545897477799773,
+          "open_price_adj": 27020.0,
+          "close_price_adj": 26570.0,
+          "target_weight": 0.15
+        }
+      }
+    }
+  },
+  {
+    "broker_id": "null_broker_v1",
+    "broker_mode": "DRY_RUN",
+    "client_order_id": "DRYRUN-CLIENT-2161528bf1e62875",
+    "broker_order_id": "DRYRUN-ORDER-2161528bf1e628752633",
+    "ack_status": "accepted_dryrun",
+    "message": "Order accepted by NullBrokerAdapter dry-run path.",
+    "received_at": "2026-04-20T22:17:17.305298+00:00",
+    "payload_checksum": "2161528bf1e6287526330cc0bbd3dd11621235e6753b5eb233b648f489276ce4",
+    "diagnostics": [
+      "no_network_requests",
+      "live_submission_disabled"
+    ],
+    "metadata": {
+      "payload": {
+        "broker_id": "null_broker_v1",
+        "broker_mode": "DRY_RUN",
+        "client_order_id": "DRYRUN-CLIENT-2161528bf1e62875",
+        "symbol": "1627.T",
+        "market": "JP",
+        "side": "BUY",
+        "quantity": 14.888241415812209,
+        "notional_jpy": 150000.0,
+        "order_type": "MARKET",
+        "tif": "DAY",
+        "limit_price": null,
+        "allow_live_submission": false,
+        "source_packet_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_canonical_batch_60d_local_2025-09-22_20260420T123746Z",
+        "metadata": {
+          "close_side": "SELL",
+          "intended_close_qty": 14.888241415812209,
+          "open_price_adj": 10065.0,
+          "close_price_adj": 9979.0,
+          "target_weight": 0.15
+        }
+      }
+    }
+  },
+  {
+    "broker_id": "null_broker_v1",
+    "broker_mode": "DRY_RUN",
+    "client_order_id": "DRYRUN-CLIENT-8c8deb056486c35d",
+    "broker_order_id": "DRYRUN-ORDER-8c8deb056486c35d92ce",
+    "ack_status": "accepted_dryrun",
+    "message": "Order accepted by NullBrokerAdapter dry-run path.",
+    "received_at": "2026-04-20T22:17:17.305730+00:00",
+    "payload_checksum": "8c8deb056486c35d92cec4414006ddbcb47f82f969c79782809ebea606da2866",
+    "diagnostics": [
+      "no_network_requests",
+      "live_submission_disabled"
+    ],
+    "metadata": {
+      "payload": {
+        "broker_id": "null_broker_v1",
+        "broker_mode": "DRY_RUN",
+        "client_order_id": "DRYRUN-CLIENT-8c8deb056486c35d",
+        "symbol": "1630.T",
+        "market": "JP",
+        "side": "BUY",
+        "quantity": 4.312234528061867,
+        "notional_jpy": 150000.0,
+        "order_type": "MARKET",
+        "tif": "DAY",
+        "limit_price": null,
+        "allow_live_submission": false,
+        "source_packet_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_canonical_batch_60d_local_2025-09-22_20260420T123746Z",
+        "metadata": {
+          "close_side": "SELL",
+          "intended_close_qty": 4.312234528061867,
+          "open_price_adj": 34750.0,
+          "close_price_adj": 34540.0,
+          "target_weight": 0.15
+        }
+      }
+    }
+  },
+  {
+    "broker_id": "null_broker_v1",
+    "broker_mode": "DRY_RUN",
+    "client_order_id": "DRYRUN-CLIENT-d0043cea8d8d4460",
+    "broker_order_id": "DRYRUN-ORDER-d0043cea8d8d446018fe",
+    "ack_status": "accepted_dryrun",
+    "message": "Order accepted by NullBrokerAdapter dry-run path.",
+    "received_at": "2026-04-20T22:17:17.306162+00:00",
+    "payload_checksum": "d0043cea8d8d446018fe591f06365c541f14b3e0f11e19f00b62e41baf6650dd",
+    "diagnostics": [
+      "no_network_requests",
+      "live_submission_disabled"
+    ],
+    "metadata": {
+      "payload": {
+        "broker_id": "null_broker_v1",
+        "broker_mode": "DRY_RUN",
+        "client_order_id": "DRYRUN-CLIENT-d0043cea8d8d4460",
+        "symbol": "1633.T",
+        "market": "JP",
+        "side": "BUY",
+        "quantity": 3.138223033510992,
+        "notional_jpy": 150000.0,
+        "order_type": "MARKET",
+        "tif": "DAY",
+        "limit_price": null,
+        "allow_live_submission": false,
+        "source_packet_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_canonical_batch_60d_local_2025-09-22_20260420T123746Z",
+        "metadata": {
+          "close_side": "SELL",
+          "intended_close_qty": 3.138223033510992,
+          "open_price_adj": 47750.0,
+          "close_price_adj": 47340.0,
+          "target_weight": 0.15
+        }
+      }
+    }
+  }
+]

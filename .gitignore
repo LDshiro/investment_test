@@ -2,6 +2,7 @@ __pycache__/
 *.pyc
 .venv/
 .env
+.env.local
 .runs/
 data/
 artifacts/
@@ -29,6 +30,16 @@ artifacts/*
 !artifacts/broker_selection/**
 !artifacts/broker_dryrun/
 !artifacts/broker_dryrun/**
+!artifacts/broker_dryrun_batch/
+!artifacts/broker_dryrun_batch/**
+!artifacts/broker_dryrun_calibration/
+!artifacts/broker_dryrun_calibration/**
+!artifacts/runtime_safety/
+!artifacts/runtime_safety/**
 logs/
 *.parquet
 *.duckdb
+*.secret
+secrets.local.yaml
+state/KILL_SWITCH_ON
+state/TRADING_DISABLED

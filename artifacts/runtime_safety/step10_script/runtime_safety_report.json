@@ -1,0 +1,172 @@
+{
+  "status": "WARN",
+  "passed": true,
+  "issue_counts": {
+    "ERROR": 0,
+    "WARN": 3,
+    "INFO": 0
+  },
+  "issues": [
+    {
+      "severity": "WARN",
+      "code": "missing_required_directory",
+      "message": "Required directory is missing or not a directory: logs",
+      "details": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\logs"
+      }
+    },
+    {
+      "severity": "WARN",
+      "code": "missing_required_directory",
+      "message": "Required directory is missing or not a directory: state",
+      "details": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\state"
+      }
+    },
+    {
+      "severity": "WARN",
+      "code": "git_dirty_state",
+      "message": "Git worktree is dirty.",
+      "details": {
+        "lines": [
+          " M .env.example",
+          " M .gitignore",
+          " M README.md",
+          " M src/leadlag/cli.py",
+          "?? configs/runtime/",
+          "?? configs/security/",
+          "?? docs/execution_host_setup_v1.md",
+          "?? docs/kill_switch_policy_v1.md",
+          "?? docs/secrets_handling_v1.md",
+          "?? docs/security_and_host_policy_v1.md",
+          "?? scripts/validate_runtime_safety.py",
+          "?? src/leadlag/runtime/host_checks.py",
+          "?? src/leadlag/runtime/safety.py",
+          "?? src/leadlag/security/",
+          "?? step10_codex_instructions.md",
+          "?? step10_human_review_checklist.md",
+          "?? tests/test_runtime_safety_check.py",
+          "?? tests/test_runtime_safety_config.py",
+          "?? tests/test_security_redaction.py"
+        ]
+      }
+    }
+  ],
+  "summary": {
+    "config_files": {
+      "security_config": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\security\\runtime_security_policy_v1.yaml",
+        "sha256": "ddbc497cee4f1185f192da70711c84c1ebd1e5c83c1bf461fd2d21116cb97745"
+      },
+      "secrets_inventory": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\security\\secrets_inventory_v1.yaml",
+        "sha256": "e11cecbdeed3f1c0989e35ba3b1e3eb0413fe3497c6d180bcf8c17e77e759d81"
+      },
+      "host_config": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\runtime\\execution_host_local_v1.yaml",
+        "sha256": "b0bb98476d6be0531cd0447d2130e3d3cf9cafa1c44ed37719285204e532c7d6"
+      }
+    },
+    "directory_checks": [
+      {
+        "relative_path": "data/normalized/corrected_bundle",
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle",
+        "exists": true,
+        "is_dir": true
+      },
+      {
+        "relative_path": "runs",
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs",
+        "exists": true,
+        "is_dir": true
+      },
+      {
+        "relative_path": "artifacts",
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts",
+        "exists": true,
+        "is_dir": true
+      },
+      {
+        "relative_path": "logs",
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\logs",
+        "exists": false,
+        "is_dir": false
+      },
+      {
+        "relative_path": "state",
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\state",
+        "exists": false,
+        "is_dir": false
+      }
+    ],
+    "kill_switch": {
+      "relative_path": "state/KILL_SWITCH_ON",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\state\\KILL_SWITCH_ON",
+      "exists": false,
+      "is_file": false,
+      "parent_exists": false
+    },
+    "trading_disabled": {
+      "relative_path": "state/TRADING_DISABLED",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\state\\TRADING_DISABLED",
+      "exists": false,
+      "is_file": false,
+      "parent_exists": false
+    },
+    "forbidden_secret_files": {
+      "patterns": [
+        ".env",
+        ".env.local",
+        "*.secret",
+        "secrets.local.yaml"
+      ],
+      "tracked_files": []
+    },
+    "python_version": {
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.python-version",
+      "exists": true,
+      "expected_version": "3.14.3",
+      "current_version": "3.14.3",
+      "python_executable": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe"
+    },
+    "timezone": {
+      "expected_timezone": "Asia/Tokyo",
+      "local_timezone_name": "東京 (標準時)",
+      "local_time": "2026-04-21T01:12:17.622731+09:00",
+      "local_utc_offset": "9:00:00",
+      "matches_expected": true,
+      "expected_utc_offset": "9:00:00"
+    },
+    "git": {
+      "dirty": true,
+      "status_lines": [
+        " M .env.example",
+        " M .gitignore",
+        " M README.md",
+        " M src/leadlag/cli.py",
+        "?? configs/runtime/",
+        "?? configs/security/",
+        "?? docs/execution_host_setup_v1.md",
+        "?? docs/kill_switch_policy_v1.md",
+        "?? docs/secrets_handling_v1.md",
+        "?? docs/security_and_host_policy_v1.md",
+        "?? scripts/validate_runtime_safety.py",
+        "?? src/leadlag/runtime/host_checks.py",
+        "?? src/leadlag/runtime/safety.py",
+        "?? src/leadlag/security/",
+        "?? step10_codex_instructions.md",
+        "?? step10_human_review_checklist.md",
+        "?? tests/test_runtime_safety_check.py",
+        "?? tests/test_runtime_safety_config.py",
+        "?? tests/test_security_redaction.py"
+      ]
+    },
+    "environment_snapshot_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runtime_safety\\step10_script\\redacted_environment_snapshot.json",
+    "env_example_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.env.example"
+  },
+  "output_paths": {
+    "runtime_safety_report_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runtime_safety\\step10_script\\runtime_safety_report.json",
+    "runtime_safety_report_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runtime_safety\\step10_script\\runtime_safety_report.md",
+    "redacted_environment_snapshot_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runtime_safety\\step10_script\\redacted_environment_snapshot.json"
+  }
+}

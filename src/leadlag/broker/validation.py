@@ -50,6 +50,44 @@ REQUIRED_WEIGHT_KEYS = {
     "live_api_maturity",
     "observability",
 }
+REQUIRED_BATCH_DRYRUN_KEYS = {
+    "version",
+    "mode",
+    "allowed_broker_ids",
+    "allow_live_submission",
+    "allow_paper_submission",
+    "require_runtime_safety",
+    "allow_runtime_safety_warn",
+    "block_on_runtime_safety_error",
+    "runtime_safety",
+    "require_packet_files",
+    "order_source",
+    "max_reject_rate",
+    "max_missing_intent_rate",
+    "require_ack_for_every_intent",
+    "write_daily_artifacts",
+}
+REQUIRED_BATCH_RUNTIME_SAFETY_KEYS = {"security_config", "secrets_inventory", "host_config"}
+REQUIRED_CALIBRATION_KEYS = {
+    "id",
+    "description",
+    "allowed_broker_ids",
+    "allowed_modes",
+    "require_null_broker_only",
+    "require_no_rejections",
+    "require_one_intent_per_shadow_order",
+    "require_one_ack_per_intent",
+    "require_deterministic_fingerprints",
+    "require_open_leg_only_submission",
+    "close_leg_policy",
+    "forbid_sensitive_values_in_outputs",
+    "max_missing_required_fields",
+    "max_reject_count",
+    "max_unmatched_shadow_orders",
+    "max_unmatched_intents",
+    "status_policy",
+}
+REQUIRED_CALIBRATION_STATUS_POLICY_KEYS = {"fail_on", "warn_on"}
 
 
 class BrokerConfigError(RuntimeError):
@@ -206,6 +244,90 @@ def load_broker_selection_config(path: Path | str) -> dict[str, Any]:
         load_broker_candidate_config(item)
     data["_config_path"] = str(cfg_path)
     return data
+
+
+def load_broker_dryrun_batch_config(path: Path | str) -> dict[str, Any]:
+    cfg_path = _resolve_repo_path(path)
+    data = _load_yaml_with_extends(cfg_path)
+    _require_keys(data, REQUIRED_BATCH_DRYRUN_KEYS, "broker dry-run batch config keys")
+
+    if data.get("mode") != BrokerMode.DRY_RUN.value:
+        raise BrokerConfigError("broker dry-run batch config mode must be DRY_RUN")
+    _require_list_of_strings(data, "allowed_broker_ids")
+    _require_list_of_strings(data, "require_packet_files")
+    for key in [
+        "allow_live_submission",
+        "allow_paper_submission",
+        "require_runtime_safety",
+        "allow_runtime_safety_warn",
+        "block_on_runtime_safety_error",
+        "require_ack_for_every_intent",
+        "write_daily_artifacts",
+    ]:
+        _require_bool(data, key)
+    if data["allow_live_submission"]:
+        raise BrokerConfigError("allow_live_submission must remain false for broker dry-run batch")
+    if data["allow_paper_submission"]:
+        raise BrokerConfigError("allow_paper_submission must remain false for broker dry-run batch")
+    if not isinstance(data.get("order_source"), str) or not data["order_source"]:
+        raise BrokerConfigError("order_source must be a non-empty string")
+    for key in ["max_reject_rate", "max_missing_intent_rate"]:
+        value = data.get(key)
+        if not isinstance(value, (int, float)) or not math.isfinite(float(value)) or float(value) < 0:
+            raise BrokerConfigError(f"{key} must be a non-negative finite number")
+    if not isinstance(data.get("runtime_safety"), dict):
+        raise BrokerConfigError("runtime_safety must be a mapping")
+    _require_keys(data["runtime_safety"], REQUIRED_BATCH_RUNTIME_SAFETY_KEYS, "runtime_safety config keys")
+    for key in REQUIRED_BATCH_RUNTIME_SAFETY_KEYS:
+        value = data["runtime_safety"].get(key)
+        if not isinstance(value, str) or not value:
+            raise BrokerConfigError(f"runtime_safety.{key} must be a non-empty string")
+
+    data["_config_path"] = str(cfg_path)
+    return data
+
+
+def load_broker_dryrun_calibration_config(path: Path | str) -> dict[str, Any]:
+    cfg_path = _resolve_repo_path(path)
+    data = _load_yaml_with_extends(cfg_path)
+    if not isinstance(data.get("calibration"), dict):
+        raise BrokerConfigError("broker dry-run calibration config must include a top-level calibration mapping")
+
+    payload = deepcopy(data["calibration"])
+    _require_keys(payload, REQUIRED_CALIBRATION_KEYS, "broker dry-run calibration config keys")
+    _require_list_of_strings(payload, "allowed_broker_ids")
+    _require_list_of_strings(payload, "allowed_modes")
+    for key in [
+        "require_null_broker_only",
+        "require_no_rejections",
+        "require_one_intent_per_shadow_order",
+        "require_one_ack_per_intent",
+        "require_deterministic_fingerprints",
+        "require_open_leg_only_submission",
+        "forbid_sensitive_values_in_outputs",
+    ]:
+        _require_bool(payload, key)
+    if not isinstance(payload.get("description"), str) or not payload["description"]:
+        raise BrokerConfigError("calibration.description must be a non-empty string")
+    if not isinstance(payload.get("close_leg_policy"), str) or not payload["close_leg_policy"]:
+        raise BrokerConfigError("calibration.close_leg_policy must be a non-empty string")
+    for key in [
+        "max_missing_required_fields",
+        "max_reject_count",
+        "max_unmatched_shadow_orders",
+        "max_unmatched_intents",
+    ]:
+        value = payload.get(key)
+        if not isinstance(value, (int, float)) or not math.isfinite(float(value)) or float(value) < 0:
+            raise BrokerConfigError(f"calibration.{key} must be a non-negative finite number")
+    if not isinstance(payload.get("status_policy"), dict):
+        raise BrokerConfigError("calibration.status_policy must be a mapping")
+    _require_keys(payload["status_policy"], REQUIRED_CALIBRATION_STATUS_POLICY_KEYS, "calibration status_policy keys")
+    _require_list_of_strings(payload["status_policy"], "fail_on")
+    _require_list_of_strings(payload["status_policy"], "warn_on")
+
+    payload["_config_path"] = str(cfg_path)
+    return payload
 
 
 def validate_order_intent(intent: OrderIntent, *, adapter_mode: BrokerMode | None = None) -> list[BrokerDiagnostic]:

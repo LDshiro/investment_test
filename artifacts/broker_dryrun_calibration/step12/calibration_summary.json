@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "passed": true,
+  "generated_at": "2026-04-20T22:43:45.725153+00:00",
+  "calibration_config": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\broker_dryrun\\broker_dryrun_calibration_v1.yaml",
+  "provided_sources": {
+    "legacy": true,
+    "canonical": true
+  },
+  "sources": {
+    "legacy": {
+      "source_name": "legacy",
+      "status": "PASS",
+      "completed_days": 60,
+      "failed_days": 0,
+      "shadow_order_count_total": 300,
+      "intent_count_total": 300,
+      "ack_count_total": 300,
+      "reject_count_total": 0,
+      "unmatched_shadow_order_count": 0,
+      "unmatched_intent_count": 0,
+      "missing_required_field_count": 0,
+      "duplicate_intent_fingerprint_count": 0,
+      "paper_or_live_mode_detected": false,
+      "real_broker_connection_detected": false,
+      "credential_like_value_detected": false,
+      "open_leg_only_submission_passed": true,
+      "close_leg_metadata_only_passed": true,
+      "fingerprint_determinism_passed": true,
+      "shadow_ops_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_legacy_60d_local_20260420T221652Z",
+      "broker_dryrun_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_legacy_60d_local_20260420T221652Z\\stages\\broker_dryrun"
+    },
+    "canonical": {
+      "source_name": "canonical",
+      "status": "PASS",
+      "completed_days": 60,
+      "failed_days": 0,
+      "shadow_order_count_total": 300,
+      "intent_count_total": 300,
+      "ack_count_total": 300,
+      "reject_count_total": 0,
+      "unmatched_shadow_order_count": 0,
+      "unmatched_intent_count": 0,
+      "missing_required_field_count": 0,
+      "duplicate_intent_fingerprint_count": 0,
+      "paper_or_live_mode_detected": false,
+      "real_broker_connection_detected": false,
+      "credential_like_value_detected": false,
+      "open_leg_only_submission_passed": true,
+      "close_leg_metadata_only_passed": true,
+      "fingerprint_determinism_passed": true,
+      "shadow_ops_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_canonical_60d_local_20260420T221708Z",
+      "broker_dryrun_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_canonical_60d_local_20260420T221708Z\\stages\\broker_dryrun"
+    }
+  },
+  "issue_counts": {
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "safety_guarantees": {
+    "null_broker_only": true,
+    "paper_or_live_mode_detected": false,
+    "real_broker_connection_detected": false,
+    "credential_like_value_detected": false,
+    "pass_means_live_ready": false
+  },
+  "human_action_required": false
+}

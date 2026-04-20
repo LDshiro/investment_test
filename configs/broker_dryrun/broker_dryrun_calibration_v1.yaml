@@ -1,0 +1,37 @@
+calibration:
+  id: broker_dryrun_calibration_v1
+  description: "Reconcile shadow orders with broker-neutral dry-run intents and NullBroker acknowledgements."
+  allowed_broker_ids:
+    - null_broker_v1
+  allowed_modes:
+    - DRY_RUN
+  require_null_broker_only: true
+  require_no_rejections: true
+  require_one_intent_per_shadow_order: true
+  require_one_ack_per_intent: true
+  require_deterministic_fingerprints: true
+  require_open_leg_only_submission: true
+  close_leg_policy: metadata_only
+  forbid_sensitive_values_in_outputs: true
+  max_missing_required_fields: 0
+  max_reject_count: 0
+  max_unmatched_shadow_orders: 0
+  max_unmatched_intents: 0
+  status_policy:
+    fail_on:
+      - real_broker_connection_detected
+      - paper_or_live_mode_detected
+      - credential_like_value_detected
+      - reject_count_exceeds_threshold
+      - unmatched_order_exceeds_threshold
+      - missing_required_fields_exceeds_threshold
+      - duplicate_intent_fingerprint_detected
+      - ack_count_mismatch_detected
+      - payload_intent_mismatch_detected
+      - close_leg_submission_detected
+      - unsafe_live_submission_detected
+      - broker_dryrun_artifacts_missing
+      - fingerprint_determinism_failed
+    warn_on:
+      - optional_metadata_missing
+      - source_artifact_layout_unrecognized_but_recoverable

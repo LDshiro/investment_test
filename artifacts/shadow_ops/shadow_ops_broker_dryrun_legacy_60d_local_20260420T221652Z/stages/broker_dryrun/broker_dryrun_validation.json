@@ -1,0 +1,20 @@
+{
+  "dryrun_config_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\broker_dryrun\\broker_dryrun_batch_v1.yaml",
+  "broker_config_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\brokers\\null_broker_v1.yaml",
+  "runtime_safety": {
+    "status": "WARN",
+    "issue_counts": {
+      "ERROR": 0,
+      "WARN": 3,
+      "INFO": 0
+    },
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_legacy_60d_local_20260420T221652Z\\stages\\broker_dryrun\\runtime_safety",
+    "output_paths": {
+      "runtime_safety_report_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_legacy_60d_local_20260420T221652Z\\stages\\broker_dryrun\\runtime_safety\\runtime_safety_report.json",
+      "runtime_safety_report_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_legacy_60d_local_20260420T221652Z\\stages\\broker_dryrun\\runtime_safety\\runtime_safety_report.md",
+      "redacted_environment_snapshot_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_broker_dryrun_legacy_60d_local_20260420T221652Z\\stages\\broker_dryrun\\runtime_safety\\redacted_environment_snapshot.json"
+    }
+  },
+  "passed": true,
+  "reason_if_failed": null
+}

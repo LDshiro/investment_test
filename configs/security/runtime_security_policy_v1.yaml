@@ -1,0 +1,42 @@
+version: runtime_security_policy_v1
+stance: shadow_only_until_explicit_human_approval
+forbidden:
+  commit_real_secrets: true
+  print_secret_values: true
+  live_order_submission_without_two_step_enable: true
+  broker_network_connection_in_step10: true
+  auto_promote_ready_for_small_live: true
+forbidden_secret_files:
+  - .env
+  - .env.local
+  - "*.secret"
+  - secrets.local.yaml
+secret_redaction:
+  redact_patterns:
+    - password
+    - secret
+    - token
+    - api_key
+    - private_key
+    - account
+  replacement: "***REDACTED***"
+environment_snapshot_prefixes:
+  - LEADLAG_
+  - KABU_
+  - IBKR_
+  - SLACK_
+  - DISCORD_
+  - SMTP_
+runtime_flags:
+  require_kill_switch_file_check: true
+  kill_switch_file: state/KILL_SWITCH_ON
+  trading_disabled_file: state/TRADING_DISABLED
+  allow_shadow_without_secrets: true
+  allow_dryrun_without_secrets: true
+  allow_live_without_human_approval: false
+logging:
+  forbid_secret_values_in_logs: true
+  max_log_file_mb: 50
+backups:
+  require_daily_artifact_backup_plan: true
+  require_restore_test_plan: true

@@ -1377,3 +1377,71 @@ python -m leadlag.cli broker-dryrun \
 ```
 
 詳細は `docs/broker_selection_v1.md`、`docs/broker_adapter_contract_v1.md`、`docs/broker_safety_policy_v1.md` を参照してください。
+
+---
+
+## 28. Runtime Safety And Host Preparation
+
+Step 10 では、shadow / dry-run 環境向けの runtime safety check、secrets inventory、execution host expectation、redaction utility を追加します。これは safety / hardening step であり、broker credentials、broker network connection、live trading は有効化しません。
+
+runtime safety check:
+
+```bash
+python -m leadlag.cli runtime-safety-check \
+  --security-config configs/security/runtime_security_policy_v1.yaml \
+  --secrets-inventory configs/security/secrets_inventory_v1.yaml \
+  --host-config configs/runtime/execution_host_local_v1.yaml \
+  --output-dir artifacts/runtime_safety/step10
+```
+
+artifact は `artifacts/runtime_safety/` に出力されます。shadow mode では broker credentials は不要です。real secrets は絶対に git に commit せず、この step でも live trading は有効になりません。
+
+---
+
+## 29. Broker Dry-Run Batch Integration
+
+Step 11 では、historical shadow batch の各 packet から broker-neutral `OrderIntent` を作り、`NullBroker` の deterministic dry-run ack までをまとめて監査する `broker-dryrun-batch` を追加します。これは shadow-only audit step であり、paper / live trading を有効化しません。
+
+standalone batch dry-run:
+
+```bash
+python -m leadlag.cli broker-dryrun-batch \
+  --batch-dir runs/<batch_dir> \
+  --broker-config configs/brokers/null_broker_v1.yaml \
+  --dryrun-config configs/broker_dryrun/broker_dryrun_batch_v1.yaml \
+  --output-dir artifacts/broker_dryrun_batch/step11_manual
+```
+
+`shadow-ops` へ opt-in する場合:
+
+```bash
+python -m leadlag.cli shadow-ops \
+  --config configs/ops/shadow_ops_broker_dryrun_legacy_60d_local.yaml
+```
+
+詳細は `docs/broker_dryrun_ops_v1.md` を参照してください。
+
+---
+
+## 30. Broker Dry-Run Calibration
+
+Step 12 では、Step 11 の broker dry-run shadow-ops artifacts を再読込して、shadow orders / broker-neutral intents / NullBroker payloads / NullBroker acknowledgements の整合性を calibration します。これは reconciliation step であり、PASS でも live-ready は意味しません。
+
+standalone calibration:
+
+```bash
+python -m leadlag.cli broker-dryrun-calibration \
+  --legacy-shadow-ops-dir artifacts/shadow_ops/<legacy_run_id> \
+  --canonical-shadow-ops-dir artifacts/shadow_ops/<canonical_run_id> \
+  --calibration-config configs/broker_dryrun/broker_dryrun_calibration_v1.yaml \
+  --output-dir artifacts/broker_dryrun_calibration/step12
+```
+
+`shadow-ops` へ opt-in する場合:
+
+```bash
+python -m leadlag.cli shadow-ops \
+  --config configs/ops/shadow_ops_broker_dryrun_calibrated_legacy_60d_local.yaml
+```
+
+詳細は `docs/broker_dryrun_calibration_v1.md` を参照してください。

@@ -1,0 +1,15 @@
+extends:
+  - shadow_ops_canonical_60d_local.yaml
+
+ops:
+  name: shadow_ops_broker_dryrun_canonical_60d_local
+
+stages:
+  broker_dryrun:
+    enabled: true
+    broker_config: configs/brokers/null_broker_v1.yaml
+    dryrun_config: configs/broker_dryrun/broker_dryrun_batch_v1.yaml
+    output_subdir: broker_dryrun
+    require_runtime_safety: true
+    allow_runtime_safety_warn: true
+    block_on_runtime_safety_error: true

@@ -1,0 +1,14 @@
+[
+  {
+    "severity": "INFO",
+    "code": "null_adapter_no_network",
+    "message": "NullBrokerAdapter does not use network connections or credentials.",
+    "details": null
+  },
+  {
+    "severity": "INFO",
+    "code": "null_adapter_fail_closed",
+    "message": "NullBrokerAdapter mode is DRY_RUN and will fail closed outside NULL/DRY_RUN.",
+    "details": null
+  }
+]

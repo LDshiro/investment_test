@@ -4,7 +4,12 @@ import argparse
 import json
 from pathlib import Path
 
-from leadlag.broker import broker_dryrun_from_packet, evaluate_broker_candidates
+from leadlag.broker import (
+    broker_dryrun_batch,
+    broker_dryrun_from_packet,
+    calibrate_broker_dryrun_outputs,
+    evaluate_broker_candidates,
+)
 from leadlag.config.loader import load_app_config
 from leadlag.data_contract import validate_corrected_bundle, write_validation_outputs
 from leadlag.ops import render_runbook_artifacts, run_shadow_ops, validate_shadow_replay
@@ -12,6 +17,7 @@ from leadlag.runtime.packets import ensure_packet_layout
 from leadlag.runtime.corrected_backtest import inspect_corrected_bundle, run_corrected_backtest
 from leadlag.runtime.corrected_shadow import run_corrected_shadow
 from leadlag.runtime.corrected_shadow_batch import run_corrected_shadow_batch
+from leadlag.runtime.safety import run_runtime_safety_check
 from leadlag.reporting.weekly_rule_calibration import calibrate_weekly_rules
 from leadlag.reporting.weekly_review import generate_weekly_review
 from leadlag.reporting.weekly_rules import generate_weekly_gates
@@ -121,6 +127,63 @@ def cmd_broker_dryrun(packet_dir: str, broker_config: str, output_dir: str) -> i
     return 0
 
 
+def cmd_broker_dryrun_batch(batch_dir: str, broker_config: str, dryrun_config: str, output_dir: str) -> int:
+    out_dir, status = broker_dryrun_batch(batch_dir, broker_config, dryrun_config, output_dir)
+    print(f"broker dry-run batch completed: {out_dir}")
+    print(json.dumps(status, ensure_ascii=False, indent=2))
+    return 0 if status["passed"] else 1
+
+
+def cmd_broker_dryrun_calibration(
+    legacy_shadow_ops_dir: str | None,
+    canonical_shadow_ops_dir: str | None,
+    calibration_config: str,
+    output_dir: str,
+) -> int:
+    result = calibrate_broker_dryrun_outputs(
+        legacy_shadow_ops_dir=legacy_shadow_ops_dir,
+        canonical_shadow_ops_dir=canonical_shadow_ops_dir,
+        calibration_config=calibration_config,
+        output_dir=output_dir,
+    )
+    print(
+        json.dumps(
+            {
+                "status": result.status,
+                "passed": result.passed,
+                "summary": result.summary,
+                "output_paths": result.output_paths,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0 if result.status != "FAIL" else 1
+
+
+def cmd_runtime_safety_check(security_config: str, secrets_inventory: str, host_config: str, output_dir: str) -> int:
+    result = run_runtime_safety_check(
+        security_config=security_config,
+        secrets_inventory=secrets_inventory,
+        host_config=host_config,
+        output_dir=output_dir,
+    )
+    print(
+        json.dumps(
+            {
+                "status": result.status,
+                "passed": result.passed,
+                "issue_counts": result.issue_counts(),
+                "summary": result.summary,
+                "output_paths": result.output_paths,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0 if result.status != "FAIL" else 1
+
+
 def cmd_run(config_path: str, trade_date: str | None = None) -> int:
     cfg = load_app_config(Path(config_path))
     if cfg.run.mode == 'backtest' and cfg.data.source == 'corrected_bundle':
@@ -222,6 +285,24 @@ def build_parser() -> argparse.ArgumentParser:
     p_broker_dryrun.add_argument('--broker-config', required=True)
     p_broker_dryrun.add_argument('--output-dir', required=True)
 
+    p_broker_dryrun_batch = sub.add_parser('broker-dryrun-batch')
+    p_broker_dryrun_batch.add_argument('--batch-dir', required=True)
+    p_broker_dryrun_batch.add_argument('--broker-config', required=True)
+    p_broker_dryrun_batch.add_argument('--dryrun-config', required=True)
+    p_broker_dryrun_batch.add_argument('--output-dir', required=True)
+
+    p_broker_dryrun_calibration = sub.add_parser('broker-dryrun-calibration')
+    p_broker_dryrun_calibration.add_argument('--legacy-shadow-ops-dir', required=False)
+    p_broker_dryrun_calibration.add_argument('--canonical-shadow-ops-dir', required=False)
+    p_broker_dryrun_calibration.add_argument('--calibration-config', required=True)
+    p_broker_dryrun_calibration.add_argument('--output-dir', required=True)
+
+    p_runtime_safety = sub.add_parser('runtime-safety-check')
+    p_runtime_safety.add_argument('--security-config', required=True)
+    p_runtime_safety.add_argument('--secrets-inventory', required=True)
+    p_runtime_safety.add_argument('--host-config', required=True)
+    p_runtime_safety.add_argument('--output-dir', required=True)
+
     p_run = sub.add_parser('run')
     p_run.add_argument('--config', required=True)
     p_run.add_argument('--trade-date', required=False)
@@ -267,6 +348,17 @@ def main() -> int:
         return cmd_evaluate_brokers(args.config, args.output_dir)
     if args.command == 'broker-dryrun':
         return cmd_broker_dryrun(args.packet_dir, args.broker_config, args.output_dir)
+    if args.command == 'broker-dryrun-batch':
+        return cmd_broker_dryrun_batch(args.batch_dir, args.broker_config, args.dryrun_config, args.output_dir)
+    if args.command == 'broker-dryrun-calibration':
+        return cmd_broker_dryrun_calibration(
+            args.legacy_shadow_ops_dir,
+            args.canonical_shadow_ops_dir,
+            args.calibration_config,
+            args.output_dir,
+        )
+    if args.command == 'runtime-safety-check':
+        return cmd_runtime_safety_check(args.security_config, args.secrets_inventory, args.host_config, args.output_dir)
     if args.command == 'run':
         return cmd_run(args.config, trade_date=args.trade_date)
     if args.command == 'run-batch':

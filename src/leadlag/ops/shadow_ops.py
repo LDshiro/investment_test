@@ -14,6 +14,12 @@ import traceback
 import pandas as pd
 import yaml
 
+from leadlag.broker import (
+    broker_dryrun_batch,
+    calibrate_broker_dryrun_outputs,
+    load_broker_dryrun_batch_config,
+    load_broker_dryrun_calibration_config,
+)
 from leadlag.config.loader import load_app_config
 from leadlag.data_contract import validate_corrected_bundle, write_validation_outputs
 from leadlag.ops.shadow_replay_validation import validate_shadow_replay
@@ -32,6 +38,8 @@ REQUIRED_STAGE_NAMES = [
     "weekly_gates",
     "render_runbook",
 ]
+OPTIONAL_STAGE_NAMES = ["broker_dryrun", "broker_dryrun_calibration"]
+STAGE_EXECUTION_ORDER = REQUIRED_STAGE_NAMES + OPTIONAL_STAGE_NAMES
 
 
 class ShadowOpsConfigError(RuntimeError):
@@ -128,6 +136,8 @@ def load_shadow_ops_config(path: Path | str) -> dict[str, Any]:
     missing_stages = [name for name in REQUIRED_STAGE_NAMES if name not in stages]
     if missing_stages:
         raise ShadowOpsConfigError(f"missing required stages: {', '.join(missing_stages)}")
+    for stage_name in OPTIONAL_STAGE_NAMES:
+        stages.setdefault(stage_name, {"enabled": False})
 
     required_stage_fields = {
         "validate_data_contract": {"enabled", "bundle_dir", "contract"},
@@ -145,8 +155,34 @@ def load_shadow_ops_config(path: Path | str) -> dict[str, Any]:
         if missing:
             raise ShadowOpsConfigError(f"stage '{stage_name}' missing required keys: {', '.join(missing)}")
 
+    broker_dryrun = stages.get("broker_dryrun", {})
+    if not isinstance(broker_dryrun, dict):
+        raise ShadowOpsConfigError("stage 'broker_dryrun' must be a mapping when present")
+    if "enabled" not in broker_dryrun:
+        raise ShadowOpsConfigError("stage 'broker_dryrun' missing required key: enabled")
+    if broker_dryrun.get("enabled"):
+        missing = sorted({"broker_config", "dryrun_config"} - set(broker_dryrun.keys()))
+        if missing:
+            raise ShadowOpsConfigError(f"stage 'broker_dryrun' missing required keys: {', '.join(missing)}")
+
+    broker_dryrun_calibration = stages.get("broker_dryrun_calibration", {})
+    if not isinstance(broker_dryrun_calibration, dict):
+        raise ShadowOpsConfigError("stage 'broker_dryrun_calibration' must be a mapping when present")
+    if "enabled" not in broker_dryrun_calibration:
+        raise ShadowOpsConfigError("stage 'broker_dryrun_calibration' missing required key: enabled")
+    if broker_dryrun_calibration.get("enabled"):
+        missing = sorted({"calibration_config"} - set(broker_dryrun_calibration.keys()))
+        if missing:
+            raise ShadowOpsConfigError(f"stage 'broker_dryrun_calibration' missing required keys: {', '.join(missing)}")
+        if not broker_dryrun.get("enabled"):
+            raise ShadowOpsConfigError("stage 'broker_dryrun_calibration' requires stage 'broker_dryrun' to be enabled")
+
     if not stages["run_batch"]["enabled"]:
-        need_existing_batch = bool(stages["validate_shadow_replay"]["enabled"] or stages["weekly_review"]["enabled"])
+        need_existing_batch = bool(
+            stages["validate_shadow_replay"]["enabled"]
+            or stages["weekly_review"]["enabled"]
+            or stages["broker_dryrun"]["enabled"]
+        )
         if need_existing_batch and not stages["run_batch"].get("existing_batch_dir"):
             raise ShadowOpsConfigError(
                 "stages.run_batch.existing_batch_dir is required when run_batch is disabled and downstream stages need a batch directory"
@@ -185,7 +221,27 @@ def _stage_slug(stage_name: str) -> str:
         "weekly_review": "weekly_review",
         "weekly_gates": "weekly_gates",
         "render_runbook": "runbook",
+        "broker_dryrun": "broker_dryrun",
+        "broker_dryrun_calibration": "broker_dryrun_calibration",
     }[stage_name]
+
+
+def _stage_output_dir(stage_name: str, stage_cfg: dict[str, Any], stages_root: Path) -> Path:
+    if stage_name in {"broker_dryrun", "broker_dryrun_calibration"} and stage_cfg.get("output_subdir"):
+        return stages_root / str(stage_cfg["output_subdir"])
+    return stages_root / _stage_slug(stage_name)
+
+
+def _stage_config_reference(stage_name: str, stage_cfg: dict[str, Any]) -> str:
+    if stage_name == "validate_data_contract":
+        return str(stage_cfg.get("contract") or "")
+    if stage_name == "weekly_gates":
+        return str(stage_cfg.get("rules_config") or "")
+    if stage_name == "broker_dryrun":
+        return str(stage_cfg.get("dryrun_config") or "")
+    if stage_name == "broker_dryrun_calibration":
+        return str(stage_cfg.get("calibration_config") or "")
+    return str(stage_cfg.get("config") or "")
 
 
 def _copy_if_exists(source: Path, destination: Path) -> None:
@@ -379,6 +435,72 @@ def _run_render_runbook_stage(stage_cfg: dict[str, Any], _: dict[str, Any], outp
     return summary
 
 
+def _run_broker_dryrun_stage(stage_cfg: dict[str, Any], context: dict[str, Any], output_dir: Path) -> dict[str, Any]:
+    batch_dir = context.get("batch_dir")
+    if batch_dir is None:
+        raise ShadowOpsStageFailure("broker_dryrun stage requires batch_dir from run_batch or existing_batch_dir")
+    broker_config = _resolve_repo_path(stage_cfg["broker_config"])
+    dryrun_config_path = _resolve_repo_path(stage_cfg["dryrun_config"])
+    if broker_config is None or dryrun_config_path is None:
+        raise ShadowOpsStageFailure("broker_dryrun stage has invalid broker_config or dryrun_config path")
+
+    effective_dryrun_config = load_broker_dryrun_batch_config(dryrun_config_path)
+    for key in ["require_runtime_safety", "allow_runtime_safety_warn", "block_on_runtime_safety_error"]:
+        if key in stage_cfg:
+            effective_dryrun_config[key] = bool(stage_cfg[key])
+
+    broker_dryrun_dir, status = broker_dryrun_batch(
+        batch_dir=batch_dir,
+        broker_config=broker_config,
+        dryrun_config=effective_dryrun_config,
+        output_dir=output_dir,
+    )
+    context["broker_dryrun_dir"] = Path(broker_dryrun_dir).resolve()
+    context["broker_dryrun_summary"] = status
+    summary = {
+        **status,
+        "broker_config": str(broker_config),
+        "dryrun_config": str(dryrun_config_path),
+        "output_dir": str(Path(broker_dryrun_dir).resolve()),
+    }
+    if not status.get("passed", False):
+        raise ShadowOpsStageFailure("broker dry-run batch failed", summary=summary)
+    return summary
+
+
+def _run_broker_dryrun_calibration_stage(stage_cfg: dict[str, Any], context: dict[str, Any], output_dir: Path) -> dict[str, Any]:
+    if context.get("broker_dryrun_dir") is None:
+        raise ShadowOpsStageFailure("broker_dryrun_calibration stage requires broker_dryrun outputs from the current shadow-ops run")
+    calibration_config = _resolve_repo_path(stage_cfg["calibration_config"])
+    if calibration_config is None:
+        raise ShadowOpsStageFailure("broker_dryrun_calibration stage has invalid calibration_config path")
+    effective_config = load_broker_dryrun_calibration_config(calibration_config)
+
+    variant = str(context.get("variant") or "")
+    legacy_shadow_ops_dir = context["ops_dir"] if variant == "legacy" else None
+    canonical_shadow_ops_dir = context["ops_dir"] if variant == "canonical" else None
+    result = calibrate_broker_dryrun_outputs(
+        legacy_shadow_ops_dir=legacy_shadow_ops_dir,
+        canonical_shadow_ops_dir=canonical_shadow_ops_dir,
+        calibration_config=effective_config,
+        output_dir=output_dir,
+    )
+    context["broker_dryrun_calibration_dir"] = Path(output_dir).resolve()
+    context["broker_dryrun_calibration_summary"] = result.summary
+    variant_summary = result.summary.get("sources", {}).get(variant) or {}
+    summary = {
+        "status": result.status,
+        "passed": result.passed,
+        "calibration_config": str(calibration_config),
+        "output_dir": str(Path(output_dir).resolve()),
+        "source_name": variant,
+        **variant_summary,
+    }
+    if result.status == "FAIL":
+        raise ShadowOpsStageFailure("broker dry-run calibration failed", summary=summary)
+    return summary
+
+
 def _execute_named_stage(stage_name: str, stage_cfg: dict[str, Any], context: dict[str, Any], output_dir: Path) -> dict[str, Any]:
     if stage_name == "validate_data_contract":
         return _run_validate_data_contract_stage(stage_cfg, context, output_dir)
@@ -392,6 +514,10 @@ def _execute_named_stage(stage_name: str, stage_cfg: dict[str, Any], context: di
         return _run_weekly_gates_stage(stage_cfg, context, output_dir)
     if stage_name == "render_runbook":
         return _run_render_runbook_stage(stage_cfg, context, output_dir)
+    if stage_name == "broker_dryrun":
+        return _run_broker_dryrun_stage(stage_cfg, context, output_dir)
+    if stage_name == "broker_dryrun_calibration":
+        return _run_broker_dryrun_calibration_stage(stage_cfg, context, output_dir)
     raise ShadowOpsConfigError(f"unknown stage: {stage_name}")
 
 
@@ -430,6 +556,10 @@ def _derive_summary(config: dict[str, Any], context: dict[str, Any], stage_resul
     replay_summary = context.get("replay_validation_summary", {})
     promotion = context.get("promotion_assessment", {})
     weekly_gates_summary = context.get("weekly_gates_summary", {})
+    broker_dryrun_summary = context.get("broker_dryrun_summary", {})
+    broker_dryrun_calibration_summary = context.get("broker_dryrun_calibration_summary", {})
+    variant = config["ops"]["variant"]
+    calibration_source_summary = broker_dryrun_calibration_summary.get("sources", {}).get(variant, {}) if broker_dryrun_calibration_summary else {}
     latest_week_status = weekly_gates_summary.get("latest_week_status")
     promotion_status = promotion.get("promotion_status")
     failed_checks = promotion.get("failed_checks", [])
@@ -491,6 +621,34 @@ def _derive_summary(config: dict[str, Any], context: dict[str, Any], stage_resul
             "max_abs_gross_return_diff_bps": replay_summary.get("max_abs_gross_return_diff_bps"),
             "max_abs_cost_return_diff_bps": replay_summary.get("max_abs_cost_return_diff_bps"),
         },
+        "broker_dryrun": {
+            "enabled": bool(config["stages"].get("broker_dryrun", {}).get("enabled", False)),
+            "output_dir": str(context["broker_dryrun_dir"]) if context.get("broker_dryrun_dir") else None,
+            "runtime_safety_status": broker_dryrun_summary.get("runtime_safety_status"),
+            "total_days": broker_dryrun_summary.get("total_days"),
+            "completed_days": broker_dryrun_summary.get("completed_days"),
+            "failed_days": broker_dryrun_summary.get("failed_days"),
+            "intent_count_total": broker_dryrun_summary.get("intent_count_total"),
+            "ack_count_total": broker_dryrun_summary.get("ack_count_total"),
+            "reject_count_total": broker_dryrun_summary.get("reject_count_total"),
+            "diagnostic_error_count_total": broker_dryrun_summary.get("diagnostic_error_count_total"),
+            "diagnostic_warn_count_total": broker_dryrun_summary.get("diagnostic_warn_count_total"),
+        },
+        "broker_dryrun_calibration": {
+            "enabled": bool(config["stages"].get("broker_dryrun_calibration", {}).get("enabled", False)),
+            "status": broker_dryrun_calibration_summary.get("status"),
+            "output_dir": str(context["broker_dryrun_calibration_dir"]) if context.get("broker_dryrun_calibration_dir") else None,
+            "source_status": calibration_source_summary.get("status"),
+            "completed_days": calibration_source_summary.get("completed_days"),
+            "failed_days": calibration_source_summary.get("failed_days"),
+            "shadow_order_count_total": calibration_source_summary.get("shadow_order_count_total"),
+            "intent_count_total": calibration_source_summary.get("intent_count_total"),
+            "ack_count_total": calibration_source_summary.get("ack_count_total"),
+            "reject_count_total": calibration_source_summary.get("reject_count_total"),
+            "unmatched_shadow_order_count": calibration_source_summary.get("unmatched_shadow_order_count"),
+            "unmatched_intent_count": calibration_source_summary.get("unmatched_intent_count"),
+            "missing_required_field_count": calibration_source_summary.get("missing_required_field_count"),
+        },
         "human_action_required": human_action_required,
         "recommended_next_action": recommended_next_action,
     }
@@ -541,6 +699,39 @@ def _build_operator_digest(summary: dict[str, Any], stage_results: list[ShadowOp
                 "",
             ]
         )
+    if summary["broker_dryrun"]["enabled"]:
+        lines.extend(
+            [
+                "## Broker Dry-Run",
+                "",
+                f"- runtime_safety_status: `{summary['broker_dryrun']['runtime_safety_status']}`",
+                f"- total_days: `{summary['broker_dryrun']['total_days']}`",
+                f"- completed_days: `{summary['broker_dryrun']['completed_days']}`",
+                f"- failed_days: `{summary['broker_dryrun']['failed_days']}`",
+                f"- intent_count_total: `{summary['broker_dryrun']['intent_count_total']}`",
+                f"- ack_count_total: `{summary['broker_dryrun']['ack_count_total']}`",
+                f"- reject_count_total: `{summary['broker_dryrun']['reject_count_total']}`",
+                "",
+            ]
+        )
+    if summary["broker_dryrun_calibration"]["enabled"]:
+        lines.extend(
+            [
+                "## Broker Dry-Run Calibration",
+                "",
+                f"- status: `{summary['broker_dryrun_calibration']['status']}`",
+                f"- source_status: `{summary['broker_dryrun_calibration']['source_status']}`",
+                f"- completed_days: `{summary['broker_dryrun_calibration']['completed_days']}`",
+                f"- failed_days: `{summary['broker_dryrun_calibration']['failed_days']}`",
+                f"- shadow_order_count_total: `{summary['broker_dryrun_calibration']['shadow_order_count_total']}`",
+                f"- intent_count_total: `{summary['broker_dryrun_calibration']['intent_count_total']}`",
+                f"- ack_count_total: `{summary['broker_dryrun_calibration']['ack_count_total']}`",
+                f"- reject_count_total: `{summary['broker_dryrun_calibration']['reject_count_total']}`",
+                f"- unmatched_shadow_order_count: `{summary['broker_dryrun_calibration']['unmatched_shadow_order_count']}`",
+                f"- unmatched_intent_count: `{summary['broker_dryrun_calibration']['unmatched_intent_count']}`",
+                "",
+            ]
+        )
     lines.extend(
         [
             "## Artifact Paths",
@@ -562,6 +753,8 @@ def _build_operator_digest(summary: dict[str, Any], stage_results: list[ShadowOp
 
 def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult:
     config = dict(path_or_dict) if isinstance(path_or_dict, dict) else load_shadow_ops_config(path_or_dict)
+    for stage_name in OPTIONAL_STAGE_NAMES:
+        config["stages"].setdefault(stage_name, {"enabled": False})
     ops_run_id, ops_dir = _prepare_ops_output_dir(config)
     logs_dir = ops_dir / "logs"
     stages_root = ops_dir / "stages"
@@ -571,6 +764,8 @@ def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult
     context: dict[str, Any] = {
         "ops_run_id": ops_run_id,
         "generated_at": _iso_now(),
+        "ops_dir": ops_dir,
+        "variant": config["ops"]["variant"],
     }
 
     if not config["stages"]["run_batch"]["enabled"] and config["stages"]["run_batch"].get("existing_batch_dir"):
@@ -582,9 +777,9 @@ def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult
     previous_failure = False
     stop_on_failure = bool(config["ops"].get("stop_on_stage_failure", True))
 
-    for stage_name in REQUIRED_STAGE_NAMES:
+    for stage_name in STAGE_EXECUTION_ORDER:
         stage_cfg = config["stages"][stage_name]
-        stage_dir = stages_root / _stage_slug(stage_name)
+        stage_dir = _stage_output_dir(stage_name, stage_cfg, stages_root)
         stdout_log = logs_dir / f"{stage_name}.stdout.txt"
         stderr_log = logs_dir / f"{stage_name}.stderr.txt"
 
@@ -596,7 +791,7 @@ def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult
                     output_dir=str(stage_dir.resolve()),
                     stdout_log=str(stdout_log.resolve()),
                     stderr_log=str(stderr_log.resolve()),
-                    config_reference=str(stage_cfg.get("config") or stage_cfg.get("contract") or stage_cfg.get("rules_config") or ""),
+                    config_reference=_stage_config_reference(stage_name, stage_cfg),
                     summary={
                         "existing_batch_dir": str(context["batch_dir"]) if stage_name == "run_batch" and context.get("batch_dir") else None,
                         "existing_review_dir": str(context["weekly_review_dir"]) if stage_name == "weekly_review" and context.get("weekly_review_dir") else None,
@@ -613,7 +808,7 @@ def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult
                     output_dir=str(stage_dir.resolve()),
                     stdout_log=str(stdout_log.resolve()),
                     stderr_log=str(stderr_log.resolve()),
-                    config_reference=str(stage_cfg.get("config") or stage_cfg.get("contract") or stage_cfg.get("rules_config") or ""),
+                    config_reference=_stage_config_reference(stage_name, stage_cfg),
                     summary={"reason": "previous stage failed and stop_on_stage_failure is true"},
                 )
             )
@@ -629,7 +824,7 @@ def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult
             output_dir=str(stage_dir.resolve()),
             stdout_log=str(stdout_log.resolve()),
             stderr_log=str(stderr_log.resolve()),
-            config_reference=str(stage_cfg.get("config") or stage_cfg.get("contract") or stage_cfg.get("rules_config") or ""),
+            config_reference=_stage_config_reference(stage_name, stage_cfg),
         )
 
         with stdout_log.open("w", encoding="utf-8") as stdout_handle, stderr_log.open("w", encoding="utf-8") as stderr_handle:
@@ -664,6 +859,8 @@ def run_shadow_ops(path_or_dict: Path | str | dict[str, Any]) -> ShadowOpsResult
         "weekly_review_dir": str(context["weekly_review_dir"]) if context.get("weekly_review_dir") else "",
         "weekly_gates_dir": str((stages_root / "weekly_gates").resolve()),
         "runbook_dir": str((stages_root / "runbook").resolve()),
+        "broker_dryrun_dir": str(context["broker_dryrun_dir"]) if context.get("broker_dryrun_dir") else "",
+        "broker_dryrun_calibration_dir": str(context["broker_dryrun_calibration_dir"]) if context.get("broker_dryrun_calibration_dir") else "",
     }
 
     stage_frame = _stage_result_frame(stage_results)

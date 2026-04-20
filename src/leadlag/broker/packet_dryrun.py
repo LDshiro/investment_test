@@ -6,6 +6,7 @@ import argparse
 import json
 
 import pandas as pd
+from pandas.errors import EmptyDataError
 
 from .models import (
     BrokerMode,
@@ -23,7 +24,13 @@ class BrokerDryRunError(RuntimeError):
     pass
 
 
-def _load_packet_requirements(packet_dir: Path) -> tuple[dict[str, Any], pd.DataFrame]:
+def load_packet_order_inputs(packet_dir: str | Path, *, allow_empty_orders: bool = False) -> tuple[Path, dict[str, Any], pd.DataFrame]:
+    packet_path = Path(packet_dir).resolve()
+    run_meta, orders_df = _load_packet_requirements(packet_path, allow_empty_orders=allow_empty_orders)
+    return packet_path, run_meta, orders_df
+
+
+def _load_packet_requirements(packet_dir: Path, *, allow_empty_orders: bool = False) -> tuple[dict[str, Any], pd.DataFrame]:
     run_path = packet_dir / "run.json"
     orders_path = packet_dir / "orders_shadow.csv"
     if not run_path.exists():
@@ -32,8 +39,14 @@ def _load_packet_requirements(packet_dir: Path) -> tuple[dict[str, Any], pd.Data
         raise BrokerDryRunError(f"orders_shadow.csv not found under packet dir: {packet_dir}")
 
     run_meta = json.loads(run_path.read_text(encoding="utf-8"))
-    orders_df = pd.read_csv(orders_path)
-    if orders_df.empty:
+    try:
+        orders_df = pd.read_csv(orders_path)
+    except EmptyDataError:
+        if allow_empty_orders:
+            orders_df = pd.DataFrame()
+        else:
+            raise BrokerDryRunError(f"orders_shadow.csv is empty: {orders_path}") from None
+    if orders_df.empty and not allow_empty_orders:
         raise BrokerDryRunError(f"orders_shadow.csv is empty: {orders_path}")
     return run_meta, orders_df
 
@@ -56,45 +69,66 @@ def _map_order_side(open_side: str, close_side: str | None) -> OrderSide:
     raise BrokerDryRunError(f"unsupported order side in packet: {open_side}")
 
 
+def _nullable_float(value: Any) -> float | None:
+    if value is None or pd.isna(value):
+        return None
+    return float(value)
+
+
+def _build_notional_jpy(row: pd.Series) -> float | None:
+    explicit = _nullable_float(row.get("target_notional_jpy"))
+    if explicit is not None:
+        return explicit
+    quantity = _nullable_float(row.get("intended_open_qty"))
+    open_price = _nullable_float(row.get("open_price_adj"))
+    if quantity is None or open_price is None:
+        return None
+    return float(quantity) * float(open_price)
+
+
+def packet_row_metadata(row: pd.Series) -> dict[str, Any]:
+    return {
+        "close_side": None if pd.isna(row.get("close_side")) else str(row.get("close_side")),
+        "intended_close_qty": _nullable_float(row.get("intended_close_qty")),
+        "open_price_adj": _nullable_float(row.get("open_price_adj")),
+        "close_price_adj": _nullable_float(row.get("close_price_adj")),
+        "target_weight": _nullable_float(row.get("target_weight")),
+    }
+
+
+def intent_from_order_row(row: pd.Series, *, run_meta: dict[str, Any], packet_path: str | Path) -> OrderIntent:
+    symbol = str(row["ticker"])
+    quantity = _nullable_float(row.get("intended_open_qty"))
+    if quantity is None or quantity <= 0:
+        raise BrokerDryRunError(f"invalid intended_open_qty for symbol {symbol}: {row.get('intended_open_qty')}")
+    return OrderIntent(
+        run_id=str(run_meta["run_id"]),
+        trade_date=str(run_meta["trade_date"]),
+        symbol=symbol,
+        market=_map_market(symbol),
+        side=_map_order_side(str(row["side"]), row.get("close_side")),
+        quantity=quantity,
+        notional_jpy=_build_notional_jpy(row),
+        order_type=OrderType.MARKET,
+        tif=TimeInForce.DAY,
+        limit_price=None,
+        strategy_id=run_meta.get("strategy"),
+        source_packet_path=str(Path(packet_path).resolve()),
+        allow_live_submission=False,
+        metadata=packet_row_metadata(row),
+    )
+
+
 def intents_from_packet(packet_dir: str | Path) -> tuple[dict[str, Any], list[OrderIntent]]:
-    packet_path = Path(packet_dir).resolve()
-    run_meta, orders_df = _load_packet_requirements(packet_path)
+    packet_path, run_meta, orders_df = load_packet_order_inputs(packet_dir, allow_empty_orders=False)
 
     intents: list[OrderIntent] = []
     for _, row in orders_df.iterrows():
-        symbol = str(row["ticker"])
-        side = _map_order_side(str(row["side"]), row.get("close_side"))
-        quantity = float(row["intended_open_qty"])
-        notional = None if pd.isna(row.get("target_notional_jpy")) else float(row["target_notional_jpy"])
-        metadata = {
-            "close_side": None if pd.isna(row.get("close_side")) else str(row.get("close_side")),
-            "intended_close_qty": None if pd.isna(row.get("intended_close_qty")) else float(row.get("intended_close_qty")),
-            "open_price_adj": None if pd.isna(row.get("open_price_adj")) else float(row.get("open_price_adj")),
-            "close_price_adj": None if pd.isna(row.get("close_price_adj")) else float(row.get("close_price_adj")),
-            "target_weight": None if pd.isna(row.get("target_weight")) else float(row.get("target_weight")),
-        }
-        intents.append(
-            OrderIntent(
-                run_id=str(run_meta["run_id"]),
-                trade_date=str(run_meta["trade_date"]),
-                symbol=symbol,
-                market=_map_market(symbol),
-                side=side,
-                quantity=quantity,
-                notional_jpy=notional,
-                order_type=OrderType.MARKET,
-                tif=TimeInForce.DAY,
-                limit_price=None,
-                strategy_id=run_meta.get("strategy"),
-                source_packet_path=str(packet_path),
-                allow_live_submission=False,
-                metadata=metadata,
-            )
-        )
+        intents.append(intent_from_order_row(row, run_meta=run_meta, packet_path=packet_path))
     return run_meta, intents
 
 
-def _intent_record(intent: OrderIntent) -> dict[str, Any]:
+def intent_record(intent: OrderIntent) -> dict[str, Any]:
     record = dataclass_to_payload(intent)
     record["metadata_json"] = json.dumps(record.pop("metadata"), ensure_ascii=False, sort_keys=True)
     return record
@@ -125,7 +159,7 @@ def broker_dryrun_from_packet(packet_dir: str | Path, broker_config_path: str | 
     acks_csv = out_dir / "broker_acks.csv"
     summary_json = out_dir / "broker_dryrun_summary.json"
 
-    pd.DataFrame([_intent_record(intent) for intent in intents]).to_csv(intents_csv, index=False)
+    pd.DataFrame([intent_record(intent) for intent in intents]).to_csv(intents_csv, index=False)
     pd.DataFrame(payload_rows).to_csv(payloads_csv, index=False)
     pd.DataFrame(ack_rows).to_csv(acks_csv, index=False)
     summary_json.write_text(

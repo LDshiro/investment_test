@@ -1,0 +1,23 @@
+version: broker_dryrun_batch_v1
+mode: DRY_RUN
+allowed_broker_ids:
+  - null_broker_v1
+allow_live_submission: false
+allow_paper_submission: false
+require_runtime_safety: true
+allow_runtime_safety_warn: true
+block_on_runtime_safety_error: true
+runtime_safety:
+  security_config: configs/security/runtime_security_policy_v1.yaml
+  secrets_inventory: configs/security/secrets_inventory_v1.yaml
+  host_config: configs/runtime/execution_host_local_v1.yaml
+require_packet_files:
+  - run.json
+  - orders_shadow.csv
+  - risk_report.json
+  - alerts.json
+order_source: orders_shadow.csv
+max_reject_rate: 0.0
+max_missing_intent_rate: 0.0
+require_ack_for_every_intent: true
+write_daily_artifacts: true

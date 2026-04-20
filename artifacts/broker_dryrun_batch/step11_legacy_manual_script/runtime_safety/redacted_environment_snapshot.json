@@ -1,0 +1,29 @@
+{
+  "environment": {},
+  "host": {
+    "hostname": "Deer",
+    "repo_root": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment",
+    "current_working_directory": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment",
+    "python_version": "3.14.3",
+    "python_executable": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe",
+    "local_time": "2026-04-21T07:17:31.167562+09:00",
+    "local_timezone_name": "東京 (標準時)",
+    "local_utc_offset": "9:00:00"
+  },
+  "runtime_flags": {
+    "kill_switch": {
+      "relative_path": "state/KILL_SWITCH_ON",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\state\\KILL_SWITCH_ON",
+      "exists": false,
+      "is_file": false,
+      "parent_exists": false
+    },
+    "trading_disabled": {
+      "relative_path": "state/TRADING_DISABLED",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\state\\TRADING_DISABLED",
+      "exists": false,
+      "is_file": false,
+      "parent_exists": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+version: execution_host_local_v1
+expected:
+  timezone: Asia/Tokyo
+  python_version_file: .python-version
+  required_directories:
+    - data/normalized/corrected_bundle
+    - runs
+    - artifacts
+    - logs
+    - state
+  no_real_secrets_in_repo: true
+  git_clean_required_for_live: true
+  git_clean_required_for_shadow: false
+  network_required_for_shadow: false
+  scheduler_installed_required_now: false

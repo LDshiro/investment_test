@@ -1,0 +1,27 @@
+{
+  "batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_60d_local_batch_2025-08-27_2025-11-28_20260420T140500Z",
+  "broker_id": "null_broker_v1",
+  "broker_mode": "DRY_RUN",
+  "runtime_safety_status": "WARN",
+  "runtime_safety_issue_counts": {
+    "ERROR": 0,
+    "WARN": 3,
+    "INFO": 0
+  },
+  "total_days": 60,
+  "completed_days": 60,
+  "failed_days": 0,
+  "intent_count_total": 300,
+  "ack_count_total": 300,
+  "reject_count_total": 0,
+  "diagnostic_error_count_total": 0,
+  "diagnostic_warn_count_total": 0,
+  "passed": true,
+  "reason_if_failed": null,
+  "output_paths": {
+    "broker_dryrun_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\broker_dryrun_batch\\step11_legacy_manual_script\\broker_dryrun_summary.csv",
+    "broker_dryrun_summary_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\broker_dryrun_batch\\step11_legacy_manual_script\\broker_dryrun_summary.json",
+    "broker_dryrun_summary_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\broker_dryrun_batch\\step11_legacy_manual_script\\broker_dryrun_summary.md",
+    "broker_dryrun_validation_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\broker_dryrun_batch\\step11_legacy_manual_script\\broker_dryrun_validation.json"
+  }
+}
