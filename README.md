@@ -1293,3 +1293,21 @@ python -m leadlag.cli validate-shadow-replay \
 ```
 
 canonical replay では `configs/validation/shadow_replay_canonical_v1.yaml` を使います。詳細は `docs/shadow_replay_validation.md` を参照してください。
+
+---
+
+## 24. Weekly Gate Calibration
+
+Step 06 では、weekly GO / WARN / STOP と promotion rule を calibration するための pre-live ruleset と comparison utility を追加します。これは readiness を無理に通す step ではなく、`HOLD_SHADOW` を含めた安全側の判定を明示する step です。
+
+```bash
+python -m leadlag.cli weekly-rule-calibration \
+  --weekly-review-dir artifacts/shadow_replay_validation/step05_legacy_60d/weekly_review \
+  --weekly-review-dir artifacts/shadow_replay_validation/step05_canonical_60d/weekly_review \
+  --rules-config configs/review/weekly_rules_shadow_default.yaml \
+  --rules-config configs/review/weekly_rules_shadow_small_live_candidate.yaml \
+  --rules-config configs/review/weekly_rules_shadow_pre_live_v1.yaml \
+  --output-dir artifacts/weekly_rule_calibration/step06
+```
+
+policy と解釈の詳細は `docs/weekly_gate_calibration_policy.md` を参照してください。

@@ -1,0 +1,7 @@
+source_name,ruleset_name,promotion_status,reason,latest_week_status,go_weeks,warn_weeks,stop_weeks,total_trade_days,total_shadow_return_compounded,weighted_shadow_hit_rate,weighted_avg_expected_cost_bps,weighted_avg_tradable_names,failed_requirements
+step05_legacy_60d,weekly_rules_shadow_default,HOLD_SHADOW,promotion requirements not yet met,GO,3,1,0,17,-0.010313733106061762,0.4117647058823529,15.0,17.0,non_negative_shadow_return
+step05_canonical_60d,weekly_rules_shadow_default,HOLD_SHADOW,promotion requirements not yet met,GO,3,1,0,17,-0.010313733106061762,0.4117647058823529,15.0,17.0,non_negative_shadow_return
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,HOLD_SHADOW,promotion requirements not yet met,GO,3,1,0,17,-0.010313733106061762,0.4117647058823529,15.0,17.0,non_negative_shadow_return
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,HOLD_SHADOW,promotion requirements not yet met,GO,3,1,0,17,-0.010313733106061762,0.4117647058823529,15.0,17.0,non_negative_shadow_return
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,HOLD_SHADOW,promotion requirements not yet met,GO,4,4,0,35,-0.028247632153910907,0.37142857142857144,15.0,17.0,non_negative_shadow_return; sufficient_go_weeks; limited_warn_weeks; acceptable_hit_rate
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,HOLD_SHADOW,promotion requirements not yet met,GO,4,4,0,35,-0.028247632153910907,0.37142857142857144,15.0,17.0,non_negative_shadow_return; sufficient_go_weeks; limited_warn_weeks; acceptable_hit_rate

@@ -1,0 +1,85 @@
+source_name,ruleset_name,week_label,weekly_status,stop_reasons,warn_reasons,shadow_return_compounded,shadow_hit_rate,avg_tradable_names,avg_expected_cost_bps
+step05_legacy_60d,weekly_rules_shadow_default,2025-W35,GO,,,0.0045345476225839,0.3333333333333333,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W36,GO,,,-0.0052822798262934,0.5,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W37,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0186277572569805,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W38,WARN,,weekly_drawdown_watch,-0.0136826045414313,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W39,GO,,,-0.0092052542251154,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W40,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0326866547074738,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W41,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0168656580306654,0.0,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W42,WARN,,active_underperformance_watch,0.0069972489465455,0.75,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W43,GO,,,-0.0016996960525629,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W44,WARN,,active_underperformance_watch,-0.0065278216931734,0.4,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W45,GO,,,-0.0022529465792278,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W46,GO,,,0.003648585723321,0.6,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W47,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0104557962599048,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_default,2025-W48,GO,,,-0.0012421314862455,0.6666666666666666,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W35,GO,,,0.0045345476225839,0.3333333333333333,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W36,GO,,,-0.0052822798262934,0.5,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W37,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0186277572569805,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W38,WARN,,weekly_drawdown_watch,-0.0136826045414313,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W39,GO,,,-0.0092052542251154,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W40,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0326866547074738,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W41,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0168656580306654,0.0,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W42,WARN,,active_underperformance_watch,0.0069972489465455,0.75,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W43,GO,,,-0.0016996960525629,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W44,WARN,,active_underperformance_watch,-0.0065278216931734,0.4,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W45,GO,,,-0.0022529465792278,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W46,GO,,,0.003648585723321,0.6,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W47,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0104557962599048,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_default,2025-W48,GO,,,-0.0012421314862455,0.6666666666666666,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W35,GO,,,0.0045345476225839,0.3333333333333333,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W36,GO,,,-0.0052822798262934,0.5,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W37,WARN,,weekly_drawdown_watch,-0.0186277572569805,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W38,GO,,,-0.0136826045414313,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W39,GO,,,-0.0092052542251154,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W40,WARN,,weekly_drawdown_watch,-0.0326866547074738,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W41,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0168656580306654,0.0,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W42,WARN,,active_underperformance_watch,0.0069972489465455,0.75,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W43,GO,,,-0.0016996960525629,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W44,GO,,,-0.0065278216931734,0.4,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W45,GO,,,-0.0022529465792278,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W46,GO,,,0.003648585723321,0.6,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W47,WARN,,active_underperformance_watch,-0.0104557962599048,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_small_live_candidate,2025-W48,GO,,,-0.0012421314862455,0.6666666666666666,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W35,GO,,,0.0045345476225839,0.3333333333333333,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W36,GO,,,-0.0052822798262934,0.5,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W37,WARN,,weekly_drawdown_watch,-0.0186277572569805,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W38,GO,,,-0.0136826045414313,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W39,GO,,,-0.0092052542251154,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W40,WARN,,weekly_drawdown_watch,-0.0326866547074738,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W41,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0168656580306654,0.0,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W42,WARN,,active_underperformance_watch,0.0069972489465455,0.75,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W43,GO,,,-0.0016996960525629,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W44,GO,,,-0.0065278216931734,0.4,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W45,GO,,,-0.0022529465792278,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W46,GO,,,0.003648585723321,0.6,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W47,WARN,,active_underperformance_watch,-0.0104557962599048,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_small_live_candidate,2025-W48,GO,,,-0.0012421314862455,0.6666666666666666,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W35,GO,,,0.0045345476225839,0.3333333333333333,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W36,GO,,,-0.0052822798262934,0.5,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W37,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0186277572569805,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W38,WARN,,weekly_drawdown_watch,-0.0136826045414313,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W39,GO,,,-0.0092052542251154,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W40,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0326866547074738,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W41,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0168656580306654,0.0,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W42,WARN,,active_underperformance_watch,0.0069972489465455,0.75,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W43,GO,,,-0.0016996960525629,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W44,WARN,,active_underperformance_watch,-0.0065278216931734,0.4,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W45,GO,,,-0.0022529465792278,0.25,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W46,GO,,,0.003648585723321,0.6,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W47,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0104557962599048,0.2,17.0,15.0
+step05_legacy_60d,weekly_rules_shadow_pre_live_v1,2025-W48,GO,,,-0.0012421314862455,0.6666666666666666,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W35,GO,,,0.0045345476225839,0.3333333333333333,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W36,GO,,,-0.0052822798262934,0.5,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W37,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0186277572569805,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W38,WARN,,weekly_drawdown_watch,-0.0136826045414313,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W39,GO,,,-0.0092052542251154,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W40,WARN,,weekly_drawdown_watch; hit_rate_soft,-0.0326866547074738,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W41,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0168656580306654,0.0,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W42,WARN,,active_underperformance_watch,0.0069972489465455,0.75,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W43,GO,,,-0.0016996960525629,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W44,WARN,,active_underperformance_watch,-0.0065278216931734,0.4,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W45,GO,,,-0.0022529465792278,0.25,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W46,GO,,,0.003648585723321,0.6,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W47,WARN,,weekly_drawdown_watch; active_underperformance_watch; hit_rate_soft,-0.0104557962599048,0.2,17.0,15.0
+step05_canonical_60d,weekly_rules_shadow_pre_live_v1,2025-W48,GO,,,-0.0012421314862455,0.6666666666666666,17.0,15.0

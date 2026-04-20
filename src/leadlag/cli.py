@@ -11,6 +11,7 @@ from leadlag.runtime.packets import ensure_packet_layout
 from leadlag.runtime.corrected_backtest import inspect_corrected_bundle, run_corrected_backtest
 from leadlag.runtime.corrected_shadow import run_corrected_shadow
 from leadlag.runtime.corrected_shadow_batch import run_corrected_shadow_batch
+from leadlag.reporting.weekly_rule_calibration import calibrate_weekly_rules
 from leadlag.reporting.weekly_review import generate_weekly_review
 from leadlag.reporting.weekly_rules import generate_weekly_gates
 
@@ -120,6 +121,17 @@ def cmd_weekly_gates(weekly_summary: str | None, review_dir: str | None, rules_c
     return 0
 
 
+def cmd_weekly_rule_calibration(weekly_review_dirs: list[str], rules_configs: list[str], output_dir: str) -> int:
+    out_dir, status = calibrate_weekly_rules(
+        weekly_review_dirs=weekly_review_dirs,
+        rules_config_paths=rules_configs,
+        output_dir=output_dir,
+    )
+    print(f"weekly rule calibration completed: {out_dir}")
+    print(json.dumps(status, ensure_ascii=False, indent=2))
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog='leadlag')
     sub = parser.add_subparsers(dest='command', required=True)
@@ -157,6 +169,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_gates.add_argument('--review-dir', required=False)
     p_gates.add_argument('--rules-config', required=True)
     p_gates.add_argument('--output-dir', required=False)
+
+    p_calibration = sub.add_parser('weekly-rule-calibration')
+    p_calibration.add_argument('--weekly-review-dir', action='append', required=True)
+    p_calibration.add_argument('--rules-config', action='append', required=True)
+    p_calibration.add_argument('--output-dir', required=True)
     return parser
 
 
@@ -180,6 +197,8 @@ def main() -> int:
         return cmd_weekly_review(args.batch_summary, args.batch_dir, args.output_dir)
     if args.command == 'weekly-gates':
         return cmd_weekly_gates(args.weekly_summary, args.review_dir, args.rules_config, args.output_dir)
+    if args.command == 'weekly-rule-calibration':
+        return cmd_weekly_rule_calibration(args.weekly_review_dir, args.rules_config, args.output_dir)
     parser.error('unknown command')
     return 2
 

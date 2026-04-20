@@ -19,6 +19,8 @@ artifacts/*
 !artifacts/simulator_audit/canonical_v1/**
 !artifacts/shadow_replay_validation/
 !artifacts/shadow_replay_validation/**
+!artifacts/weekly_rule_calibration/
+!artifacts/weekly_rule_calibration/**
 logs/
 *.parquet
 *.duckdb

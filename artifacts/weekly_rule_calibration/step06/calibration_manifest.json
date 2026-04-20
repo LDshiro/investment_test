@@ -1,0 +1,35 @@
+{
+  "review_sources": [
+    {
+      "source_name": "step05_legacy_60d",
+      "review_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_replay_validation\\step05_legacy_60d\\weekly_review"
+    },
+    {
+      "source_name": "step05_canonical_60d",
+      "review_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_replay_validation\\step05_canonical_60d\\weekly_review"
+    }
+  ],
+  "rulesets": [
+    {
+      "ruleset_name": "weekly_rules_shadow_default",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\review\\weekly_rules_shadow_default.yaml"
+    },
+    {
+      "ruleset_name": "weekly_rules_shadow_small_live_candidate",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\review\\weekly_rules_shadow_small_live_candidate.yaml"
+    },
+    {
+      "ruleset_name": "weekly_rules_shadow_pre_live_v1",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\review\\weekly_rules_shadow_pre_live_v1.yaml"
+    }
+  ],
+  "recommended_decision": {
+    "decision": "HOLD_SHADOW",
+    "reason": "Pre-live promotion requirements are not yet met: step05_legacy_60d: non_negative_shadow_return; sufficient_go_weeks; limited_warn_weeks; acceptable_hit_rate; step05_canonical_60d: non_negative_shadow_return; sufficient_go_weeks; limited_warn_weeks; acceptable_hit_rate"
+  },
+  "generated_files": {
+    "ruleset_weekly_status_comparison_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\weekly_rule_calibration\\step06\\ruleset_weekly_status_comparison.csv",
+    "promotion_comparison_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\weekly_rule_calibration\\step06\\promotion_comparison.csv",
+    "calibration_report_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\weekly_rule_calibration\\step06\\calibration_report.md"
+  }
+}

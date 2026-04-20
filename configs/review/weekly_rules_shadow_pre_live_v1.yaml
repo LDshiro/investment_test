@@ -1,0 +1,91 @@
+extends:
+  - weekly_rules_shadow_default.yaml
+
+name: weekly_rules_shadow_pre_live_v1
+
+description: |
+  Stricter pre-live weekly rules for Step 06 calibration. Keep the same operational
+  STOP/WARN weekly status logic as the default ruleset, but require a longer and
+  cleaner evidence window before any live_dryrun promotion is considered.
+
+promotion:
+  label_ready: READY_FOR_PRE_LIVE_DRYRUN
+  label_hold: HOLD_SHADOW
+  label_blocked: BLOCKED
+  lookback_weeks: 8
+  min_weeks_required: 8
+  require_latest_week_status_in: [GO]
+  require_all_week_status_in: [GO, WARN]
+  disqualifiers:
+    - code: stop_days_present
+      metric: total_stop_days
+      op: gt
+      value: 0
+      message: At least one STOP day occurred in the review window.
+    - code: failed_days_present
+      metric: total_failed_days
+      op: gt
+      value: 0
+      message: At least one failed day occurred in the review window.
+    - code: critical_alert_days_present
+      metric: total_critical_alert_days
+      op: gt
+      value: 0
+      message: Critical alerts occurred in the review window.
+    - code: triggered_gate_days_present
+      metric: total_triggered_gate_days
+      op: gt
+      value: 0
+      message: Hard gates triggered in the review window.
+    - code: stop_weeks_present
+      metric: stop_weeks
+      op: gt
+      value: 0
+      message: At least one STOP week occurred in the review window.
+  requirements:
+    - code: enough_trade_days
+      metric: total_trade_days
+      op: gte
+      value: 30
+      message: At least 30 trade days are required across the 8-week review window.
+    - code: non_negative_shadow_return
+      metric: total_shadow_return_compounded
+      op: gte
+      value: 0.0
+      message: Compounded shadow return over the review window must be non-negative.
+    - code: sufficient_go_weeks
+      metric: go_weeks
+      op: gte
+      value: 6
+      message: At least 6 of the last 8 weeks must be GO.
+    - code: limited_warn_weeks
+      metric: warn_weeks
+      op: lte
+      value: 2
+      message: No more than 2 of the last 8 weeks may be WARN.
+    - code: acceptable_cost
+      metric: weighted_avg_expected_cost_bps
+      op: lte
+      value: 17.5
+      message: Weighted average expected cost must remain at or below 17.5 bps.
+    - code: adequate_universe_width
+      metric: weighted_avg_tradable_names
+      op: gte
+      value: 15
+      message: Weighted average tradable names must be at least 15.
+    - code: acceptable_hit_rate
+      metric: weighted_shadow_hit_rate
+      op: gte
+      value: 0.40
+      message: Weighted hit rate over the review window must be at least 40%.
+  recommended_live_overrides:
+    run:
+      mode: live_dryrun
+    risk:
+      allow_short: false
+      max_gross: 0.25
+      max_single_name_abs: 0.05
+    deployment:
+      max_live_names: 1
+      fixed_ticket_notional_jpy: 25000
+      expected_objective: Measure live-vs-shadow execution friction only; not PnL maximization.
