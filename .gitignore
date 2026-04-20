@@ -21,6 +21,8 @@ artifacts/*
 !artifacts/shadow_replay_validation/**
 !artifacts/weekly_rule_calibration/
 !artifacts/weekly_rule_calibration/**
+!artifacts/runbook/
+!artifacts/runbook/**
 logs/
 *.parquet
 *.duckdb

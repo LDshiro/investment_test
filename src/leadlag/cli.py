@@ -6,7 +6,7 @@ from pathlib import Path
 
 from leadlag.config.loader import load_app_config
 from leadlag.data_contract import validate_corrected_bundle, write_validation_outputs
-from leadlag.ops import validate_shadow_replay
+from leadlag.ops import render_runbook_artifacts, validate_shadow_replay
 from leadlag.runtime.packets import ensure_packet_layout
 from leadlag.runtime.corrected_backtest import inspect_corrected_bundle, run_corrected_backtest
 from leadlag.runtime.corrected_shadow import run_corrected_shadow
@@ -65,6 +65,26 @@ def cmd_validate_shadow_replay(batch_dir: str, validation_config: str, output_di
         )
     )
     return 0 if result.status != "FAIL" else 1
+
+
+def cmd_render_runbook(config_path: str, output_dir: str) -> int:
+    result = render_runbook_artifacts(
+        path_or_dict=Path(config_path),
+        output_dir=Path(output_dir),
+    )
+    print(
+        json.dumps(
+            {
+                "passed": result.passed,
+                "issue_counts": result.issue_counts(),
+                "summary": result.summary,
+                "output_paths": result.output_paths,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0 if result.passed else 1
 
 
 def cmd_run(config_path: str, trade_date: str | None = None) -> int:
@@ -152,6 +172,10 @@ def build_parser() -> argparse.ArgumentParser:
     p_shadow_replay.add_argument('--validation-config', required=True)
     p_shadow_replay.add_argument('--output-dir', required=True)
 
+    p_runbook = sub.add_parser('render-runbook')
+    p_runbook.add_argument('--config', required=True)
+    p_runbook.add_argument('--output-dir', required=True)
+
     p_run = sub.add_parser('run')
     p_run.add_argument('--config', required=True)
     p_run.add_argument('--trade-date', required=False)
@@ -189,6 +213,8 @@ def main() -> int:
         return cmd_validate_data_contract(args.bundle_dir, args.contract, args.output_dir)
     if args.command == 'validate-shadow-replay':
         return cmd_validate_shadow_replay(args.batch_dir, args.validation_config, args.output_dir)
+    if args.command == 'render-runbook':
+        return cmd_render_runbook(args.config, args.output_dir)
     if args.command == 'run':
         return cmd_run(args.config, trade_date=args.trade_date)
     if args.command == 'run-batch':

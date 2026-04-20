@@ -1,0 +1,163 @@
+runbook_id: shadow_ops_runbook_v1
+version: 1
+scope: shadow_pre_live
+
+operating_modes:
+  backtest: Research and historical reproduction only.
+  historical_shadow: Single-day or replay packet generation on historical corrected-bundle data.
+  continuous_shadow: Repeated operational shadow monitoring over consecutive trade dates.
+  broker_dry_run: Future phase for connectivity and operational rehearsal only.
+  tiny_live: Future phase with explicit human approval and minimal capital.
+  full_live: Future phase and out of scope for this runbook version.
+
+status_actions:
+  GO:
+    summary: Daily or weekly status is inside the current operating envelope.
+    required_action: Proceed with normal shadow monitoring and record the packet review.
+    shadow_continues: true
+    escalation: No special escalation beyond the standard daily review.
+    notes: GO does not imply readiness for live trading.
+  WARN:
+    summary: Operation is still within the safety envelope, but review attention is required.
+    required_action: Review packet details, alerts, and recent weekly context before the next cycle.
+    shadow_continues: true
+    escalation: Escalate to the designated reviewer if WARN repeats or clusters.
+    notes: WARN should usually lead to HOLD_SHADOW rather than STOP unless safety signals escalate.
+  STOP:
+    summary: A safety-relevant or operationally abnormal condition has occurred.
+    required_action: Stop relying on the packet for deployment decisions and open an incident review.
+    shadow_continues: false
+    escalation: Immediate escalation to the human operator with kill-switch authority.
+    notes: STOP is operational and safety-oriented, not a tool for punishing weak but orderly performance.
+  HOLD_SHADOW:
+    summary: Promotion requirements are not yet satisfied, so the system remains in shadow.
+    required_action: Continue shadow observation, preserve artifacts, and reassess after more evidence accumulates.
+    shadow_continues: true
+    escalation: Weekly review owner documents the unmet requirements and next evidence needed.
+    notes: HOLD_SHADOW is an acceptable steady state during calibration.
+  READY_FOR_SMALL_LIVE:
+    summary: The ruleset permits a separate human-reviewed small-live evaluation step.
+    required_action: Start a formal human review before any live_dryrun or tiny-live change is approved.
+    shadow_continues: true
+    escalation: Promotion committee or designated human reviewer must sign off explicitly.
+    notes: READY_FOR_SMALL_LIVE is not automatic permission to start live trading.
+  BLOCKED:
+    summary: A blocking condition prevents promotion until resolved.
+    required_action: Resolve the blocking issue and rerun the relevant review artifacts before reconsidering promotion.
+    shadow_continues: true
+    escalation: Escalate according to the incident severity that caused the block.
+    notes: BLOCKED overrides any otherwise positive performance interpretation.
+
+incident_levels:
+  P0:
+    summary: Immediate safety or capital-protection incident.
+    trigger_examples:
+      - possible capital loss
+      - unauthorized order
+      - API or secrets exposure
+      - live order mismatch
+      - broken kill switch
+      - hard gate bypass
+      - corrupted production data
+    immediate_action: Engage the kill switch, halt any live-facing process, isolate credentials, and preserve artifacts.
+    review_owner: Human operator with kill-switch authority plus engineering owner.
+    shadow_continues: false
+    required_artifact: Incident ticket plus completed postmortem.
+    resolution_criteria: Root cause understood, containment verified, and explicit human sign-off recorded.
+  P1:
+    summary: Major validation or safety-control failure that blocks trust in current outputs.
+    trigger_examples:
+      - STOP run or STOP week
+      - failed shadow replay day
+      - failed data contract
+      - missing required packet
+      - baseline verification failure
+      - unresolved canonical reconciliation failure
+    immediate_action: Freeze promotion decisions, preserve packets, and assign an owner for same-day investigation.
+    review_owner: Strategy owner and operations reviewer.
+    shadow_continues: false
+    required_artifact: Incident note linked to the failed packet or artifact set.
+    resolution_criteria: Failing artifact reproduced or explained, fix validated, and review rerun cleanly.
+  P2:
+    summary: Repeated warning or drift pattern that needs timely review.
+    trigger_examples:
+      - repeated WARN
+      - abnormal cost drift
+      - low hit rate
+      - high alert density
+      - recurrent reconciliation drift under STOP threshold
+      - non-critical scheduler failure
+    immediate_action: Open a tracking issue, compare recent packets, and decide whether extra monitoring or a pause is needed.
+    review_owner: Operations reviewer with strategy support.
+    shadow_continues: true
+    required_artifact: Tracking issue or review memo.
+    resolution_criteria: Trend explained or stabilized and monitoring action documented.
+  P3:
+    summary: Minor operational or documentation issue with no immediate safety impact.
+    trigger_examples:
+      - documentation issue
+      - cleanup item
+      - known warning
+      - minor reporting issue
+      - non-urgent technical debt
+    immediate_action: Log the issue and schedule cleanup in normal maintenance.
+    review_owner: Repo maintainer.
+    shadow_continues: true
+    required_artifact: Backlog item or maintenance note.
+    resolution_criteria: Item fixed or accepted into tracked backlog.
+
+required_daily_packet_files:
+  - summary.md
+  - run.json
+  - signals.csv
+  - orders_shadow.csv
+  - fills_shadow.csv
+  - positions.csv
+  - pnl.csv
+  - risk_report.json
+  - alerts.json
+
+canonical_sidecars_when_enabled:
+  - canonical_orders.csv
+  - canonical_fills.csv
+  - canonical_positions.csv
+  - canonical_pnl.csv
+  - canonical_simulation_result.json
+  - sim_reconciliation.csv
+  - sim_reconciliation.json
+  - sim_reconciliation.md
+
+checklists:
+  daily_pre_open:
+    - Confirm the latest corrected-bundle update completed and the expected trade date is available.
+    - Read summary.md, run.json, risk_report.json, and alerts.json before JP pre-open.
+    - Verify run_status is GO or WARN before using the packet as a shadow reference.
+    - If canonical sidecars are enabled, inspect sim_reconciliation.json for unexpected drift.
+    - Record GO/WARN/STOP action and any escalation notes for the day.
+  daily_post_close:
+    - Confirm the packet directory contains the required daily packet files.
+    - Check pnl.csv, fills_shadow.csv, and positions.csv for unexpected concentration or missing rows.
+    - Compare shadow behavior against any canonical sidecars or replay expectations when enabled.
+    - Escalate STOP or unresolved WARN clusters according to the incident policy.
+    - Preserve links to the packet directory in the daily log.
+  weekly_review:
+    - Generate or inspect the latest weekly_summary.csv and weekly_status_evaluated.csv.
+    - Review compounded shadow return, hit rate, tradable names, alert density, and triggered gate days.
+    - Compare legacy and canonical replay stories before making any promotion recommendation.
+    - Record whether the current state remains GO, WARN, STOP, HOLD_SHADOW, or BLOCKED.
+  deployment_review:
+    - Confirm baseline verification, data contract validation, and replay validation remain green.
+    - Check that no unreviewed runtime, risk, simulator, or broker changes are pending.
+    - Require explicit human approval before any live_dryrun or tiny-live change.
+    - Confirm kill-switch ownership, rollback plan, and artifact retention are documented.
+  promotion_review:
+    - Treat READY_FOR_SMALL_LIVE as permission to review, not permission to deploy automatically.
+    - Verify no blocking incidents remain open across P0 or P1 categories.
+    - Confirm weekly gate evidence is stable across both legacy and canonical review sources.
+    - Prefer HOLD_SHADOW when evidence is incomplete or sample quality is weak.
+
+manual_override_policy: Manual overrides are exceptional, must be human-authored, time-bounded, and linked to a reviewed incident or maintenance record. Overrides may document operational handling, but they do not authorize bypassing deterministic hard gates or silently changing promotion standards.
+
+kill_switch_policy: A designated human operator must retain immediate authority to halt shadow/pre-live progression whenever safety, data integrity, or broker-control confidence is in doubt. Kill-switch use takes precedence over AI suggestions and routine review cadence.
+
+ai_review_policy: AI-assisted review may summarize packets, flag anomalies, and draft incident notes, but it is advisory only. Deterministic gates, runbook procedures, and human judgment remain authoritative.

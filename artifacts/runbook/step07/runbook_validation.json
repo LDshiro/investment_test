@@ -1,0 +1,32 @@
+{
+  "passed": true,
+  "issue_counts": {
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
+  "summary": {
+    "config_source": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\ops\\runbook_shadow_v1.yaml",
+    "runbook_id": "shadow_ops_runbook_v1",
+    "version": 1,
+    "scope": "shadow_pre_live",
+    "status_action_count": 6,
+    "incident_level_count": 4,
+    "required_daily_packet_file_count": 9,
+    "checklist_names": [
+      "daily_post_close",
+      "daily_pre_open",
+      "deployment_review",
+      "promotion_review",
+      "weekly_review"
+    ]
+  },
+  "output_paths": {
+    "runbook_validation_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runbook\\step07\\runbook_validation.json",
+    "runbook_summary_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runbook\\step07\\runbook_summary.md",
+    "daily_checklist_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runbook\\step07\\daily_checklist.md",
+    "weekly_checklist_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runbook\\step07\\weekly_checklist.md",
+    "incident_matrix_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\runbook\\step07\\incident_matrix.md"
+  }
+}

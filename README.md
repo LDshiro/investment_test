@@ -1311,3 +1311,22 @@ python -m leadlag.cli weekly-rule-calibration \
 ```
 
 policy と解釈の詳細は `docs/weekly_gate_calibration_policy.md` を参照してください。
+
+---
+
+## 25. Operations Runbook
+
+Step 07 では、shadow / pre-live operations 用の runbook docs と machine-readable runbook config を追加します。
+
+- `docs/runbooks/shadow_ops_runbook_v1.md`
+- `docs/runbooks/incident_response_v1.md`
+- `docs/runbooks/postmortem_template_v1.md`
+- `configs/ops/runbook_shadow_v1.yaml`
+
+rendered checklist artifact は次で生成できます。
+
+```bash
+python -m leadlag.cli render-runbook \
+  --config configs/ops/runbook_shadow_v1.yaml \
+  --output-dir artifacts/runbook/step07
+```
