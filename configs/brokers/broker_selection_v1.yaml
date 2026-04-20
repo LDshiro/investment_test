@@ -1,0 +1,20 @@
+schema_version: 1
+selection_id: broker_selection_v1
+default_safe_adapter: null_broker_v1
+future_external_comparison:
+  - kabu_station_research_v1
+  - ibkr_research_v1
+candidate_configs:
+  - configs/brokers/null_broker_v1.yaml
+  - configs/brokers/kabu_station_research_v1.yaml
+  - configs/brokers/ibkr_research_v1.yaml
+weights:
+  operational_safety: 0.30
+  jp_cash_equity_fit: 0.25
+  dry_run_readiness: 0.20
+  paper_progression_clarity: 0.10
+  live_api_maturity: 0.10
+  observability: 0.05
+notes:
+  - Step 09 remains shadow-only and non-live.
+  - No candidate in this matrix is live-ready.

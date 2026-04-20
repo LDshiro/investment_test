@@ -1,0 +1,52 @@
+schema_version: 1
+broker_id: null_broker_v1
+display_name: Null Broker Adapter v1
+status: dry_run_only
+supported_markets:
+  - JP
+  - US
+supported_asset_types:
+  - equity
+  - etf
+order_types_known:
+  - MARKET
+  - LIMIT
+  - MARKET_ON_CLOSE
+  - LIMIT_ON_CLOSE
+  - UNKNOWN
+time_in_force_known:
+  - DAY
+  - IOC
+  - FOK
+  - GTC
+  - UNKNOWN
+supports_paper: false
+supports_live_api: false
+supports_shortability_check: false
+supports_position_query: true
+supports_order_status_query: true
+operational_requirements:
+  - No broker application is required.
+  - No credentials or environment variables are required.
+  - Local filesystem access is sufficient for packet dry-run.
+known_limits:
+  - Dry-run only; cannot connect to a broker or paper environment.
+  - Does not provide real market permissions, balances, or shortability.
+safety_notes:
+  - Safest Step 09 adapter because it never leaves the local process.
+  - Fail closed outside NULL or DRY_RUN mode.
+open_questions:
+  - Future broker-specific symbol normalization policy is still pending.
+  - Future mapping for JP order quantity rounding is still pending.
+source_urls: []
+decision_scores:
+  operational_safety: 1.0
+  jp_cash_equity_fit: 0.6
+  dry_run_readiness: 1.0
+  paper_progression_clarity: 0.2
+  live_api_maturity: 0.0
+  observability: 0.9
+research_facts:
+  - fact_id: null_adapter_local_only
+    summary: The Step 09 null adapter is a local-only dry-run adapter with no network path.
+    source_url: internal://docs/broker_safety_policy_v1.md

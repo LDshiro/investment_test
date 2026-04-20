@@ -1,0 +1,71 @@
+# Official references used below:
+# - https://kabucom.github.io/kabusapi/ptal/
+# - https://kabucom.github.io/kabusapi/ptal/faq.html
+# - https://kabucom.github.io/kabusapi/ptal/howto.html
+schema_version: 1
+broker_id: kabu_station_research_v1
+display_name: au Kabucom kabu Station API (Research)
+status: research_only
+supported_markets:
+  - JP
+supported_asset_types:
+  - equity
+  - etf
+order_types_known:
+  - MARKET
+  - LIMIT
+  - UNKNOWN
+time_in_force_known:
+  - DAY
+  - IOC
+  - FOK
+  - UNKNOWN
+supports_paper: false
+supports_live_api: true
+supports_shortability_check: false
+supports_position_query: true
+supports_order_status_query: true
+operational_requirements:
+  - kabu Station must be installed and running.
+  - API requests must originate from the same IP and same PC as kabu Station.
+  - Service window and maintenance timing must be monitored operationally.
+known_limits:
+  - Order API request limit is documented as 5 requests per second.
+  - Capacity, information, and symbol registration APIs are documented as 10 requests per second.
+  - Service availability is documented as 6:30 until the next early morning 6:15, excluding maintenance.
+safety_notes:
+  - Step 09 treats kabu Station as research only and does not add any connection path.
+  - Local application dependency and same-PC routing increase operational coupling.
+open_questions:
+  - How stable is the API around maintenance windows for pre-open operations?
+  - What is the safest dry-run harness before any paper-like rehearsal?
+source_urls:
+  - https://kabucom.github.io/kabusapi/ptal/
+  - https://kabucom.github.io/kabusapi/ptal/faq.html
+  - https://kabucom.github.io/kabusapi/ptal/howto.html
+decision_scores:
+  operational_safety: 0.55
+  jp_cash_equity_fit: 1.0
+  dry_run_readiness: 0.30
+  paper_progression_clarity: 0.30
+  live_api_maturity: 0.40
+  observability: 0.45
+research_facts:
+  - fact_id: order_api_rate_limit
+    summary: The order API request limit is documented as 5 requests per second.
+    source_url: https://kabucom.github.io/kabusapi/ptal/faq.html
+  - fact_id: info_api_rate_limit
+    summary: Capacity, information, and symbol registration APIs are documented as 10 requests per second.
+    source_url: https://kabucom.github.io/kabusapi/ptal/faq.html
+  - fact_id: service_availability
+    summary: Service availability is documented as 6:30 to the next early morning 6:15 excluding maintenance.
+    source_url: https://kabucom.github.io/kabusapi/ptal/howto.html
+  - fact_id: same_pc_same_ip
+    summary: The FAQ says requests must come from the same IP as kabu Station and to use the same PC.
+    source_url: https://kabucom.github.io/kabusapi/ptal/faq.html
+  - fact_id: kabu_station_required
+    summary: kabu Station must be running to use the API.
+    source_url: https://kabucom.github.io/kabusapi/ptal/howto.html
+  - fact_id: verification_environment_scope
+    summary: The verification environment is positioned for program behavior checks.
+    source_url: https://kabucom.github.io/kabusapi/ptal/faq.html

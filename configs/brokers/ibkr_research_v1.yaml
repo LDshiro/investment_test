@@ -1,0 +1,82 @@
+# Official references used below:
+# - https://ibkrcampus.com/campus/ibkr-api-page/trader-workstation-api/
+# - https://ibkrcampus.com/campus/ibkr-api-page/getting-started/
+# - https://ibkrcampus.com/campus/trading-lessons/installing-configuring-tws-for-the-api/
+# - https://ibkrcampus.com/campus/glossary-terms/paper-trading-account/
+# - https://interactivebrokers.github.io/tws-api/basic_orders.html
+# - https://interactivebrokers.github.io/tws-api/advanced_orders.html
+schema_version: 1
+broker_id: ibkr_research_v1
+display_name: Interactive Brokers TWS API (Research)
+status: paper_candidate
+supported_markets:
+  - US
+  - JP
+supported_asset_types:
+  - equity
+  - etf
+  - option
+  - futures
+order_types_known:
+  - MARKET
+  - LIMIT
+  - MARKET_ON_CLOSE
+  - LIMIT_ON_CLOSE
+  - UNKNOWN
+time_in_force_known:
+  - DAY
+  - IOC
+  - FOK
+  - GTC
+  - UNKNOWN
+supports_paper: true
+supports_live_api: true
+supports_shortability_check: true
+supports_position_query: true
+supports_order_status_query: true
+operational_requirements:
+  - Trader Workstation or IB Gateway must be installed and running.
+  - API usage depends on a local TCP socket connection to TWS or IB Gateway.
+  - Paper-vs-live behavior must be validated explicitly before any deployment step.
+known_limits:
+  - Paper trading is simulated and not indicative of real-world execution.
+  - Some order ideas should be tested manually in TWS before relying on API automation.
+safety_notes:
+  - Step 09 does not add any TWS or IB Gateway connectivity.
+  - IBKR is a future paper-first candidate only, not a live-ready recommendation.
+open_questions:
+  - What is the cleanest JP cash-equity routing path for this strategy subset?
+  - Which minimum paper workflows must pass before a tiny live-dryrun phase?
+source_urls:
+  - https://ibkrcampus.com/campus/ibkr-api-page/trader-workstation-api/
+  - https://ibkrcampus.com/campus/ibkr-api-page/getting-started/
+  - https://ibkrcampus.com/campus/trading-lessons/installing-configuring-tws-for-the-api/
+  - https://ibkrcampus.com/campus/glossary-terms/paper-trading-account/
+  - https://interactivebrokers.github.io/tws-api/basic_orders.html
+  - https://interactivebrokers.github.io/tws-api/advanced_orders.html
+decision_scores:
+  operational_safety: 0.60
+  jp_cash_equity_fit: 0.35
+  dry_run_readiness: 0.40
+  paper_progression_clarity: 0.80
+  live_api_maturity: 0.80
+  observability: 0.70
+research_facts:
+  - fact_id: tws_api_socket
+    summary: TWS API connects through Trader Workstation or IB Gateway via TCP socket.
+    source_url: https://ibkrcampus.com/campus/ibkr-api-page/trader-workstation-api/
+  - fact_id: language_support
+    summary: IBKR documents Python, Java, C++, C#, and Visual Basic support for the TWS API.
+    source_url: https://ibkrcampus.com/campus/ibkr-api-page/trader-workstation-api/
+  - fact_id: tws_or_gateway_required
+    summary: Trader Workstation or IB Gateway must be installed and running to use the TWS API.
+    source_url: https://ibkrcampus.com/campus/trading-lessons/installing-configuring-tws-for-the-api/
+  - fact_id: paper_before_live
+    summary: IBKR recommends testing in a paper account before placing live orders.
+    source_url: https://ibkrcampus.com/campus/ibkr-api-page/getting-started/
+  - fact_id: paper_simulated
+    summary: IBKR paper trading is simulated and not indicative of real-world execution.
+    source_url: https://ibkrcampus.com/campus/glossary-terms/paper-trading-account/
+  - fact_id: order_types_documented
+    summary: IBKR order types are documented for API use, but some order ideas should be manually tested in TWS first.
+    source_url: https://interactivebrokers.github.io/tws-api/advanced_orders.html

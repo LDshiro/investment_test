@@ -1352,3 +1352,28 @@ python -m leadlag.cli shadow-ops \
 ```
 
 詳細は `docs/shadow_ops_profile_v1.md` を参照してください。
+
+---
+
+## 27. Broker Selection And Dry-Run Adapter
+
+Step 09 では、broker research config、broker-neutral adapter contract、null dry-run adapter、candidate evaluator を追加します。これは non-live step であり、credential handling や live / paper 接続は追加しません。
+
+broker candidate evaluation:
+
+```bash
+python -m leadlag.cli evaluate-brokers \
+  --config configs/brokers/broker_selection_v1.yaml \
+  --output-dir artifacts/broker_selection/step09
+```
+
+historical packet dry-run:
+
+```bash
+python -m leadlag.cli broker-dryrun \
+  --packet-dir runs/<packet_dir> \
+  --broker-config configs/brokers/null_broker_v1.yaml \
+  --output-dir artifacts/broker_dryrun/step09
+```
+
+詳細は `docs/broker_selection_v1.md`、`docs/broker_adapter_contract_v1.md`、`docs/broker_safety_policy_v1.md` を参照してください。

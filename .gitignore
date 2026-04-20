@@ -25,6 +25,10 @@ artifacts/*
 !artifacts/runbook/**
 !artifacts/shadow_ops/
 !artifacts/shadow_ops/**
+!artifacts/broker_selection/
+!artifacts/broker_selection/**
+!artifacts/broker_dryrun/
+!artifacts/broker_dryrun/**
 logs/
 *.parquet
 *.duckdb

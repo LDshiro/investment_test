@@ -4,6 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
+from leadlag.broker import broker_dryrun_from_packet, evaluate_broker_candidates
 from leadlag.config.loader import load_app_config
 from leadlag.data_contract import validate_corrected_bundle, write_validation_outputs
 from leadlag.ops import render_runbook_artifacts, run_shadow_ops, validate_shadow_replay
@@ -106,6 +107,20 @@ def cmd_shadow_ops(config_path: str) -> int:
     return 0 if result.passed else 1
 
 
+def cmd_evaluate_brokers(config_path: str, output_dir: str) -> int:
+    out_dir, status = evaluate_broker_candidates(config_path, output_dir)
+    print(f"broker selection completed: {out_dir}")
+    print(json.dumps(status, ensure_ascii=False, indent=2))
+    return 0
+
+
+def cmd_broker_dryrun(packet_dir: str, broker_config: str, output_dir: str) -> int:
+    out_dir, status = broker_dryrun_from_packet(packet_dir, broker_config, output_dir)
+    print(f"broker dry-run completed: {out_dir}")
+    print(json.dumps(status, ensure_ascii=False, indent=2))
+    return 0
+
+
 def cmd_run(config_path: str, trade_date: str | None = None) -> int:
     cfg = load_app_config(Path(config_path))
     if cfg.run.mode == 'backtest' and cfg.data.source == 'corrected_bundle':
@@ -198,6 +213,15 @@ def build_parser() -> argparse.ArgumentParser:
     p_shadow_ops = sub.add_parser('shadow-ops')
     p_shadow_ops.add_argument('--config', required=True)
 
+    p_eval_brokers = sub.add_parser('evaluate-brokers')
+    p_eval_brokers.add_argument('--config', required=True)
+    p_eval_brokers.add_argument('--output-dir', required=True)
+
+    p_broker_dryrun = sub.add_parser('broker-dryrun')
+    p_broker_dryrun.add_argument('--packet-dir', required=True)
+    p_broker_dryrun.add_argument('--broker-config', required=True)
+    p_broker_dryrun.add_argument('--output-dir', required=True)
+
     p_run = sub.add_parser('run')
     p_run.add_argument('--config', required=True)
     p_run.add_argument('--trade-date', required=False)
@@ -239,6 +263,10 @@ def main() -> int:
         return cmd_render_runbook(args.config, args.output_dir)
     if args.command == 'shadow-ops':
         return cmd_shadow_ops(args.config)
+    if args.command == 'evaluate-brokers':
+        return cmd_evaluate_brokers(args.config, args.output_dir)
+    if args.command == 'broker-dryrun':
+        return cmd_broker_dryrun(args.packet_dir, args.broker_config, args.output_dir)
     if args.command == 'run':
         return cmd_run(args.config, trade_date=args.trade_date)
     if args.command == 'run-batch':

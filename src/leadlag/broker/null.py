@@ -1,11 +1,12 @@
 from __future__ import annotations
 
-from leadlag.broker.base import OrderIntent
+from .null_adapter import NullBrokerAdapter
 
 
-class NullBroker:
-    def submit(self, order: OrderIntent) -> dict:
-        return {"status": "accepted_dryrun", "ticker": order.ticker, "qty": order.qty}
+class NullBroker(NullBrokerAdapter):
+    """Compatibility shim for older imports.
 
-    def cancel_all(self) -> list[dict]:
-        return []
+    Step 09 keeps this name available, but the implementation is still the
+    credential-free dry-run adapter and has no live submission path.
+    """
+
