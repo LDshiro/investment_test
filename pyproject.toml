@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "leadlag-stack"
+version = "0.1.0"
+description = "Research and shadow-trading scaffold for JP-US sector lead-lag strategy"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.0",
+  "numpy>=1.26",
+  "pyyaml>=6.0",
+  "pydantic>=2.6",
+  "duckdb>=1.0",
+  "matplotlib>=3.8",
+  "statsmodels>=0.14",
+  "tabulate>=0.9",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "mypy>=1.8",
+  "ruff>=0.4",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

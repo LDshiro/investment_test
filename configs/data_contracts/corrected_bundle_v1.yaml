@@ -1,0 +1,152 @@
+contract_name: corrected_bundle_v1
+contract_version: 1.0.0
+bundle_type: yahoo_corrected_research_bundle
+
+required_files:
+  - returns_cc.csv
+  - returns_oc_jp.csv
+  - open_prices_adj.csv
+  - close_prices_adj.csv
+  - common_dates_core.csv
+  - common_dates_full.csv
+  - ff3_japan_daily.csv
+  - mom_japan_daily.csv
+  - carhart4_japan_daily.csv
+
+optional_files:
+  - patch_table.csv
+  - bundle_manifest.json
+  - data_hashes.json
+
+files:
+  returns_cc: returns_cc.csv
+  returns_oc_jp: returns_oc_jp.csv
+  open_prices_adj: open_prices_adj.csv
+  close_prices_adj: close_prices_adj.csv
+  common_dates_core: common_dates_core.csv
+  common_dates_full: common_dates_full.csv
+  ff3: ff3_japan_daily.csv
+  mom: mom_japan_daily.csv
+  carhart4: carhart4_japan_daily.csv
+  patch_table: patch_table.csv
+  bundle_manifest: bundle_manifest.json
+  data_hashes: data_hashes.json
+
+date_list_keys:
+  - common_dates_core
+  - common_dates_full
+
+weekend_check_keys:
+  - returns_cc
+  - returns_oc_jp
+  - open_prices_adj
+  - close_prices_adj
+
+universes:
+  us_all:
+    - XLB
+    - XLE
+    - XLF
+    - XLI
+    - XLK
+    - XLP
+    - XLU
+    - XLV
+    - XLY
+    - XLC
+    - XLRE
+  us_core:
+    - XLB
+    - XLE
+    - XLF
+    - XLI
+    - XLK
+    - XLP
+    - XLU
+    - XLV
+    - XLY
+  jp:
+    - 1617.T
+    - 1618.T
+    - 1619.T
+    - 1620.T
+    - 1621.T
+    - 1622.T
+    - 1623.T
+    - 1624.T
+    - 1625.T
+    - 1626.T
+    - 1627.T
+    - 1628.T
+    - 1629.T
+    - 1630.T
+    - 1631.T
+    - 1632.T
+    - 1633.T
+
+factor_columns:
+  ff3:
+    required:
+      - MKT
+      - SMB
+      - HML
+      - RF
+    aliases:
+      MKT:
+        - MKT
+        - Mkt-RF
+      SMB:
+        - SMB
+      HML:
+        - HML
+      RF:
+        - RF
+  mom:
+    required:
+      - MOM
+    aliases:
+      MOM:
+        - MOM
+        - WML
+  carhart4:
+    required:
+      - MKT
+      - SMB
+      - HML
+      - MOM
+      - RF
+    aliases:
+      MKT:
+        - MKT
+        - Mkt-RF
+      SMB:
+        - SMB
+      HML:
+        - HML
+      MOM:
+        - MOM
+        - WML
+      RF:
+        - RF
+
+tolerances:
+  returns_oc_reconciliation_abs: 1.0e-10
+  returns_cc_diagnostic_abs: 1.0e-10
+
+patch_table:
+  file_key: patch_table
+  expected_columns:
+    - ticker
+    - date
+    - field
+    - before
+    - after
+    - reason
+    - patch_id
+    - status
+  accepted_status_values:
+    - approved
+    - pending
+    - rejected
+  allowed_statuses_active_bundle:
+    - approved

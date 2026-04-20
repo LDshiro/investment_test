@@ -1,0 +1,95 @@
+extends:
+  - weekly_rules_shadow_default.yaml
+
+name: weekly_rules_shadow_small_live_candidate
+
+description: |
+  Slightly more permissive weekly rules intended for a later-stage small-live pilot.
+  Keep the same hard stops, but tolerate a somewhat weaker weekly draw profile.
+
+weekly_status:
+  warn:
+    - code: weekly_drawdown_watch
+      metric: shadow_return_compounded
+      op: lt
+      value: -0.015
+      message: Weekly shadow return was below -1.5%.
+    - code: active_underperformance_watch
+      metric: active_return_diff_compounded
+      op: lt
+      value: -0.025
+      message: Shadow underperformed paper by more than 2.5% in the week.
+    - code: hit_rate_soft
+      metric: shadow_hit_rate
+      op: lt
+      value: 0.20
+      message: Weekly hit rate fell below 20%.
+    - code: expected_cost_soft
+      metric: avg_expected_cost_bps
+      op: gt
+      value: 22.5
+      message: Average expected round-trip cost exceeded 22.5 bps.
+    - code: gross_exposure_soft
+      metric: avg_gross_exposure
+      op: gt
+      value: 0.95
+      message: Average gross exposure exceeded 0.95.
+    - code: alert_density_soft
+      metric: avg_alert_count
+      op: gt
+      value: 2.0
+      message: Average alert count per day exceeded 2.0.
+    - code: tradable_width_soft
+      metric: avg_tradable_names
+      op: lt
+      value: 11
+      message: Tradable universe narrowed below 11 names on average.
+
+promotion:
+  requirements:
+    - code: enough_trade_days
+      metric: total_trade_days
+      op: gte
+      value: 15
+      message: At least 15 trade days are required across the lookback window.
+    - code: non_negative_shadow_return
+      metric: total_shadow_return_compounded
+      op: gte
+      value: 0.0
+      message: Compounded shadow return over the review window must be non-negative.
+    - code: sufficient_go_weeks
+      metric: go_weeks
+      op: gte
+      value: 2
+      message: At least 2 of the last 4 weeks must be GO.
+    - code: limited_warn_weeks
+      metric: warn_weeks
+      op: lte
+      value: 2
+      message: No more than 2 of the last 4 weeks may be WARN.
+    - code: acceptable_cost
+      metric: weighted_avg_expected_cost_bps
+      op: lte
+      value: 22.5
+      message: Weighted average expected cost must remain at or below 22.5 bps.
+    - code: adequate_universe_width
+      metric: weighted_avg_tradable_names
+      op: gte
+      value: 11
+      message: Weighted average tradable names must be at least 11.
+    - code: acceptable_hit_rate
+      metric: weighted_shadow_hit_rate
+      op: gte
+      value: 0.35
+      message: Weighted hit rate over the review window must be at least 35%.
+  recommended_live_overrides:
+    run:
+      mode: live_dryrun
+    risk:
+      allow_short: false
+      max_gross: 0.75
+      max_single_name_abs: 0.12
+    deployment:
+      max_live_names: 3
+      fixed_ticket_notional_jpy: 75000
+      expected_objective: Gradually increase live overlap while keeping operational supervision tight.

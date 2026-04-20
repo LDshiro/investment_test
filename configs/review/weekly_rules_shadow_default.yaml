@@ -1,0 +1,153 @@
+schema_version: 1
+name: weekly_rules_shadow_default
+description: |
+  Default weekly GO/WARN/STOP and small-live promotion rules for the corrected-bundle
+  historical shadow replay. The intent is conservative operational gating for a first
+  long-only small-live pilot.
+
+weekly_status:
+  default_status: GO
+  stop:
+    - code: incomplete_week
+      metric: completed_ratio
+      op: lt
+      value: 1.0
+      message: Completed days are fewer than trade days.
+    - code: failed_days_present
+      metric: failed_days
+      op: gt
+      value: 0
+      message: At least one daily run failed during the week.
+    - code: stop_days_present
+      metric: stop_days
+      op: gt
+      value: 0
+      message: At least one daily packet ended in STOP.
+    - code: critical_alert_days_present
+      metric: critical_alert_days
+      op: gt
+      value: 0
+      message: Critical alerts were emitted during the week.
+    - code: triggered_gate_days_present
+      metric: triggered_gate_days
+      op: gt
+      value: 0
+      message: Hard gates triggered on at least one day.
+    - code: tradable_universe_too_small
+      metric: avg_tradable_names
+      op: lt
+      value: 10
+      message: Tradable universe fell below the minimum weekly width.
+  warn:
+    - code: weekly_drawdown_watch
+      metric: shadow_return_compounded
+      op: lt
+      value: -0.01
+      message: Weekly shadow return was below -1.0%.
+    - code: active_underperformance_watch
+      metric: active_return_diff_compounded
+      op: lt
+      value: -0.02
+      message: Shadow underperformed paper by more than 2.0% in the week.
+    - code: hit_rate_soft
+      metric: shadow_hit_rate
+      op: lt
+      value: 0.25
+      message: Weekly hit rate fell below 25%.
+    - code: expected_cost_soft
+      metric: avg_expected_cost_bps
+      op: gt
+      value: 20.0
+      message: Average expected round-trip cost exceeded 20 bps.
+    - code: gross_exposure_soft
+      metric: avg_gross_exposure
+      op: gt
+      value: 0.90
+      message: Average gross exposure exceeded 0.90.
+    - code: alert_density_soft
+      metric: avg_alert_count
+      op: gt
+      value: 1.5
+      message: Average alert count per day exceeded 1.5.
+    - code: tradable_width_soft
+      metric: avg_tradable_names
+      op: lt
+      value: 12
+      message: Tradable universe narrowed below 12 names on average.
+
+promotion:
+  label_ready: READY_FOR_SMALL_LIVE
+  label_hold: HOLD_SHADOW
+  label_blocked: BLOCKED
+  lookback_weeks: 4
+  min_weeks_required: 4
+  require_latest_week_status_in: [GO]
+  require_all_week_status_in: [GO, WARN]
+  disqualifiers:
+    - code: stop_days_present
+      metric: total_stop_days
+      op: gt
+      value: 0
+      message: At least one STOP day occurred in the review window.
+    - code: failed_days_present
+      metric: total_failed_days
+      op: gt
+      value: 0
+      message: At least one failed day occurred in the review window.
+    - code: critical_alert_days_present
+      metric: total_critical_alert_days
+      op: gt
+      value: 0
+      message: Critical alerts occurred in the review window.
+    - code: triggered_gate_days_present
+      metric: total_triggered_gate_days
+      op: gt
+      value: 0
+      message: Hard gates triggered in the review window.
+  requirements:
+    - code: enough_trade_days
+      metric: total_trade_days
+      op: gte
+      value: 15
+      message: At least 15 trade days are required across the lookback window.
+    - code: non_negative_shadow_return
+      metric: total_shadow_return_compounded
+      op: gte
+      value: 0.0
+      message: Compounded shadow return over the review window must be non-negative.
+    - code: sufficient_go_weeks
+      metric: go_weeks
+      op: gte
+      value: 3
+      message: At least 3 of the last 4 weeks must be GO.
+    - code: limited_warn_weeks
+      metric: warn_weeks
+      op: lte
+      value: 1
+      message: No more than 1 of the last 4 weeks may be WARN.
+    - code: acceptable_cost
+      metric: weighted_avg_expected_cost_bps
+      op: lte
+      value: 20.0
+      message: Weighted average expected cost must remain at or below 20 bps.
+    - code: adequate_universe_width
+      metric: weighted_avg_tradable_names
+      op: gte
+      value: 12
+      message: Weighted average tradable names must be at least 12.
+    - code: acceptable_hit_rate
+      metric: weighted_shadow_hit_rate
+      op: gte
+      value: 0.40
+      message: Weighted hit rate over the review window must be at least 40%.
+  recommended_live_overrides:
+    run:
+      mode: live_dryrun
+    risk:
+      allow_short: false
+      max_gross: 0.50
+      max_single_name_abs: 0.10
+    deployment:
+      max_live_names: 2
+      fixed_ticket_notional_jpy: 50000
+      expected_objective: Measure live-vs-shadow execution friction, not maximize PnL.

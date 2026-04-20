@@ -1,0 +1,62 @@
+[
+  {
+    "trade_date": "2025-11-20",
+    "result": "completed",
+    "run_id": "shadow_corrected_batch_local_2025-11-20_20260417T133607Z",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-20_20260417T133607Z",
+    "asof_us_date": "2025-11-19",
+    "status": "GO",
+    "tradable_names": 17,
+    "selected_names": 5,
+    "shadow_net_return": -0.005670329526191328,
+    "paper_counterfactual_return": 0.00144214268044458
+  },
+  {
+    "trade_date": "2025-11-21",
+    "result": "completed",
+    "run_id": "shadow_corrected_batch_local_2025-11-21_20260417T133610Z",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-21_20260417T133610Z",
+    "asof_us_date": "2025-11-20",
+    "status": "GO",
+    "tradable_names": 17,
+    "selected_names": 5,
+    "shadow_net_return": 0.006330580757127552,
+    "paper_counterfactual_return": 0.0012953829491503394
+  },
+  {
+    "trade_date": "2025-11-25",
+    "result": "completed",
+    "run_id": "shadow_corrected_batch_local_2025-11-25_20260417T133612Z",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-25_20260417T133612Z",
+    "asof_us_date": "2025-11-21",
+    "status": "GO",
+    "tradable_names": 17,
+    "selected_names": 5,
+    "shadow_net_return": -0.011458226595115438,
+    "paper_counterfactual_return": -0.00555832953371526
+  },
+  {
+    "trade_date": "2025-11-26",
+    "result": "completed",
+    "run_id": "shadow_corrected_batch_local_2025-11-26_20260417T133614Z",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-26_20260417T133614Z",
+    "asof_us_date": "2025-11-25",
+    "status": "GO",
+    "tradable_names": 17,
+    "selected_names": 5,
+    "shadow_net_return": 0.008860710119346686,
+    "paper_counterfactual_return": -0.0019504357725080193
+  },
+  {
+    "trade_date": "2025-11-28",
+    "result": "completed",
+    "run_id": "shadow_corrected_batch_local_2025-11-28_20260417T133617Z",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-28_20260417T133617Z",
+    "asof_us_date": "2025-11-26",
+    "status": "GO",
+    "tradable_names": 17,
+    "selected_names": 5,
+    "shadow_net_return": 0.0014608559290252843,
+    "paper_counterfactual_return": -0.0005894120408544999
+  }
+]

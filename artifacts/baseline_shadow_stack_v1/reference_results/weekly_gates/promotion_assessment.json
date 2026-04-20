@@ -1,0 +1,33 @@
+{
+  "promotion_status": "HOLD_SHADOW",
+  "reason": "need at least 4 weekly observations",
+  "metrics": {
+    "window_weeks": 2,
+    "lookback_weeks": 4,
+    "latest_week_label": "2025-W48",
+    "latest_week_status": "STOP",
+    "go_weeks": 0,
+    "warn_weeks": 0,
+    "stop_weeks": 2,
+    "total_trade_days": 5,
+    "total_completed_days": 0,
+    "total_failed_days": 0,
+    "total_stop_days": 0,
+    "total_warn_days": 0,
+    "total_critical_alert_days": 0,
+    "total_triggered_gate_days": 0,
+    "total_shadow_return_compounded": null,
+    "total_paper_return_compounded": null,
+    "weighted_shadow_hit_rate": null,
+    "weighted_avg_expected_cost_bps": 15.0,
+    "weighted_avg_tradable_names": null,
+    "weighted_avg_selected_names": null,
+    "weighted_avg_gross_exposure": 0.75,
+    "weighted_avg_alert_count": 1.0,
+    "total_active_return_diff_compounded": null
+  },
+  "failed_checks": [
+    "insufficient_history"
+  ],
+  "recommended_live_overrides": null
+}

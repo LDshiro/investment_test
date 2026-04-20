@@ -1,0 +1,12 @@
+shadow run completed: runs\shadow_corrected_local_2025-11-28_20260417T133705Z
+{
+  "run_id": "shadow_corrected_local_2025-11-28_20260417T133705Z",
+  "packet_dir": "runs\\shadow_corrected_local_2025-11-28_20260417T133705Z",
+  "trade_date": "2025-11-28",
+  "asof_us_date": "2025-11-26",
+  "status": "GO",
+  "tradable_names": 17,
+  "selected_names": 5,
+  "shadow_net_return": 0.0014608559290252843,
+  "paper_counterfactual_return": -0.0005894120408544999
+}

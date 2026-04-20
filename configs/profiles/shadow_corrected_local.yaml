@@ -1,0 +1,65 @@
+# Local profile for one-day historical shadow runs using the corrected bundle.
+# Place this file under configs/profiles/shadow_corrected_local.yaml
+# and run from the repo root.
+
+extends:
+  - shadow_corrected.yaml
+
+run:
+  # Human-readable run name written into the packet.
+  name: shadow_corrected_local
+  mode: shadow
+
+  # These paths are best kept relative so the repo is portable.
+  runs_root: ./runs
+  logs_root: ./logs
+
+  # Historical shadow date to replay.
+  # This should be a valid JP trade date inside the Table 1 exact-match window.
+  historical_trade_date: 2025-11-28
+
+  # Shadow NAV used to convert target weights into notional JPY exposures.
+  shadow_nav_jpy: 1000000
+
+  # Keep packet generation on for day-by-day review.
+  write_daily_packet: true
+
+data:
+  source: corrected_bundle
+
+  # Path to the corrected bundle directory.
+  # Expected files under this directory:
+  #   returns_cc.csv
+  #   returns_oc_jp.csv
+  #   common_dates_core.csv
+  #   common_dates_full.csv
+  #   ff3_japan_daily.csv
+  #   mom_japan_daily.csv
+  #   carhart4_japan_daily.csv
+  #   open_prices_adj.csv
+  #   close_prices_adj.csv
+  #   patch_table.csv
+  root: ./data/normalized/corrected_bundle
+
+risk:
+  # Deployment-oriented shadow defaults.
+  # Start conservative, then relax after you have compared shadow vs live friction.
+  allow_short: false
+  max_gross: 1.0
+  max_net: 1.0
+  max_single_name_abs: 0.15
+  min_tradable_names: 6
+  max_expected_cost_bps: 35.0
+
+  hard_gates:
+    - missing_price
+    - missing_factor
+    - no_common_dates
+    - unapproved_patch
+    - cost_too_high
+    - tradable_names_too_few
+
+packet:
+  include_charts: true
+  write_csv: true
+  write_json: true

@@ -1,0 +1,78 @@
+{
+  "baseline_name": "baseline_shadow_stack_v1",
+  "generated_at_utc": "2026-04-17T13:36:53Z",
+  "entries": [
+    {
+      "path": "configs/profiles/backtest_corrected_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "5807e29fa5be047f770055c2743b8534f2991ba16d496136a43959c58b339ed6",
+      "load_status": "ok",
+      "resolved_config_hash": "e4b43a827f8fa3fde31e96846ec94c267152e0c4cfbc5eaf25ccd7bbad534a28",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "a981ae3c36d4829154e0f1e42ea8a6e24560abb463a9e2d550281c80a57e6744",
+      "load_status": "ok",
+      "resolved_config_hash": "e75d7467e2c5bd2576b0ac2c706927e1d0f33d44d22f9553c78ddda589d0e6bf",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "845fc350ffc17231a40d302307fd0a6a20f2147442eef99990d32ae8c33c36f3",
+      "load_status": "ok",
+      "resolved_config_hash": "20cac4de82c1b9100ba5252749f3343ca2dd0a9c448db806f9c39a41ffc166bd",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_20d_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "7ea1d7b5c372c28473c5b6ba958a063c746c8b123bcdc69ba1c747b64ea75e27",
+      "load_status": "ok",
+      "resolved_config_hash": "3f79d816b9a84ba04afc3b62389c16c164471e92f8e074b6eb0120340181256b",
+      "canonical": true
+    },
+    {
+      "path": "configs/review/weekly_rules_shadow_default.yaml",
+      "class": "rules_config",
+      "exists": true,
+      "raw_sha256": "01a8f63e8910c403c73ba395d164b47060680486f0b3a0b8317ba35ada5a42e9",
+      "load_status": "ok",
+      "resolved_config_hash": "e16be732c09063b146cf2250cce958826d275d3de4055f9a32d79e1fc92b0d9d",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_local_mntdata.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "09104bbed410a1e1b0861a16433b789079f0e72c28a60d4a866269e7866e0215",
+      "load_status": "ok",
+      "resolved_config_hash": "8bbf8a357fd2de65f314186dd04166ae90831d610b1589b012974cac7350bfb9",
+      "canonical": false
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_local_mntdata.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "99c331649d7468cab8623fef1a8dc0fa9e6e71a40dbe19bc5980741a6d53f536",
+      "load_status": "ok",
+      "resolved_config_hash": "f93e6b21b83c963c26659f589737be5feac5dedd62f482508142fd1b8794b80c",
+      "canonical": false
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_20d_local_mntdata.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "787bb1272d281983698bef59540e094e001a21d021341cd7b65358ebda0a7a96",
+      "load_status": "ok",
+      "resolved_config_hash": "99e1b5f148db77bc19a4f60e49487843782130c7dfc8032b4e01d0139cae3378",
+      "canonical": false
+    }
+  ]
+}

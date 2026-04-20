@@ -1,0 +1,21 @@
+{
+  "generated_at_utc": "2026-04-17T14:25:41Z",
+  "entries": [
+    {
+      "path": "requirements.lock.txt",
+      "exists": true,
+      "size_bytes": 608,
+      "mtime_utc": "2026-04-17T14:24:42Z",
+      "sha256": "899cb44e3772f6a00128240022b7f8e2815bc07b7b405922a89aa966f1e53fd4",
+      "kind": "requirements.lock.txt"
+    },
+    {
+      "path": "requirements-dev.lock.txt",
+      "exists": true,
+      "size_bytes": 754,
+      "mtime_utc": "2026-04-17T14:24:16Z",
+      "sha256": "71db7391e5fe593d9ae76ba2c70b9e51749848f82c1b9849e3eb7a1f1004e3e1",
+      "kind": "requirements-dev.lock.txt"
+    }
+  ]
+}

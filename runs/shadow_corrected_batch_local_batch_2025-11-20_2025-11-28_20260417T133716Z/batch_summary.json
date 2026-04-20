@@ -1,0 +1,42 @@
+[
+  {
+    "trade_date": "2025-11-20",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-20_20260417T133607Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-21",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-21_20260417T133610Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-25",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-25_20260417T133612Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-26",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-26_20260417T133614Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_local_2025-11-28_20260417T133617Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  }
+]

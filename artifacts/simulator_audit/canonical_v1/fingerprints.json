@@ -1,0 +1,247 @@
+{
+  "contract_version": "canonical_simulator_v1",
+  "primary": {
+    "2025-11-28": {
+      "stable_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1",
+      "files": {
+        "signals.csv": "10cdc4036aa55882a7f55122354fd1f9eefb13f0bdd33867888595dd256bdaad",
+        "orders_shadow.csv": "3fc090289ad41b0731658d67ee2d9b1e712cbbdc51036da917422d05852a50f0",
+        "fills_shadow.csv": "5d93e6f957555184392000276a0a85b33e0fdf791400b66e57ec4cd08187cf4f",
+        "positions.csv": "82d41b9dc26635aac8f7bda350fd17f70a3d472f19eb65540328507464a8bfc9",
+        "pnl.csv": "ed5ea7adac7b7fe41215875010640564823fd23d689c97ed7473a9e0346aced5",
+        "run.json": "47d1c8760f80e9d2a6deefb438ff362e6f91d3e51a30151092254b4550010212",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-11-26": {
+      "stable_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f",
+      "files": {
+        "signals.csv": "bca6a3f09c0ae26e08fff3bd726c8ef17e66f30287f4bf587c46df7531087d42",
+        "orders_shadow.csv": "a252585283c61e24ed438d03b478d9378107b1e12018edb56ee827bb719ad5e4",
+        "fills_shadow.csv": "e65a1f4c76c91cb114b9d2c4d43a562fc80355cdb0f555cda342e4bf350aa141",
+        "positions.csv": "0ea90e8082d3b18a01a9c0bce4ee334ead234a37cac41fdf68e05845797e7b4c",
+        "pnl.csv": "2dc951143727526fb5fdac71d042cab64ef204e351bcd4a63fb3a542c37aec3c",
+        "run.json": "addf85f78f377f7694c9048812893154dc02ba68c31c9cc560b711c7b93f67bf",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-11-25": {
+      "stable_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505",
+      "files": {
+        "signals.csv": "96b204be5230470efd74d958958241924f236cebfde536e97e31ea33bdb50b68",
+        "orders_shadow.csv": "6e39e386d4875776f388ec63519355cf3caae19fcebd77518edad61b18b09ace",
+        "fills_shadow.csv": "29c73de5ad24c666941ebdc6d36e4e3f3f7e603aeeca5a5b38dde87034308394",
+        "positions.csv": "1a86e15ebd1cee8f366d0808c127ee49df845d539f752d953a0fe7376e2c75b7",
+        "pnl.csv": "ab2bc0f6a7e2aed2178756df1ae4e76da16334d24b13d3c9872b84362d692c38",
+        "run.json": "baa0e42f42e777dc339f8b7d34f30a87260a757a0d0eab49025b0b105e560f69",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-08-27": {
+      "stable_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022",
+      "files": {
+        "signals.csv": "cf318ac2a45e178e60506697088fe4f167ec936601af090a0ea5733ca79b9ab5",
+        "orders_shadow.csv": "43d9cafb21f694db6d0492f187ad542f9f76b02bc7fd3b8d08972d671e0fe389",
+        "fills_shadow.csv": "3946d6a6183070c86848c86d7b8e2e1b2d3c30025ddd363afa74d75f242e9445",
+        "positions.csv": "7d283e832161cafc6e8b01ac07afe2eb7893c90f5dfabda5df88714f22b4ec85",
+        "pnl.csv": "fea4bf1ade368206aa7136f1ba3d15c8d5bcfef5cc19eaf1bbeb45f39997ad16",
+        "run.json": "b8bd455dc02d49a71ca4e0133eec6708b03274cf5ef880926603c3abad613a16",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-09-03": {
+      "stable_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3",
+      "files": {
+        "signals.csv": "eada9ca9f9b4c1f3a73da5949d16bfe73f3ad1b6a7b5c2037296fbcae45fbb60",
+        "orders_shadow.csv": "8e5657815ce45701be315175edfb396e2d44c98f926e3dc3dffbad6d9629d02a",
+        "fills_shadow.csv": "36031c9000320af8d5a84af9102cd8e7e4d78f8e24b376586133cac364138959",
+        "positions.csv": "5ecd8dd3233f1f6b9c0fa7350e190a7f90a285a915196d797c4b8e6c6ad76361",
+        "pnl.csv": "086a40ba96f665f3b75eefb91c115ad0959d0addbfd1c71025ff1bbd285684aa",
+        "run.json": "343f75f44e0b7fbf372248f310872c97c4fefb1ff2a3a6dd4bfd7d6ff3c16d1f",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    }
+  },
+  "rerun": {
+    "2025-11-28": {
+      "stable_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1",
+      "files": {
+        "signals.csv": "10cdc4036aa55882a7f55122354fd1f9eefb13f0bdd33867888595dd256bdaad",
+        "orders_shadow.csv": "3fc090289ad41b0731658d67ee2d9b1e712cbbdc51036da917422d05852a50f0",
+        "fills_shadow.csv": "5d93e6f957555184392000276a0a85b33e0fdf791400b66e57ec4cd08187cf4f",
+        "positions.csv": "82d41b9dc26635aac8f7bda350fd17f70a3d472f19eb65540328507464a8bfc9",
+        "pnl.csv": "ed5ea7adac7b7fe41215875010640564823fd23d689c97ed7473a9e0346aced5",
+        "run.json": "47d1c8760f80e9d2a6deefb438ff362e6f91d3e51a30151092254b4550010212",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-11-26": {
+      "stable_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f",
+      "files": {
+        "signals.csv": "bca6a3f09c0ae26e08fff3bd726c8ef17e66f30287f4bf587c46df7531087d42",
+        "orders_shadow.csv": "a252585283c61e24ed438d03b478d9378107b1e12018edb56ee827bb719ad5e4",
+        "fills_shadow.csv": "e65a1f4c76c91cb114b9d2c4d43a562fc80355cdb0f555cda342e4bf350aa141",
+        "positions.csv": "0ea90e8082d3b18a01a9c0bce4ee334ead234a37cac41fdf68e05845797e7b4c",
+        "pnl.csv": "2dc951143727526fb5fdac71d042cab64ef204e351bcd4a63fb3a542c37aec3c",
+        "run.json": "addf85f78f377f7694c9048812893154dc02ba68c31c9cc560b711c7b93f67bf",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-11-25": {
+      "stable_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505",
+      "files": {
+        "signals.csv": "96b204be5230470efd74d958958241924f236cebfde536e97e31ea33bdb50b68",
+        "orders_shadow.csv": "6e39e386d4875776f388ec63519355cf3caae19fcebd77518edad61b18b09ace",
+        "fills_shadow.csv": "29c73de5ad24c666941ebdc6d36e4e3f3f7e603aeeca5a5b38dde87034308394",
+        "positions.csv": "1a86e15ebd1cee8f366d0808c127ee49df845d539f752d953a0fe7376e2c75b7",
+        "pnl.csv": "ab2bc0f6a7e2aed2178756df1ae4e76da16334d24b13d3c9872b84362d692c38",
+        "run.json": "baa0e42f42e777dc339f8b7d34f30a87260a757a0d0eab49025b0b105e560f69",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-08-27": {
+      "stable_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022",
+      "files": {
+        "signals.csv": "cf318ac2a45e178e60506697088fe4f167ec936601af090a0ea5733ca79b9ab5",
+        "orders_shadow.csv": "43d9cafb21f694db6d0492f187ad542f9f76b02bc7fd3b8d08972d671e0fe389",
+        "fills_shadow.csv": "3946d6a6183070c86848c86d7b8e2e1b2d3c30025ddd363afa74d75f242e9445",
+        "positions.csv": "7d283e832161cafc6e8b01ac07afe2eb7893c90f5dfabda5df88714f22b4ec85",
+        "pnl.csv": "fea4bf1ade368206aa7136f1ba3d15c8d5bcfef5cc19eaf1bbeb45f39997ad16",
+        "run.json": "b8bd455dc02d49a71ca4e0133eec6708b03274cf5ef880926603c3abad613a16",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    },
+    "2025-09-03": {
+      "stable_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3",
+      "files": {
+        "signals.csv": "eada9ca9f9b4c1f3a73da5949d16bfe73f3ad1b6a7b5c2037296fbcae45fbb60",
+        "orders_shadow.csv": "8e5657815ce45701be315175edfb396e2d44c98f926e3dc3dffbad6d9629d02a",
+        "fills_shadow.csv": "36031c9000320af8d5a84af9102cd8e7e4d78f8e24b376586133cac364138959",
+        "positions.csv": "5ecd8dd3233f1f6b9c0fa7350e190a7f90a285a915196d797c4b8e6c6ad76361",
+        "pnl.csv": "086a40ba96f665f3b75eefb91c115ad0959d0addbfd1c71025ff1bbd285684aa",
+        "run.json": "343f75f44e0b7fbf372248f310872c97c4fefb1ff2a3a6dd4bfd7d6ff3c16d1f",
+        "risk_report.json": "637e9ec3928ea3770e079431c45f6ea1991586f1c7b8d7c81f34ed2589c5cc72",
+        "alerts.json": "49fea19ff1026cdf93dbe3b587c1e681e119869f34e76262ae70579e6c8d7a0e"
+      },
+      "volatile_run_json_fields": [
+        "bundle_root",
+        "code_version",
+        "finished_at",
+        "run_id",
+        "started_at"
+      ]
+    }
+  },
+  "comparison": {
+    "passed": true,
+    "trade_dates": [
+      "2025-08-27",
+      "2025-09-03",
+      "2025-11-25",
+      "2025-11-26",
+      "2025-11-28"
+    ],
+    "missing_primary": [],
+    "missing_rerun": [],
+    "mismatches": [],
+    "per_trade_date": {
+      "2025-08-27": {
+        "match": true,
+        "primary_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022",
+        "rerun_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022"
+      },
+      "2025-09-03": {
+        "match": true,
+        "primary_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3",
+        "rerun_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3"
+      },
+      "2025-11-25": {
+        "match": true,
+        "primary_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505",
+        "rerun_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505"
+      },
+      "2025-11-26": {
+        "match": true,
+        "primary_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f",
+        "rerun_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f"
+      },
+      "2025-11-28": {
+        "match": true,
+        "primary_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1",
+        "rerun_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1"
+      }
+    }
+  }
+}

@@ -1,0 +1,8 @@
+shadow batch completed: runs\shadow_corrected_batch_local_batch_2025-11-20_2025-11-28_20260417T133716Z
+{
+  "batch_dir": "runs\\shadow_corrected_batch_local_batch_2025-11-20_2025-11-28_20260417T133716Z",
+  "dates_requested": 5,
+  "completed": 0,
+  "skipped_existing": 5,
+  "failed": 0
+}

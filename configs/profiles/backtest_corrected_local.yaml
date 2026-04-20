@@ -1,0 +1,11 @@
+extends:
+  - backtest_corrected.yaml
+
+run:
+  name: backtest_corrected_local
+  mode: backtest
+  runs_root: /mnt/data/leadlag_stack_runs
+  logs_root: /mnt/data/leadlag_stack_logs
+
+data:
+  root: /mnt/data/corrected_bundle_current

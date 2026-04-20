@@ -1,0 +1,12 @@
+weekly gates completed: C:\Users\shiro\OneDrive\ドキュメント\Spyder\MISOCP\investment\artifacts\baseline_shadow_stack_v1\reference_results\weekly_gates
+{
+  "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates",
+  "weekly_rows": 2,
+  "latest_week": "2025-W48",
+  "latest_week_status": "STOP",
+  "promotion_status": "HOLD_SHADOW",
+  "weekly_status_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\weekly_status_evaluated.csv",
+  "weekly_status_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\weekly_status_evaluated.json",
+  "promotion_assessment_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\promotion_assessment.json",
+  "promotion_assessment_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\promotion_assessment.md"
+}

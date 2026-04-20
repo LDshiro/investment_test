@@ -1,0 +1,12 @@
+# Absolute-path batch replay profile for the current container environment.
+# This is convenient for reproducing results inside /mnt/data.
+
+extends:
+  - shadow_corrected_batch_local.yaml
+
+run:
+  runs_root: /mnt/data/leadlag_batch_runs
+  logs_root: /mnt/data/leadlag_batch_logs
+
+data:
+  root: /mnt/data/corrected_bundle_current

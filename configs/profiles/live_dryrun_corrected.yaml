@@ -1,0 +1,17 @@
+extends:
+  - ../base.yaml
+  - ../data/corrected_bundle.yaml
+  - ../strategy/pca_sub.yaml
+  - ../cost/jp_etf_conservative.yaml
+  - ../risk/default.yaml
+  - ../broker/kabu.yaml
+  - ../packets/daily.yaml
+
+run:
+  name: live_dryrun_corrected
+  mode: live_dryrun
+
+risk:
+  allow_short: false
+  max_gross: 0.5
+  max_single_name_abs: 0.10

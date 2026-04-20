@@ -1,0 +1,15 @@
+packet:
+  schema_version: 1
+  required_files:
+    - summary.md
+    - run.json
+    - signals.csv
+    - orders_shadow.csv
+    - fills_shadow.csv
+    - positions.csv
+    - pnl.csv
+    - risk_report.json
+    - alerts.json
+  optional_files:
+    - figure_signals.png
+    - figure_equity_curve.png

@@ -1,0 +1,457 @@
+{
+  "baseline_name": "baseline_shadow_stack_v1",
+  "created_at_utc": "2026-04-17T13:37:20Z",
+  "git": {
+    "available": false,
+    "requested_branch": "ops/step01-baseline-freeze",
+    "requested_tag": "baseline-shadow-stack-v1",
+    "commit": null,
+    "branch": null,
+    "dirty": null,
+    "tag_target": null,
+    "reason": "fatal: not a git repository (or any of the parent directories): .git"
+  },
+  "environment": {
+    "python_version": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+    "python_executable": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "cwd": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment",
+    "venv_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv",
+    "dependency_snapshot": "artifacts/baseline_shadow_stack_v1/pip_freeze.txt"
+  },
+  "canonical_profiles": [
+    {
+      "path": "configs/profiles/backtest_corrected_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "5807e29fa5be047f770055c2743b8534f2991ba16d496136a43959c58b339ed6",
+      "load_status": "ok",
+      "resolved_config_hash": "e4b43a827f8fa3fde31e96846ec94c267152e0c4cfbc5eaf25ccd7bbad534a28",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "a981ae3c36d4829154e0f1e42ea8a6e24560abb463a9e2d550281c80a57e6744",
+      "load_status": "ok",
+      "resolved_config_hash": "e75d7467e2c5bd2576b0ac2c706927e1d0f33d44d22f9553c78ddda589d0e6bf",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "845fc350ffc17231a40d302307fd0a6a20f2147442eef99990d32ae8c33c36f3",
+      "load_status": "ok",
+      "resolved_config_hash": "20cac4de82c1b9100ba5252749f3343ca2dd0a9c448db806f9c39a41ffc166bd",
+      "canonical": true
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_20d_local.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "7ea1d7b5c372c28473c5b6ba958a063c746c8b123bcdc69ba1c747b64ea75e27",
+      "load_status": "ok",
+      "resolved_config_hash": "3f79d816b9a84ba04afc3b62389c16c164471e92f8e074b6eb0120340181256b",
+      "canonical": true
+    },
+    {
+      "path": "configs/review/weekly_rules_shadow_default.yaml",
+      "class": "rules_config",
+      "exists": true,
+      "raw_sha256": "01a8f63e8910c403c73ba395d164b47060680486f0b3a0b8317ba35ada5a42e9",
+      "load_status": "ok",
+      "resolved_config_hash": "e16be732c09063b146cf2250cce958826d275d3de4055f9a32d79e1fc92b0d9d",
+      "canonical": true
+    }
+  ],
+  "auxiliary_profiles": [
+    {
+      "path": "configs/profiles/shadow_corrected_local_mntdata.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "09104bbed410a1e1b0861a16433b789079f0e72c28a60d4a866269e7866e0215",
+      "load_status": "ok",
+      "resolved_config_hash": "8bbf8a357fd2de65f314186dd04166ae90831d610b1589b012974cac7350bfb9",
+      "canonical": false
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_local_mntdata.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "99c331649d7468cab8623fef1a8dc0fa9e6e71a40dbe19bc5980741a6d53f536",
+      "load_status": "ok",
+      "resolved_config_hash": "f93e6b21b83c963c26659f589737be5feac5dedd62f482508142fd1b8794b80c",
+      "canonical": false
+    },
+    {
+      "path": "configs/profiles/shadow_corrected_batch_20d_local_mntdata.yaml",
+      "class": "app_config",
+      "exists": true,
+      "raw_sha256": "787bb1272d281983698bef59540e094e001a21d021341cd7b65358ebda0a7a96",
+      "load_status": "ok",
+      "resolved_config_hash": "99e1b5f148db77bc19a4f60e49487843782130c7dfc8032b4e01d0139cae3378",
+      "canonical": false
+    }
+  ],
+  "config_hashes": {
+    "baseline_name": "baseline_shadow_stack_v1",
+    "generated_at_utc": "2026-04-17T13:36:53Z",
+    "entries": [
+      {
+        "path": "configs/profiles/backtest_corrected_local.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "5807e29fa5be047f770055c2743b8534f2991ba16d496136a43959c58b339ed6",
+        "load_status": "ok",
+        "resolved_config_hash": "e4b43a827f8fa3fde31e96846ec94c267152e0c4cfbc5eaf25ccd7bbad534a28",
+        "canonical": true
+      },
+      {
+        "path": "configs/profiles/shadow_corrected_local.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "a981ae3c36d4829154e0f1e42ea8a6e24560abb463a9e2d550281c80a57e6744",
+        "load_status": "ok",
+        "resolved_config_hash": "e75d7467e2c5bd2576b0ac2c706927e1d0f33d44d22f9553c78ddda589d0e6bf",
+        "canonical": true
+      },
+      {
+        "path": "configs/profiles/shadow_corrected_batch_local.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "845fc350ffc17231a40d302307fd0a6a20f2147442eef99990d32ae8c33c36f3",
+        "load_status": "ok",
+        "resolved_config_hash": "20cac4de82c1b9100ba5252749f3343ca2dd0a9c448db806f9c39a41ffc166bd",
+        "canonical": true
+      },
+      {
+        "path": "configs/profiles/shadow_corrected_batch_20d_local.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "7ea1d7b5c372c28473c5b6ba958a063c746c8b123bcdc69ba1c747b64ea75e27",
+        "load_status": "ok",
+        "resolved_config_hash": "3f79d816b9a84ba04afc3b62389c16c164471e92f8e074b6eb0120340181256b",
+        "canonical": true
+      },
+      {
+        "path": "configs/review/weekly_rules_shadow_default.yaml",
+        "class": "rules_config",
+        "exists": true,
+        "raw_sha256": "01a8f63e8910c403c73ba395d164b47060680486f0b3a0b8317ba35ada5a42e9",
+        "load_status": "ok",
+        "resolved_config_hash": "e16be732c09063b146cf2250cce958826d275d3de4055f9a32d79e1fc92b0d9d",
+        "canonical": true
+      },
+      {
+        "path": "configs/profiles/shadow_corrected_local_mntdata.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "09104bbed410a1e1b0861a16433b789079f0e72c28a60d4a866269e7866e0215",
+        "load_status": "ok",
+        "resolved_config_hash": "8bbf8a357fd2de65f314186dd04166ae90831d610b1589b012974cac7350bfb9",
+        "canonical": false
+      },
+      {
+        "path": "configs/profiles/shadow_corrected_batch_local_mntdata.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "99c331649d7468cab8623fef1a8dc0fa9e6e71a40dbe19bc5980741a6d53f536",
+        "load_status": "ok",
+        "resolved_config_hash": "f93e6b21b83c963c26659f589737be5feac5dedd62f482508142fd1b8794b80c",
+        "canonical": false
+      },
+      {
+        "path": "configs/profiles/shadow_corrected_batch_20d_local_mntdata.yaml",
+        "class": "app_config",
+        "exists": true,
+        "raw_sha256": "787bb1272d281983698bef59540e094e001a21d021341cd7b65358ebda0a7a96",
+        "load_status": "ok",
+        "resolved_config_hash": "99e1b5f148db77bc19a4f60e49487843782130c7dfc8032b4e01d0139cae3378",
+        "canonical": false
+      }
+    ]
+  },
+  "data_hashes": {
+    "baseline_name": "baseline_shadow_stack_v1",
+    "generated_at_utc": "2026-04-17T13:36:53Z",
+    "data_root": "data/normalized/corrected_bundle",
+    "entries": [
+      {
+        "path": "data/normalized/corrected_bundle/returns_cc.csv",
+        "exists": true,
+        "size_bytes": 2254774,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "f587c7b08476ea078013549193c3d28dc08111360000d0fe1ec69160d33b955b",
+        "key": "returns_cc"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/returns_oc_jp.csv",
+        "exists": true,
+        "size_bytes": 1241909,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "3ba6b9094b222e24a429a97f180bac4e08f3aadf7996507fcad4b790fd9c76ec",
+        "key": "returns_oc_jp"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/close_prices_adj.csv",
+        "exists": true,
+        "size_bytes": 1818919,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "f4de26ee1cc507266e097acf527b56fb6b9451b0c66312bc24668cfaa490b607",
+        "key": "close_prices_adj"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/open_prices_adj.csv",
+        "exists": true,
+        "size_bytes": 1970645,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "a84da1b6e49ba68dddae4aea69addd58241b03be55737ad4771aaf1ecba20405",
+        "key": "open_prices_adj"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/common_dates_core.csv",
+        "exists": true,
+        "size_bytes": 41750,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "b01b687327d69be250d392f0c44d1efdc86cd17bd0da19bb938da75693d39a81",
+        "key": "common_dates_core"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/common_dates_full.csv",
+        "exists": true,
+        "size_bytes": 19574,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "2508abf132c79870aaa6bb894898be859161f43d740b061b84c804e234e8b108",
+        "key": "common_dates_full"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/ff3_japan_daily.csv",
+        "exists": true,
+        "size_bytes": 197832,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "83684708fcb86a2fc8d389a455da7b9a23ea0b09f4aac7a0ba130835760edeaf",
+        "key": "ff3_japan_daily"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/mom_japan_daily.csv",
+        "exists": true,
+        "size_bytes": 88767,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "3546a1c41d3944650a7bad0621916d404a87a74039a2a23e7753cc1b1ea13923",
+        "key": "mom_japan_daily"
+      },
+      {
+        "path": "data/normalized/corrected_bundle/carhart4_japan_daily.csv",
+        "exists": true,
+        "size_bytes": 240680,
+        "mtime_utc": "2026-04-17T13:16:04Z",
+        "sha256": "6626c42c241ef6ecf66c9ab116c23f5dff1c7607d980831a40b777171cfc5e33",
+        "key": "carhart4_japan_daily"
+      }
+    ],
+    "optional_entries": [
+      {
+        "path": "data/normalized/corrected_bundle/patch_table.csv",
+        "exists": false,
+        "size_bytes": null,
+        "mtime_utc": null,
+        "sha256": null,
+        "key": "patch_table"
+      }
+    ]
+  },
+  "reference_commands": [
+    {
+      "name": "tests",
+      "requested_command": ".venv/.../python -m pytest",
+      "actual_command": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe -m pytest",
+      "substitution_note": null,
+      "exit_code": 0,
+      "stdout_path": "artifacts/baseline_shadow_stack_v1/reference_results/tests/stdout.txt",
+      "stderr_path": "artifacts/baseline_shadow_stack_v1/reference_results/tests/stderr.txt",
+      "resolved_output_path": null,
+      "output_artifacts": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/tests/stdout.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/tests/stderr.txt"
+      ]
+    },
+    {
+      "name": "inspect_bundle",
+      "requested_command": ".venv/.../python -m leadlag.cli inspect-bundle --config configs/profiles/backtest_corrected.yaml",
+      "actual_command": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe -m leadlag.cli inspect-bundle --config configs/profiles/backtest_corrected.yaml",
+      "substitution_note": "Executed with configs/profiles/backtest_corrected.yaml because backtest_corrected_local.yaml points to /mnt/data in this workspace.",
+      "exit_code": 0,
+      "stdout_path": "artifacts/baseline_shadow_stack_v1/reference_results/inspect_bundle/stdout.txt",
+      "stderr_path": "artifacts/baseline_shadow_stack_v1/reference_results/inspect_bundle/stderr.txt",
+      "resolved_output_path": null,
+      "output_artifacts": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/inspect_bundle/summary.json",
+        "artifacts/baseline_shadow_stack_v1/reference_results/inspect_bundle/stdout.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/inspect_bundle/stderr.txt"
+      ]
+    },
+    {
+      "name": "historical_shadow",
+      "requested_command": ".venv/.../python -m leadlag.cli run --config configs/profiles/shadow_corrected_local.yaml",
+      "actual_command": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe -m leadlag.cli run --config configs/profiles/shadow_corrected_local.yaml",
+      "substitution_note": null,
+      "exit_code": 0,
+      "stdout_path": "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/stdout.txt",
+      "stderr_path": "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/stderr.txt",
+      "resolved_output_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_local_2025-11-28_20260417T133705Z",
+      "output_artifacts": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/resolved_packet_dir.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/packet",
+        "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/stdout.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/stderr.txt"
+      ]
+    },
+    {
+      "name": "batch_replay",
+      "requested_command": ".venv/.../python -m leadlag.cli run-batch --config configs/profiles/shadow_corrected_batch_local.yaml",
+      "actual_command": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe -m leadlag.cli run-batch --config configs/profiles/shadow_corrected_batch_local.yaml",
+      "substitution_note": null,
+      "exit_code": 0,
+      "stdout_path": "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/stdout.txt",
+      "stderr_path": "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/stderr.txt",
+      "resolved_output_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_local_batch_2025-11-20_2025-11-28_20260417T133716Z",
+      "output_artifacts": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/batch_summary.csv",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/batch_summary.json",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/batch_summary.md",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/resolved_batch_dir.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/stdout.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/stderr.txt"
+      ]
+    },
+    {
+      "name": "weekly_review",
+      "requested_command": ".venv/.../python -m leadlag.cli weekly-review --batch-dir <resolved_batch_dir> --output-dir artifacts/baseline_shadow_stack_v1/reference_results/weekly_review",
+      "actual_command": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe -m leadlag.cli weekly-review --batch-dir runs\\shadow_corrected_batch_local_batch_2025-11-20_2025-11-28_20260417T133716Z --output-dir C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review",
+      "substitution_note": null,
+      "exit_code": 0,
+      "stdout_path": "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review_logs/stdout.txt",
+      "stderr_path": "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review_logs/stderr.txt",
+      "resolved_output_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review",
+      "output_artifacts": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review/daily_enriched.csv",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review/weekly_summary.csv",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review/weekly_summary.json",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review/weekly_summary.md",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review/weekly_nav_index.png",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review/weekly_status_counts.png",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review_logs/stdout.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_review_logs/stderr.txt"
+      ]
+    },
+    {
+      "name": "weekly_gates",
+      "requested_command": ".venv/.../python -m leadlag.cli weekly-gates --review-dir artifacts/baseline_shadow_stack_v1/reference_results/weekly_review --rules-config configs/review/weekly_rules_shadow_default.yaml --output-dir artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates",
+      "actual_command": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe -m leadlag.cli weekly-gates --review-dir C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review --rules-config configs/review/weekly_rules_shadow_default.yaml --output-dir C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates",
+      "substitution_note": null,
+      "exit_code": 0,
+      "stdout_path": "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates_logs/stdout.txt",
+      "stderr_path": "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates_logs/stderr.txt",
+      "resolved_output_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates",
+      "output_artifacts": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates/weekly_status_evaluated.csv",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates/weekly_status_evaluated.json",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates/promotion_assessment.json",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates/promotion_assessment.md",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates_logs/stdout.txt",
+        "artifacts/baseline_shadow_stack_v1/reference_results/weekly_gates_logs/stderr.txt"
+      ]
+    }
+  ],
+  "reference_artifacts": {
+    "tests": {
+      "stdout": "artifacts/baseline_shadow_stack_v1/reference_results/tests/stdout.txt",
+      "stderr": "artifacts/baseline_shadow_stack_v1/reference_results/tests/stderr.txt"
+    },
+    "inspect_bundle": {
+      "summary_json": "artifacts/baseline_shadow_stack_v1/reference_results/inspect_bundle/summary.json"
+    },
+    "historical_shadow": {
+      "source_packet_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_local_2025-11-28_20260417T133705Z",
+      "copied_packet_dir": "artifacts/baseline_shadow_stack_v1/reference_results/shadow_run/packet"
+    },
+    "batch_replay": {
+      "source_batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_local_batch_2025-11-20_2025-11-28_20260417T133716Z",
+      "copied_files": [
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/batch_summary.csv",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/batch_summary.json",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/batch_summary.md",
+        "artifacts/baseline_shadow_stack_v1/reference_results/batch_replay/resolved_batch_dir.txt"
+      ]
+    },
+    "weekly_review": {
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review",
+      "daily_rows": 5,
+      "weekly_rows": 2,
+      "latest_week": "2025-W48",
+      "daily_enriched_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\daily_enriched.csv",
+      "weekly_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_summary.csv",
+      "weekly_summary_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_summary.json",
+      "weekly_summary_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_summary.md",
+      "weekly_nav_index_png": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_nav_index.png",
+      "weekly_status_counts_png": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_status_counts.png"
+    },
+    "weekly_gates": {
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates",
+      "weekly_rows": 2,
+      "latest_week": "2025-W48",
+      "latest_week_status": "STOP",
+      "promotion_status": "HOLD_SHADOW",
+      "weekly_status_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\weekly_status_evaluated.csv",
+      "weekly_status_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\weekly_status_evaluated.json",
+      "promotion_assessment_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\promotion_assessment.json",
+      "promotion_assessment_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_gates\\promotion_assessment.md"
+    }
+  },
+  "acceptance_checks": [
+    {
+      "name": "tests pass",
+      "status": "pass"
+    },
+    {
+      "name": "corrected bundle inspection succeeds",
+      "status": "pass"
+    },
+    {
+      "name": "one historical shadow run succeeds",
+      "status": "pass"
+    },
+    {
+      "name": "one batch replay succeeds",
+      "status": "pass"
+    },
+    {
+      "name": "weekly review succeeds",
+      "status": "pass"
+    },
+    {
+      "name": "weekly gates succeeds",
+      "status": "pass"
+    },
+    {
+      "name": "hashes recorded",
+      "status": "pass"
+    },
+    {
+      "name": "commands recorded",
+      "status": "pass"
+    },
+    {
+      "name": "artifacts written under baseline root",
+      "status": "pass"
+    }
+  ],
+  "notes": [
+    "Canonical baseline branch label: ops/step01-baseline-freeze",
+    "Canonical baseline tag label: baseline-shadow-stack-v1",
+    "Inspect-bundle reference command uses configs/profiles/backtest_corrected.yaml because backtest_corrected_local.yaml is pinned to /mnt/data.",
+    "patch_table.csv not present in corrected bundle."
+  ]
+}

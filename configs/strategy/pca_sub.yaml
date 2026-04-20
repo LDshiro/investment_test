@@ -1,0 +1,20 @@
+strategy:
+  name: pca_sub
+  lookback_L: 60
+  n_components_K: 3
+  prior_dim_K0: 3
+  lambda_reg: 0.9
+  quantile_q: 0.3
+  annualization_days: 252
+  metrics:
+    emit_paper_formula_metrics: true
+    emit_standard_metrics: true
+  priors:
+    global_factor: true
+    country_spread: true
+    cyc_def:
+      us_cyclical: [XLB, XLE, XLF, XLRE]
+      us_defensive: [XLK, XLP, XLU, XLV]
+      jp_cyclical: [1618.T, 1625.T, 1629.T, 1631.T]
+      jp_defensive: [1617.T, 1621.T, 1627.T, 1630.T]
+  cfull_policy: core26_expand_to_28

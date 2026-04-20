@@ -1,0 +1,16 @@
+extends:
+  - ../base.yaml
+  - ../data/corrected_bundle.yaml
+  - ../strategy/pca_sub.yaml
+  - ../cost/jp_etf_conservative.yaml
+  - ../risk/default.yaml
+  - ../broker/null.yaml
+  - ../packets/daily.yaml
+
+run:
+  name: backtest_corrected
+  mode: backtest
+
+sample:
+  filter_mode: table1_match_window_search
+  report_table1_like: true

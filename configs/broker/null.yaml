@@ -1,0 +1,4 @@
+broker:
+  kind: "null"
+  paper_sync: false
+  dry_run_only: true

@@ -1,0 +1,4 @@
+expected=3.14.3
+current=3.14.3
+verification=3.14.3
+verification_python=C:\Users\shiro\OneDrive\ドキュメント\Spyder\MISOCP\investment\.venv\Scripts\python.exe

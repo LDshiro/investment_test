@@ -1,0 +1,76 @@
+version: canonical_simulator_v1
+
+mode_scope:
+  - backtest
+  - historical_shadow
+  - broker_dry_run_comparison
+
+price_sources:
+  predictor_returns: returns_cc.csv
+  target_returns: returns_oc_jp.csv
+  adjusted_open_prices: open_prices_adj.csv
+  adjusted_close_prices: close_prices_adj.csv
+
+calendar:
+  sample_filter: table1_exact_match
+  sample_filter_source: common_dates_core.csv
+  target_core_count: 2590
+  target_xlc_count: 1758
+  target_xlre_count: 2409
+  cfull_window_start: 2010-01-01
+  cfull_window_end: 2014-12-31
+
+execution_model:
+  current_behavior: >
+    The current canonical historical shadow path loads the corrected bundle,
+    resolves the Table 1 exact-match sample filter, builds the 2010-2014
+    expand26to28 prior through leadlag_repro, runs the paper-aligned strategy
+    output, takes the selected JP trade date signal, filters to JP names with
+    both adjusted open and adjusted close prices present, converts the signal
+    into equal-weight target weights, scales first for max_single_name_abs and
+    then for max_gross, evaluates hard gates, and only then creates same-day
+    open and close shadow fills.
+  cost_model: >
+    The current net execution model applies commission_bps + side half spread +
+    side slippage bps to the adjusted open and adjusted close mid prices, and
+    applies borrow_fee_bps_annual only to short exposure on a one-day basis.
+  slippage_model: fixed_per_side_bps_from_cost_config
+  fill_model: same_day_open_close_two_fill_assumption
+  pnl_model: gross_pnl_on_mid_prices_and_net_pnl_on_assumed_execution_prices
+  position_model: target_notional_from_shadow_nav_and_target_weight
+
+outputs:
+  required_packet_files:
+    - summary.md
+    - run.json
+    - signals.csv
+    - orders_shadow.csv
+    - fills_shadow.csv
+    - positions.csv
+    - pnl.csv
+    - risk_report.json
+    - alerts.json
+
+audit:
+  min_golden_days: 5
+  deterministic_rerun_required: true
+  candidate_pool_recent_n: 20
+  fallback_pool_recent_n: 60
+  holiday_gap_days: 4
+  fingerprint_files:
+    raw_csv:
+      - signals.csv
+      - orders_shadow.csv
+      - fills_shadow.csv
+      - positions.csv
+      - pnl.csv
+    normalized_json:
+      - run.json
+      - risk_report.json
+      - alerts.json
+  volatile_run_json_fields:
+    - code_version
+    - run_id
+    - started_at
+    - finished_at
+    - bundle_root

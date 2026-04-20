@@ -1,0 +1,26 @@
+============================= test session starts =============================
+platform win32 -- Python 3.14.3, pytest-9.0.3, pluggy-1.6.0
+rootdir: C:\Users\shiro\OneDrive\ドキュメント\Spyder\MISOCP\investment
+configfile: pyproject.toml
+testpaths: tests
+collected 19 items
+
+tests\test_baseline_freeze.py .......                                    [ 36%]
+tests\test_batch_profile.py .                                            [ 42%]
+tests\test_batch_profile_20d.py .                                        [ 47%]
+tests\test_config.py .                                                   [ 52%]
+tests\test_corrected_bundle_config.py .                                  [ 57%]
+tests\test_gates.py .                                                    [ 63%]
+tests\test_packet_layout.py .                                            [ 68%]
+tests\test_profile_merging.py ..                                         [ 78%]
+tests\test_weekly_review.py .                                            [ 84%]
+tests\test_weekly_rules.py ..                                            [ 94%]
+tests\test_weights.py .                                                  [100%]
+
+============================== warnings summary ===============================
+tests/test_packet_layout.py::test_packet_dir_creation
+  C:\Users\shiro\OneDrive\ドキュメント\Spyder\MISOCP\investment\src\leadlag\runtime\packets.py:24: DeprecationWarning: datetime.datetime.utcnow() is deprecated and scheduled for removal in a future version. Use timezone-aware objects to represent datetimes in UTC: datetime.datetime.now(datetime.UTC).
+    run_ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+======================== 19 passed, 1 warning in 1.15s ========================

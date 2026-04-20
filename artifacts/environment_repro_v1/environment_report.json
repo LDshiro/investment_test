@@ -1,0 +1,119 @@
+{
+  "environment_name": "environment_repro_v1",
+  "generated_at_utc": "2026-04-17T14:25:41Z",
+  "overall_status": "pass",
+  "expected_python": "3.14.3",
+  "current_python": "3.14.3",
+  "verification_python": "3.14.3",
+  "current_interpreter": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe",
+  "verification_interpreter": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\.venv\\Scripts\\python.exe",
+  "inside_virtualenv": true,
+  "baseline_python": "3.14.3",
+  "selected_lock": "requirements-dev.lock.txt",
+  "lock_match_exact": true,
+  "lock_missing": [],
+  "lock_extra": [],
+  "lock_comparisons": [
+    {
+      "lock_path": "requirements-dev.lock.txt",
+      "exact_match": true,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "lock_path": "requirements.lock.txt",
+      "exact_match": false,
+      "missing": [],
+      "extra": [
+        "colorama==0.4.6",
+        "iniconfig==2.3.0",
+        "librt==0.9.0",
+        "mypy==1.20.1",
+        "mypy_extensions==1.1.0",
+        "pathspec==1.0.4",
+        "pluggy==1.6.0",
+        "Pygments==2.20.0",
+        "pytest==9.0.3",
+        "ruff==0.15.11"
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "name": "numpy",
+      "module": "numpy",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "pandas",
+      "module": "pandas",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "PyYAML",
+      "module": "yaml",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "pydantic",
+      "module": "pydantic",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "duckdb",
+      "module": "duckdb",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "matplotlib",
+      "module": "matplotlib",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "statsmodels",
+      "module": "statsmodels",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "tabulate",
+      "module": "tabulate",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "pytest",
+      "module": "pytest",
+      "status": "pass",
+      "stderr": null
+    }
+  ],
+  "scripts": [
+    {
+      "name": "leadlag.cli",
+      "module": "leadlag.cli",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "verify_baseline",
+      "module": "verify_baseline",
+      "status": "pass",
+      "stderr": null
+    },
+    {
+      "name": "freeze_baseline",
+      "module": "freeze_baseline",
+      "status": "pass",
+      "stderr": null
+    }
+  ],
+  "warnings": [],
+  "failures": []
+}

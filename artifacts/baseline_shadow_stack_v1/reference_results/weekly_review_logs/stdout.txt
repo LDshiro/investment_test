@@ -1,0 +1,13 @@
+weekly review completed: C:\Users\shiro\OneDrive\ドキュメント\Spyder\MISOCP\investment\artifacts\baseline_shadow_stack_v1\reference_results\weekly_review
+{
+  "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review",
+  "daily_rows": 5,
+  "weekly_rows": 2,
+  "latest_week": "2025-W48",
+  "daily_enriched_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\daily_enriched.csv",
+  "weekly_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_summary.csv",
+  "weekly_summary_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_summary.json",
+  "weekly_summary_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_summary.md",
+  "weekly_nav_index_png": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_nav_index.png",
+  "weekly_status_counts_png": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\baseline_shadow_stack_v1\\reference_results\\weekly_review\\weekly_status_counts.png"
+}

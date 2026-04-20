@@ -1,0 +1,8 @@
+costs:
+  commission_bps: 0.0
+  open_half_spread_bps: 6.0
+  close_half_spread_bps: 6.0
+  slippage_open_bps: 4.0
+  slippage_close_bps: 4.0
+  borrow_fee_bps_annual: 0.0
+  notes: "初期のshadow/live比較用。live開始後に校正する。"

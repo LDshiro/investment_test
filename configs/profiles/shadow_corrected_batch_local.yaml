@@ -1,0 +1,27 @@
+# Batch replay profile for multiple historical shadow days using the corrected bundle.
+# Extends the one-day local profile and selects a recent block of Table 1-valid trade dates.
+
+extends:
+  - shadow_corrected_local.yaml
+
+run:
+  name: shadow_corrected_batch_local
+  historical_trade_date: null
+
+batch:
+  enabled: true
+
+  # Resolve dates from the Table 1 exact-match sample filter.
+  date_source: sample_filter
+
+  # Replay the latest 5 valid trade dates up to this endpoint.
+  # Set start_date/end_date explicitly if you want a fixed window.
+  end_date: 2025-11-28
+  max_days: 5
+
+  # Leave empty unless you want to replay exact dates.
+  trade_dates: []
+
+  skip_existing_packets: true
+  stop_on_error: true
+  write_batch_summary: true

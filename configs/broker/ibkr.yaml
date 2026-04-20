@@ -1,0 +1,7 @@
+broker:
+  kind: ibkr
+  paper_sync: true
+  dry_run_only: true
+  host_env: IBKR_HOST
+  port_env: IBKR_PORT
+  client_id_env: IBKR_CLIENT_ID

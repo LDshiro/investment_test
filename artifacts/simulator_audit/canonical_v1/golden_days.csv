@@ -1,0 +1,6 @@
+trade_date,selection_reason,matched_categories,status,alert_count,alert_codes,triggered_gates_count,triggered_gate_codes,is_holiday_edge,selection_rank
+2025-11-28,latest_valid,latest_valid;nonzero_alert;scaling_or_cap_alert,GO,1,scaled_for_single_name_cap,0,,False,1
+2025-11-26,earlier_go,earlier_go,GO,1,scaled_for_single_name_cap,0,,False,2
+2025-11-25,holiday_edge,holiday_edge,GO,1,scaled_for_single_name_cap,0,,True,3
+2025-08-27,fallback_evenly_spaced,fallback_evenly_spaced,GO,1,scaled_for_single_name_cap,0,,False,4
+2025-09-03,fallback_evenly_spaced,fallback_evenly_spaced,GO,1,scaled_for_single_name_cap,0,,False,5

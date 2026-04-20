@@ -1,0 +1,3 @@
+week_label,week_start,week_end,trade_days,completed_days,go_days,warn_days,stop_days,failed_days,shadow_return_compounded,paper_return_compounded,active_return_diff_compounded,shadow_return_mean,shadow_return_std,shadow_hit_rate,avg_tradable_names,avg_selected_names,avg_expected_cost_bps,avg_gross_exposure,avg_alert_count,warning_alert_days,critical_alert_days,triggered_gate_days,shadow_nav_index,paper_nav_index
+2025-W47,2025-11-17,2025-11-21,2,0,0,0,0,0,,,,,,,,,15.0,0.75,1.0,2,0,0,1.0,1.0
+2025-W48,2025-11-24,2025-11-28,3,0,0,0,0,0,,,,,,,,,15.0,0.75,1.0,3,0,0,1.0,1.0

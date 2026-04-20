@@ -1,0 +1,7 @@
+broker:
+  kind: kabu
+  paper_sync: false
+  dry_run_only: true
+  host_env: KABU_API_URL
+  password_env: KABU_API_PASSWORD
+  account_mode: production_adapter_only

@@ -1,0 +1,18 @@
+{
+  "bundle_root": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle",
+  "cc_shape": [
+    4159,
+    28
+  ],
+  "oc_shape": [
+    4159,
+    17
+  ],
+  "core_dates_n": 3795,
+  "full_dates_n": 1779,
+  "sample_filter_start": "2015-01-07",
+  "sample_filter_end": "2025-11-28",
+  "sample_filter_exact": true,
+  "sample_filter_score": 0,
+  "table1_gap_sum": 0
+}

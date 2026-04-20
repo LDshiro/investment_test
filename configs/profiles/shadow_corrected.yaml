@@ -1,0 +1,18 @@
+extends:
+  - ../base.yaml
+  - ../data/corrected_bundle.yaml
+  - ../strategy/pca_sub.yaml
+  - ../cost/jp_etf_conservative.yaml
+  - ../risk/default.yaml
+  - ../broker/null.yaml
+  - ../packets/daily.yaml
+
+run:
+  name: shadow_corrected
+  mode: shadow
+
+runtime:
+  jobs:
+    - us_post_close
+    - jp_pre_open
+    - jp_post_close

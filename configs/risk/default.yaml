@@ -1,0 +1,17 @@
+risk:
+  max_gross: 1.0
+  max_net: 0.0
+  max_single_name_abs: 0.15
+  min_tradable_names: 6
+  max_expected_cost_bps: 35.0
+  halt_on_missing_price: true
+  halt_on_unapproved_patch: true
+  halt_on_universe_shrinkage: true
+  allow_short: false
+  hard_gates:
+    - missing_price
+    - missing_factor
+    - no_common_dates
+    - unapproved_patch
+    - cost_too_high
+    - tradable_names_too_few

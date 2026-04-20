@@ -1,0 +1,210 @@
+{
+  "generated_at_utc": "2026-04-19T15:17:38.008844+00:00",
+  "config_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\profiles\\shadow_corrected_local.yaml",
+  "simulator_contract_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\simulator\\canonical_simulator_v1.yaml",
+  "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\simulator_audit\\canonical_v1",
+  "golden_days": [
+    {
+      "trade_date": "2025-11-28",
+      "selection_reason": "latest_valid",
+      "matched_categories": "latest_valid;nonzero_alert;scaling_or_cap_alert",
+      "status": "GO",
+      "alert_count": 1,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gates_count": 0,
+      "triggered_gate_codes": "",
+      "is_holiday_edge": false,
+      "selection_rank": 1
+    },
+    {
+      "trade_date": "2025-11-26",
+      "selection_reason": "earlier_go",
+      "matched_categories": "earlier_go",
+      "status": "GO",
+      "alert_count": 1,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gates_count": 0,
+      "triggered_gate_codes": "",
+      "is_holiday_edge": false,
+      "selection_rank": 2
+    },
+    {
+      "trade_date": "2025-11-25",
+      "selection_reason": "holiday_edge",
+      "matched_categories": "holiday_edge",
+      "status": "GO",
+      "alert_count": 1,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gates_count": 0,
+      "triggered_gate_codes": "",
+      "is_holiday_edge": true,
+      "selection_rank": 3
+    },
+    {
+      "trade_date": "2025-08-27",
+      "selection_reason": "fallback_evenly_spaced",
+      "matched_categories": "fallback_evenly_spaced",
+      "status": "GO",
+      "alert_count": 1,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gates_count": 0,
+      "triggered_gate_codes": "",
+      "is_holiday_edge": false,
+      "selection_rank": 4
+    },
+    {
+      "trade_date": "2025-09-03",
+      "selection_reason": "fallback_evenly_spaced",
+      "matched_categories": "fallback_evenly_spaced",
+      "status": "GO",
+      "alert_count": 1,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gates_count": 0,
+      "triggered_gate_codes": "",
+      "is_holiday_edge": false,
+      "selection_rank": 5
+    }
+  ],
+  "audit_rows": [
+    {
+      "trade_date": "2025-11-28",
+      "selection_reason": "latest_valid",
+      "asof_us_date": "2025-11-26",
+      "status": "GO",
+      "selected_names_count": 5,
+      "gross_exposure": 0.75,
+      "expected_cost_bps": 15.0,
+      "shadow_net_return": 0.0014608559290252843,
+      "alert_count": 1,
+      "triggered_gates_count": 0,
+      "packet_path": "packets/2025-11-28",
+      "stable_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1",
+      "rerun_match": true,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gate_codes": "",
+      "selection_rank": 1,
+      "matched_categories": "latest_valid;nonzero_alert;scaling_or_cap_alert",
+      "is_holiday_edge": false
+    },
+    {
+      "trade_date": "2025-11-26",
+      "selection_reason": "earlier_go",
+      "asof_us_date": "2025-11-25",
+      "status": "GO",
+      "selected_names_count": 5,
+      "gross_exposure": 0.75,
+      "expected_cost_bps": 15.0,
+      "shadow_net_return": 0.008860710119346686,
+      "alert_count": 1,
+      "triggered_gates_count": 0,
+      "packet_path": "packets/2025-11-26",
+      "stable_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f",
+      "rerun_match": true,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gate_codes": "",
+      "selection_rank": 2,
+      "matched_categories": "earlier_go",
+      "is_holiday_edge": false
+    },
+    {
+      "trade_date": "2025-11-25",
+      "selection_reason": "holiday_edge",
+      "asof_us_date": "2025-11-21",
+      "status": "GO",
+      "selected_names_count": 5,
+      "gross_exposure": 0.75,
+      "expected_cost_bps": 15.0,
+      "shadow_net_return": -0.011458226595115438,
+      "alert_count": 1,
+      "triggered_gates_count": 0,
+      "packet_path": "packets/2025-11-25",
+      "stable_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505",
+      "rerun_match": true,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gate_codes": "",
+      "selection_rank": 3,
+      "matched_categories": "holiday_edge",
+      "is_holiday_edge": true
+    },
+    {
+      "trade_date": "2025-08-27",
+      "selection_reason": "fallback_evenly_spaced",
+      "asof_us_date": "2025-08-26",
+      "status": "GO",
+      "selected_names_count": 5,
+      "gross_exposure": 0.75,
+      "expected_cost_bps": 15.0,
+      "shadow_net_return": -0.002737297121670887,
+      "alert_count": 1,
+      "triggered_gates_count": 0,
+      "packet_path": "packets/2025-08-27",
+      "stable_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022",
+      "rerun_match": true,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gate_codes": "",
+      "selection_rank": 4,
+      "matched_categories": "fallback_evenly_spaced",
+      "is_holiday_edge": false
+    },
+    {
+      "trade_date": "2025-09-03",
+      "selection_reason": "fallback_evenly_spaced",
+      "asof_us_date": "2025-09-02",
+      "status": "GO",
+      "selected_names_count": 5,
+      "gross_exposure": 0.75,
+      "expected_cost_bps": 15.0,
+      "shadow_net_return": -0.007469202148503183,
+      "alert_count": 1,
+      "triggered_gates_count": 0,
+      "packet_path": "packets/2025-09-03",
+      "stable_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3",
+      "rerun_match": true,
+      "alert_codes": "scaled_for_single_name_cap",
+      "triggered_gate_codes": "",
+      "selection_rank": 5,
+      "matched_categories": "fallback_evenly_spaced",
+      "is_holiday_edge": false
+    }
+  ],
+  "deterministic_rerun": {
+    "passed": true,
+    "trade_dates": [
+      "2025-08-27",
+      "2025-09-03",
+      "2025-11-25",
+      "2025-11-26",
+      "2025-11-28"
+    ],
+    "missing_primary": [],
+    "missing_rerun": [],
+    "mismatches": [],
+    "per_trade_date": {
+      "2025-08-27": {
+        "match": true,
+        "primary_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022",
+        "rerun_fingerprint": "e50dbcee0493766081f3bf3e3837e2c8aff15adaee9f53ec5b775333d1f98022"
+      },
+      "2025-09-03": {
+        "match": true,
+        "primary_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3",
+        "rerun_fingerprint": "c6fa6b090e66c568fd41583b80306d71d680211dfe3af362165818b51a089fc3"
+      },
+      "2025-11-25": {
+        "match": true,
+        "primary_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505",
+        "rerun_fingerprint": "0c2b10fc917f835d459564d3c12a120b9d7a6dd8575460c320f544b1f3709505"
+      },
+      "2025-11-26": {
+        "match": true,
+        "primary_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f",
+        "rerun_fingerprint": "4c3e2d19cad229ff0dfe1bccf440642c7ccf7ffdef30f348e6f5c5ae2976f82f"
+      },
+      "2025-11-28": {
+        "match": true,
+        "primary_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1",
+        "rerun_fingerprint": "9c539882d6df383b77fc3ba29b13e4a0d1395223972def6a443c07dde7fcc6e1"
+      }
+    }
+  }
+}
