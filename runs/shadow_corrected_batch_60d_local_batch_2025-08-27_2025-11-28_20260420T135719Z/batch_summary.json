@@ -1,0 +1,482 @@
+[
+  {
+    "trade_date": "2025-08-27",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-08-27_20260420T123601Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-08-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-08-28_20260420T123602Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-08-29",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-08-29_20260420T123603Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-02",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-02_20260420T123604Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-03",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-03_20260420T123605Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-04",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-04_20260420T123606Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-05",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-05_20260420T123607Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-08",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-08_20260420T123608Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-09",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-09_20260420T123609Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-10",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-10_20260420T123610Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-11",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-11_20260420T123611Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-12",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-12_20260420T123612Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-16",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-16_20260420T123613Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-17",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-17_20260420T123614Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-18",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-18_20260420T123615Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-19",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-19_20260420T123616Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-22",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-22_20260420T123617Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-24",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-24_20260420T123618Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-25",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-25_20260420T123619Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-26",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-26_20260420T123619Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-29",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-29_20260420T123620Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-30",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-09-30_20260420T123621Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-01",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-01_20260420T123622Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-02",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-02_20260420T123623Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-03",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-03_20260420T123624Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-06",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-06_20260420T123625Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-07",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-07_20260420T123626Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-08",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-08_20260420T123627Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-09",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-09_20260420T123628Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-10",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-10_20260420T123629Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-14",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-14_20260420T123630Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-15",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-15_20260420T123631Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-16",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-16_20260420T123632Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-17",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-17_20260420T123633Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-20",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-20_20260420T123634Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-21",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-21_20260420T123635Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-22",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-22_20260420T123636Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-23",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-23_20260420T123637Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-27",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-27_20260420T123638Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-28_20260420T123639Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-29",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-29_20260420T123640Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-30",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-30_20260420T123641Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-31",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-10-31_20260420T123642Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-04",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-04_20260420T123643Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-05",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-05_20260420T123644Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-06",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-06_20260420T123645Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-07",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-07_20260420T123646Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-10",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-10_20260420T123647Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-11",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-11_20260420T123648Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-12",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-12_20260420T123649Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-13",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-13_20260420T123650Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-14",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-14_20260420T123651Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-17",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-17_20260420T123652Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-18",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-18_20260420T123653Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-19",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-19_20260420T123654Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-20",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-20_20260420T123655Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-21",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-21_20260420T123656Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-25",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-25_20260420T123657Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-26",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-26_20260420T123658Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_batch_60d_local_2025-11-28_20260420T123659Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  }
+]

@@ -1,0 +1,2 @@
+code,severity,count,days_with_alert
+scaled_for_single_name_cap,WARNING,60,60

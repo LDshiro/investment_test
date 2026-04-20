@@ -1,0 +1,793 @@
+{
+  "contract": {
+    "contract_name": "corrected_bundle_v1",
+    "contract_version": "1.0.0",
+    "bundle_type": "yahoo_corrected_research_bundle",
+    "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\data_contracts\\corrected_bundle_v1.yaml"
+  },
+  "bundle_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle",
+  "passed": true,
+  "issue_counts": {
+    "ERROR": 0,
+    "WARN": 2,
+    "INFO": 3
+  },
+  "issues": [
+    {
+      "severity": "WARN",
+      "code": "patch_table_missing",
+      "message": "Optional patch_table.csv is missing.",
+      "details": {
+        "file": "patch_table.csv"
+      }
+    },
+    {
+      "severity": "INFO",
+      "code": "factor_alias_resolved",
+      "message": "Factor aliases were resolved without renaming source columns.",
+      "details": {
+        "file_key": "ff3",
+        "aliases": {
+          "MKT": "Mkt-RF"
+        }
+      }
+    },
+    {
+      "severity": "INFO",
+      "code": "factor_alias_resolved",
+      "message": "Factor aliases were resolved without renaming source columns.",
+      "details": {
+        "file_key": "mom",
+        "aliases": {
+          "MOM": "WML"
+        }
+      }
+    },
+    {
+      "severity": "INFO",
+      "code": "factor_alias_resolved",
+      "message": "Factor aliases were resolved without renaming source columns.",
+      "details": {
+        "file_key": "carhart4",
+        "aliases": {
+          "MKT": "Mkt-RF",
+          "MOM": "WML"
+        }
+      }
+    },
+    {
+      "severity": "WARN",
+      "code": "returns_cc_differs_from_prices",
+      "message": "returns_cc.csv differs from close_prices_adj.pct_change(); this is diagnostic only because returns_cc.csv is canonical.",
+      "details": {
+        "threshold": 1e-10,
+        "max_abs_diff": 0.16215724163120052,
+        "mismatch_count": 12
+      }
+    }
+  ],
+  "summaries": {
+    "contract": {
+      "contract_name": "corrected_bundle_v1",
+      "contract_version": "1.0.0",
+      "bundle_type": "yahoo_corrected_research_bundle",
+      "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\data_contracts\\corrected_bundle_v1.yaml"
+    },
+    "bundle_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle",
+    "files": {
+      "bundle_manifest.json": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\bundle_manifest.json",
+        "exists": false,
+        "size_bytes": null
+      },
+      "carhart4_japan_daily.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\carhart4_japan_daily.csv",
+        "exists": true,
+        "size_bytes": 240680,
+        "row_count": 4174,
+        "column_count": 5
+      },
+      "close_prices_adj.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\close_prices_adj.csv",
+        "exists": true,
+        "size_bytes": 1818919,
+        "row_count": 4159,
+        "column_count": 28
+      },
+      "common_dates_core.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\common_dates_core.csv",
+        "exists": true,
+        "size_bytes": 41750,
+        "row_count": 3795,
+        "column_count": 1
+      },
+      "common_dates_full.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\common_dates_full.csv",
+        "exists": true,
+        "size_bytes": 19574,
+        "row_count": 1779,
+        "column_count": 1
+      },
+      "data_hashes.json": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\data_hashes.json",
+        "exists": false,
+        "size_bytes": null
+      },
+      "ff3_japan_daily.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\ff3_japan_daily.csv",
+        "exists": true,
+        "size_bytes": 197832,
+        "row_count": 4174,
+        "column_count": 4
+      },
+      "mom_japan_daily.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\mom_japan_daily.csv",
+        "exists": true,
+        "size_bytes": 88767,
+        "row_count": 4174,
+        "column_count": 1
+      },
+      "open_prices_adj.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\open_prices_adj.csv",
+        "exists": true,
+        "size_bytes": 1970645,
+        "row_count": 4159,
+        "column_count": 28
+      },
+      "patch_table.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\patch_table.csv",
+        "exists": false,
+        "size_bytes": null
+      },
+      "returns_cc.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\returns_cc.csv",
+        "exists": true,
+        "size_bytes": 2254774,
+        "row_count": 4159,
+        "column_count": 28
+      },
+      "returns_oc_jp.csv": {
+        "path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle\\returns_oc_jp.csv",
+        "exists": true,
+        "size_bytes": 1241909,
+        "row_count": 4159,
+        "column_count": 17
+      }
+    },
+    "date_ranges": {
+      "returns_cc.csv": {
+        "row_count": 4159,
+        "start": "2010-01-05",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": 0
+      },
+      "returns_oc_jp.csv": {
+        "row_count": 4159,
+        "start": "2010-01-05",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": 0
+      },
+      "open_prices_adj.csv": {
+        "row_count": 4159,
+        "start": "2010-01-05",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": 0
+      },
+      "close_prices_adj.csv": {
+        "row_count": 4159,
+        "start": "2010-01-05",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": 0
+      },
+      "ff3_japan_daily.csv": {
+        "row_count": 4174,
+        "start": "2010-01-01",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": null
+      },
+      "mom_japan_daily.csv": {
+        "row_count": 4174,
+        "start": "2010-01-01",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": null
+      },
+      "carhart4_japan_daily.csv": {
+        "row_count": 4174,
+        "start": "2010-01-01",
+        "end": "2025-12-31",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": null
+      },
+      "common_dates_core.csv": {
+        "row_count": 3795,
+        "start": "2010-01-05",
+        "end": "2025-12-30",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": null
+      },
+      "common_dates_full.csv": {
+        "row_count": 1779,
+        "start": "2018-06-20",
+        "end": "2025-12-30",
+        "unique": true,
+        "monotonic_increasing": true,
+        "weekend_count": null
+      }
+    },
+    "non_null_counts": {
+      "returns_cc.csv": {
+        "columns": 28,
+        "rows": 4159,
+        "min_non_null": 1894,
+        "max_non_null": 4023
+      },
+      "returns_oc_jp.csv": {
+        "columns": 17,
+        "rows": 4159,
+        "min_non_null": 3931,
+        "max_non_null": 3931
+      },
+      "open_prices_adj.csv": {
+        "columns": 28,
+        "rows": 4159,
+        "min_non_null": 1895,
+        "max_non_null": 4023
+      },
+      "close_prices_adj.csv": {
+        "columns": 28,
+        "rows": 4159,
+        "min_non_null": 1895,
+        "max_non_null": 4023
+      },
+      "ff3_japan_daily.csv": {
+        "columns": 4,
+        "rows": 4174,
+        "min_non_null": 4174,
+        "max_non_null": 4174
+      },
+      "mom_japan_daily.csv": {
+        "columns": 1,
+        "rows": 4174,
+        "min_non_null": 4174,
+        "max_non_null": 4174
+      },
+      "carhart4_japan_daily.csv": {
+        "columns": 5,
+        "rows": 4174,
+        "min_non_null": 4174,
+        "max_non_null": 4174
+      }
+    },
+    "universe_columns": {
+      "returns_cc": {
+        "required_count": 28,
+        "actual_count": 28,
+        "missing": [],
+        "extras": []
+      },
+      "open_prices_adj": {
+        "required_count": 28,
+        "actual_count": 28,
+        "missing": [],
+        "extras": []
+      },
+      "close_prices_adj": {
+        "required_count": 28,
+        "actual_count": 28,
+        "missing": [],
+        "extras": []
+      },
+      "returns_oc_jp": {
+        "required_count": 17,
+        "actual_count": 17,
+        "missing": [],
+        "extras": []
+      }
+    },
+    "factor_columns": {
+      "ff3": {
+        "required": [
+          "MKT",
+          "SMB",
+          "HML",
+          "RF"
+        ],
+        "resolved": {
+          "MKT": "Mkt-RF",
+          "SMB": "SMB",
+          "HML": "HML",
+          "RF": "RF"
+        },
+        "missing": []
+      },
+      "mom": {
+        "required": [
+          "MOM"
+        ],
+        "resolved": {
+          "MOM": "WML"
+        },
+        "missing": []
+      },
+      "carhart4": {
+        "required": [
+          "MKT",
+          "SMB",
+          "HML",
+          "MOM",
+          "RF"
+        ],
+        "resolved": {
+          "MKT": "Mkt-RF",
+          "SMB": "SMB",
+          "HML": "HML",
+          "MOM": "WML",
+          "RF": "RF"
+        },
+        "missing": []
+      }
+    },
+    "common_dates": {
+      "common_dates_core": {
+        "row_count": 3795,
+        "subset_of_returns_cc": true,
+        "complete_case": true,
+        "required_column_count": 26
+      },
+      "common_dates_full": {
+        "row_count": 1779,
+        "subset_of_returns_cc": true,
+        "complete_case": true,
+        "required_column_count": 28
+      }
+    },
+    "returns_oc_reconciliation": {
+      "tolerance": 1e-10,
+      "max_abs_diff": 3.220080452281948e-16,
+      "mismatch_count": 0
+    },
+    "returns_cc_diagnostic": {
+      "threshold": 1e-10,
+      "max_abs_diff": 0.16215724163120052,
+      "mismatch_count": 12,
+      "policy": "warn_only_canonical_returns"
+    },
+    "patch_table": {
+      "present": false
+    },
+    "file_hashes": {
+      "carhart4_japan_daily.csv": {
+        "sha256": "6626c42c241ef6ecf66c9ab116c23f5dff1c7607d980831a40b777171cfc5e33",
+        "size_bytes": 240680
+      },
+      "close_prices_adj.csv": {
+        "sha256": "f4de26ee1cc507266e097acf527b56fb6b9451b0c66312bc24668cfaa490b607",
+        "size_bytes": 1818919
+      },
+      "common_dates_core.csv": {
+        "sha256": "b01b687327d69be250d392f0c44d1efdc86cd17bd0da19bb938da75693d39a81",
+        "size_bytes": 41750
+      },
+      "common_dates_full.csv": {
+        "sha256": "2508abf132c79870aaa6bb894898be859161f43d740b061b84c804e234e8b108",
+        "size_bytes": 19574
+      },
+      "ff3_japan_daily.csv": {
+        "sha256": "83684708fcb86a2fc8d389a455da7b9a23ea0b09f4aac7a0ba130835760edeaf",
+        "size_bytes": 197832
+      },
+      "mom_japan_daily.csv": {
+        "sha256": "3546a1c41d3944650a7bad0621916d404a87a74039a2a23e7753cc1b1ea13923",
+        "size_bytes": 88767
+      },
+      "open_prices_adj.csv": {
+        "sha256": "a84da1b6e49ba68dddae4aea69addd58241b03be55737ad4771aaf1ecba20405",
+        "size_bytes": 1970645
+      },
+      "returns_cc.csv": {
+        "sha256": "f587c7b08476ea078013549193c3d28dc08111360000d0fe1ec69160d33b955b",
+        "size_bytes": 2254774
+      },
+      "returns_oc_jp.csv": {
+        "sha256": "3ba6b9094b222e24a429a97f180bac4e08f3aadf7996507fcad4b790fd9c76ec",
+        "size_bytes": 1241909
+      }
+    },
+    "ticker_summary_rows": [
+      {
+        "ticker": "XLB",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLE",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLF",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLI",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLK",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLP",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLU",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLV",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLY",
+        "market": "US",
+        "group": "us_core",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 4023,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 4023,
+        "non_null_close_prices_adj": 4023
+      },
+      {
+        "ticker": "XLC",
+        "market": "US",
+        "group": "us_extended",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 1894,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 1895,
+        "non_null_close_prices_adj": 1895
+      },
+      {
+        "ticker": "XLRE",
+        "market": "US",
+        "group": "us_extended",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": false,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 2572,
+        "non_null_returns_oc_jp": null,
+        "non_null_open_prices_adj": 2573,
+        "non_null_close_prices_adj": 2573
+      },
+      {
+        "ticker": "1617.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1618.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1619.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1620.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1621.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1622.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1623.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1624.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1625.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1626.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1627.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1628.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1629.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1630.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1631.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1632.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      },
+      {
+        "ticker": "1633.T",
+        "market": "JP",
+        "group": "jp",
+        "present_in_returns_cc": true,
+        "present_in_returns_oc_jp": true,
+        "present_in_open_prices_adj": true,
+        "present_in_close_prices_adj": true,
+        "non_null_returns_cc": 3931,
+        "non_null_returns_oc_jp": 3931,
+        "non_null_open_prices_adj": 3931,
+        "non_null_close_prices_adj": 3931
+      }
+    ],
+    "notes": [
+      "returns_cc.csv is treated as the canonical predictor return file and is not recomputed from adjusted prices.",
+      "returns_oc_jp.csv is reconciled against close_prices_adj.csv / open_prices_adj.csv - 1 within the configured tolerance."
+    ],
+    "outputs": {
+      "validation_report_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\validation_report.json",
+      "validation_report_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\validation_report.md",
+      "ticker_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\ticker_summary.csv",
+      "file_hashes_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\file_hashes.json"
+    }
+  },
+  "outputs": {
+    "validation_report_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\validation_report.json",
+    "validation_report_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\validation_report.md",
+    "ticker_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\ticker_summary.csv",
+    "file_hashes_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T135712Z\\stages\\data_contract\\file_hashes.json"
+  }
+}

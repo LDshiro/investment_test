@@ -11,6 +11,12 @@ from .runbook import (
     render_runbook_artifacts,
     validate_runbook_config,
 )
+from .shadow_ops import (
+    ShadowOpsResult,
+    ShadowOpsStageResult,
+    load_shadow_ops_config,
+    run_shadow_ops,
+)
 
 __all__ = [
     "ReplayValidationIssue",
@@ -22,4 +28,8 @@ __all__ = [
     "load_runbook_config",
     "validate_runbook_config",
     "render_runbook_artifacts",
+    "ShadowOpsResult",
+    "ShadowOpsStageResult",
+    "load_shadow_ops_config",
+    "run_shadow_ops",
 ]

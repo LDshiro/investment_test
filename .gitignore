@@ -23,6 +23,8 @@ artifacts/*
 !artifacts/weekly_rule_calibration/**
 !artifacts/runbook/
 !artifacts/runbook/**
+!artifacts/shadow_ops/
+!artifacts/shadow_ops/**
 logs/
 *.parquet
 *.duckdb

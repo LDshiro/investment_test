@@ -1,0 +1,34 @@
+ops:
+  name: shadow_ops_legacy_60d_local
+  mode: shadow_only
+  variant: legacy
+  artifact_root: artifacts/shadow_ops
+  stop_on_stage_failure: true
+  overwrite_existing: false
+  timestamp_outputs: true
+  operator_digest: true
+
+stages:
+  validate_data_contract:
+    enabled: true
+    bundle_dir: data/normalized/corrected_bundle
+    contract: configs/data_contracts/corrected_bundle_v1.yaml
+
+  run_batch:
+    enabled: true
+    config: configs/profiles/shadow_corrected_batch_60d_local.yaml
+
+  validate_shadow_replay:
+    enabled: true
+    config: configs/validation/shadow_replay_v1.yaml
+
+  weekly_review:
+    enabled: true
+
+  weekly_gates:
+    enabled: true
+    rules_config: configs/review/weekly_rules_shadow_pre_live_v1.yaml
+
+  render_runbook:
+    enabled: true
+    config: configs/ops/runbook_shadow_v1.yaml

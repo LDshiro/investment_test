@@ -6,7 +6,7 @@ from pathlib import Path
 
 from leadlag.config.loader import load_app_config
 from leadlag.data_contract import validate_corrected_bundle, write_validation_outputs
-from leadlag.ops import render_runbook_artifacts, validate_shadow_replay
+from leadlag.ops import render_runbook_artifacts, run_shadow_ops, validate_shadow_replay
 from leadlag.runtime.packets import ensure_packet_layout
 from leadlag.runtime.corrected_backtest import inspect_corrected_bundle, run_corrected_backtest
 from leadlag.runtime.corrected_shadow import run_corrected_shadow
@@ -77,6 +77,25 @@ def cmd_render_runbook(config_path: str, output_dir: str) -> int:
             {
                 "passed": result.passed,
                 "issue_counts": result.issue_counts(),
+                "summary": result.summary,
+                "output_paths": result.output_paths,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+    )
+    return 0 if result.passed else 1
+
+
+def cmd_shadow_ops(config_path: str) -> int:
+    result = run_shadow_ops(Path(config_path))
+    print(
+        json.dumps(
+            {
+                "passed": result.passed,
+                "overall_status": result.overall_status,
+                "ops_run_id": result.ops_run_id,
+                "output_dir": result.output_dir,
                 "summary": result.summary,
                 "output_paths": result.output_paths,
             },
@@ -176,6 +195,9 @@ def build_parser() -> argparse.ArgumentParser:
     p_runbook.add_argument('--config', required=True)
     p_runbook.add_argument('--output-dir', required=True)
 
+    p_shadow_ops = sub.add_parser('shadow-ops')
+    p_shadow_ops.add_argument('--config', required=True)
+
     p_run = sub.add_parser('run')
     p_run.add_argument('--config', required=True)
     p_run.add_argument('--trade-date', required=False)
@@ -215,6 +237,8 @@ def main() -> int:
         return cmd_validate_shadow_replay(args.batch_dir, args.validation_config, args.output_dir)
     if args.command == 'render-runbook':
         return cmd_render_runbook(args.config, args.output_dir)
+    if args.command == 'shadow-ops':
+        return cmd_shadow_ops(args.config)
     if args.command == 'run':
         return cmd_run(args.config, trade_date=args.trade_date)
     if args.command == 'run-batch':

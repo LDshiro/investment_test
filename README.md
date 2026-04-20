@@ -1330,3 +1330,25 @@ python -m leadlag.cli render-runbook \
   --config configs/ops/runbook_shadow_v1.yaml \
   --output-dir artifacts/runbook/step07
 ```
+
+---
+
+## 26. Shadow Ops Profile
+
+Step 08 では、data contract validation、60 日 replay、replay validation、weekly review、weekly gates、runbook rendering を 1 コマンドでまとめる `shadow-ops` を追加します。これは shadow-only orchestration であり、live trading を起動しません。
+
+legacy 60d:
+
+```bash
+python -m leadlag.cli shadow-ops \
+  --config configs/ops/shadow_ops_legacy_60d_local.yaml
+```
+
+canonical 60d:
+
+```bash
+python -m leadlag.cli shadow-ops \
+  --config configs/ops/shadow_ops_canonical_60d_local.yaml
+```
+
+詳細は `docs/shadow_ops_profile_v1.md` を参照してください。

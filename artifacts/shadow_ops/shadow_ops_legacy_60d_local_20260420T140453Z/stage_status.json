@@ -1,0 +1,177 @@
+[
+  {
+    "stage": "validate_data_contract",
+    "status": "SUCCESS",
+    "started_at": "2026-04-20T14:04:53.782560+00:00",
+    "finished_at": "2026-04-20T14:04:53.881845+00:00",
+    "duration_seconds": 0.099288,
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\data_contract",
+    "stdout_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\validate_data_contract.stdout.txt",
+    "stderr_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\validate_data_contract.stderr.txt",
+    "config_reference": "configs/data_contracts/corrected_bundle_v1.yaml",
+    "error": null,
+    "summary": {
+      "passed": true,
+      "issue_counts": {
+        "ERROR": 0,
+        "WARN": 2,
+        "INFO": 3
+      },
+      "bundle_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\data\\normalized\\corrected_bundle",
+      "contract": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\data_contracts\\corrected_bundle_v1.yaml",
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\data_contract"
+    }
+  },
+  {
+    "stage": "run_batch",
+    "status": "SUCCESS",
+    "started_at": "2026-04-20T14:04:53.882028+00:00",
+    "finished_at": "2026-04-20T14:05:00.486686+00:00",
+    "duration_seconds": 6.604669,
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\batch",
+    "stdout_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\run_batch.stdout.txt",
+    "stderr_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\run_batch.stderr.txt",
+    "config_reference": "configs/profiles/shadow_corrected_batch_60d_local.yaml",
+    "error": null,
+    "summary": {
+      "batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_60d_local_batch_2025-08-27_2025-11-28_20260420T140500Z",
+      "dates_requested": 60,
+      "completed": 0,
+      "skipped_existing": 60,
+      "failed": 0,
+      "config": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\profiles\\shadow_corrected_batch_60d_local.yaml",
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\batch",
+      "downstream_batch_summary_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\batch\\batch_summary_for_downstream.csv",
+      "normalized_skipped_existing_rows": 60
+    }
+  },
+  {
+    "stage": "validate_shadow_replay",
+    "status": "SUCCESS",
+    "started_at": "2026-04-20T14:05:00.487027+00:00",
+    "finished_at": "2026-04-20T14:05:00.621860+00:00",
+    "duration_seconds": 0.134834,
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\replay_validation",
+    "stdout_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\validate_shadow_replay.stdout.txt",
+    "stderr_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\validate_shadow_replay.stderr.txt",
+    "config_reference": "configs/validation/shadow_replay_v1.yaml",
+    "error": null,
+    "summary": {
+      "status": "PASS",
+      "passed": true,
+      "batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_60d_local_batch_2025-08-27_2025-11-28_20260420T140500Z",
+      "total_days": 60,
+      "completed_days": 0,
+      "skipped_existing_days": 60,
+      "failed_days": 0,
+      "unique_trade_dates": true,
+      "monotonic_trade_dates": true,
+      "canonical_enabled": false,
+      "packet_run_status_counts": {
+        "GO": 60
+      },
+      "batch_result_counts": {
+        "skipped_existing": 60
+      },
+      "max_abs_net_return_diff_bps": null,
+      "max_abs_gross_return_diff_bps": null,
+      "max_abs_cost_return_diff_bps": null,
+      "validation_config": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\validation\\shadow_replay_v1.yaml",
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\replay_validation"
+    }
+  },
+  {
+    "stage": "weekly_review",
+    "status": "SUCCESS",
+    "started_at": "2026-04-20T14:05:00.622325+00:00",
+    "finished_at": "2026-04-20T14:05:01.345048+00:00",
+    "duration_seconds": 0.722725,
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review",
+    "stdout_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\weekly_review.stdout.txt",
+    "stderr_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\weekly_review.stderr.txt",
+    "config_reference": "",
+    "error": null,
+    "summary": {
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review",
+      "daily_rows": 60,
+      "weekly_rows": 14,
+      "latest_week": "2025-W48",
+      "daily_enriched_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review\\daily_enriched.csv",
+      "weekly_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review\\weekly_summary.csv",
+      "weekly_summary_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review\\weekly_summary.json",
+      "weekly_summary_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review\\weekly_summary.md",
+      "weekly_nav_index_png": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review\\weekly_nav_index.png",
+      "weekly_status_counts_png": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review\\weekly_status_counts.png",
+      "batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_60d_local_batch_2025-08-27_2025-11-28_20260420T140500Z",
+      "source_batch_summary_path": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\batch\\batch_summary_for_downstream.csv"
+    }
+  },
+  {
+    "stage": "weekly_gates",
+    "status": "SUCCESS",
+    "started_at": "2026-04-20T14:05:01.345362+00:00",
+    "finished_at": "2026-04-20T14:05:01.393606+00:00",
+    "duration_seconds": 0.048247,
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates",
+    "stdout_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\weekly_gates.stdout.txt",
+    "stderr_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\weekly_gates.stderr.txt",
+    "config_reference": "configs/review/weekly_rules_shadow_pre_live_v1.yaml",
+    "error": null,
+    "summary": {
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates",
+      "weekly_rows": 14,
+      "latest_week": "2025-W48",
+      "latest_week_status": "GO",
+      "promotion_status": "HOLD_SHADOW",
+      "weekly_status_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates\\weekly_status_evaluated.csv",
+      "weekly_status_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates\\weekly_status_evaluated.json",
+      "promotion_assessment_json": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates\\promotion_assessment.json",
+      "promotion_assessment_md": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates\\promotion_assessment.md",
+      "rules_config": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\review\\weekly_rules_shadow_pre_live_v1.yaml",
+      "promotion_failed_checks": [
+        "non_negative_shadow_return",
+        "sufficient_go_weeks",
+        "limited_warn_weeks",
+        "adequate_universe_width",
+        "acceptable_hit_rate"
+      ],
+      "promotion_blocked_checks": []
+    }
+  },
+  {
+    "stage": "render_runbook",
+    "status": "SUCCESS",
+    "started_at": "2026-04-20T14:05:01.393933+00:00",
+    "finished_at": "2026-04-20T14:05:01.423001+00:00",
+    "duration_seconds": 0.029073,
+    "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\runbook",
+    "stdout_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\render_runbook.stdout.txt",
+    "stderr_log": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs\\render_runbook.stderr.txt",
+    "config_reference": "configs/ops/runbook_shadow_v1.yaml",
+    "error": null,
+    "summary": {
+      "passed": true,
+      "issue_counts": {
+        "ERROR": 0,
+        "WARN": 0,
+        "INFO": 0
+      },
+      "config_source": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\ops\\runbook_shadow_v1.yaml",
+      "runbook_id": "shadow_ops_runbook_v1",
+      "version": 1,
+      "scope": "shadow_pre_live",
+      "status_action_count": 6,
+      "incident_level_count": 4,
+      "required_daily_packet_file_count": 9,
+      "checklist_names": [
+        "daily_post_close",
+        "daily_pre_open",
+        "deployment_review",
+        "promotion_review",
+        "weekly_review"
+      ],
+      "config": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\configs\\ops\\runbook_shadow_v1.yaml",
+      "output_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\runbook"
+    }
+  }
+]

@@ -6,7 +6,7 @@ duckdb==1.5.2
 fonttools==4.62.1
 iniconfig==2.3.0
 kiwisolver==1.5.0
--e git+https://github.com/LDshiro/investment_test.git@3b5f01a6debcfcb1d2d59ea4a3b378158437a14e#egg=leadlag_stack
+-e git+https://github.com/LDshiro/investment_test.git@9abd12e308e9bfb355d73071e0ef5b0aeb93d095#egg=leadlag_stack
 librt==0.9.0
 matplotlib==3.10.8
 mypy==1.20.1

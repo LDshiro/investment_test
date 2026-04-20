@@ -1,0 +1,12 @@
+extends:
+  - shadow_ops_legacy_60d_local.yaml
+
+ops:
+  name: shadow_ops_canonical_60d_local
+  variant: canonical
+
+stages:
+  run_batch:
+    config: configs/profiles/shadow_corrected_canonical_batch_60d_local.yaml
+  validate_shadow_replay:
+    config: configs/validation/shadow_replay_canonical_v1.yaml

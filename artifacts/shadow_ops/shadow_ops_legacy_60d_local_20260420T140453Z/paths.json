@@ -1,0 +1,11 @@
+{
+  "ops_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z",
+  "logs_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\logs",
+  "data_contract_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\data_contract",
+  "batch_stage_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\batch",
+  "batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_batch_60d_local_batch_2025-08-27_2025-11-28_20260420T140500Z",
+  "replay_validation_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\replay_validation",
+  "weekly_review_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_review",
+  "weekly_gates_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\weekly_gates",
+  "runbook_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_legacy_60d_local_20260420T140453Z\\stages\\runbook"
+}

@@ -1,0 +1,482 @@
+[
+  {
+    "trade_date": "2025-08-27",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-08-27_20260420T123730Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-08-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-08-28_20260420T123731Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-08-29",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-08-29_20260420T123732Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-02",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-02_20260420T123733Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-03",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-03_20260420T123734Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-04",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-04_20260420T123735Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-05",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-05_20260420T123736Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-08",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-08_20260420T123737Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-09",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-09_20260420T123738Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-10",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-10_20260420T123739Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-11",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-11_20260420T123740Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-12",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-12_20260420T123741Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-16",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-16_20260420T123742Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-17",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-17_20260420T123743Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-18",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-18_20260420T123744Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-19",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-19_20260420T123745Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-22",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-22_20260420T123746Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-24",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-24_20260420T123747Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-25",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-25_20260420T123748Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-26",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-26_20260420T123749Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-29",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-29_20260420T123750Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-09-30",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-09-30_20260420T123751Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-01",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-01_20260420T123752Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-02",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-02_20260420T123753Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-03",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-03_20260420T123754Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-06",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-06_20260420T123755Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-07",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-07_20260420T123756Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-08",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-08_20260420T123757Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-09",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-09_20260420T123758Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-10",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-10_20260420T123759Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-14",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-14_20260420T123800Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-15",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-15_20260420T123801Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-16",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-16_20260420T123802Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-17",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-17_20260420T123803Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-20",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-20_20260420T123804Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-21",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-21_20260420T123805Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-22",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-22_20260420T123806Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-23",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-23_20260420T123807Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-27",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-27_20260420T123808Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-28_20260420T123809Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-29",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-29_20260420T123811Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-30",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-30_20260420T123812Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-10-31",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-10-31_20260420T123813Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-04",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-04_20260420T123814Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-05",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-05_20260420T123815Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-06",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-06_20260420T123816Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-07",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-07_20260420T123817Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-10",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-10_20260420T123818Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-11",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-11_20260420T123819Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-12",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-12_20260420T123820Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-13",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-13_20260420T123821Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-14",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-14_20260420T123822Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-17",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-17_20260420T123823Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-18",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-18_20260420T123824Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-19",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-19_20260420T123825Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-20",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-20_20260420T123826Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-21",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-21_20260420T123827Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-25",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-25_20260420T123828Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-26",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-26_20260420T123829Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  },
+  {
+    "trade_date": "2025-11-28",
+    "result": "skipped_existing",
+    "status": "SKIPPED",
+    "packet_dir": "runs\\shadow_corrected_canonical_batch_60d_local_2025-11-28_20260420T123830Z",
+    "shadow_net_return": null,
+    "paper_counterfactual_return": null
+  }
+]

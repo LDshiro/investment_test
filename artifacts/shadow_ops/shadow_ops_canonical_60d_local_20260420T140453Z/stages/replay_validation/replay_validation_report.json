@@ -1,0 +1,36 @@
+{
+  "status": "PASS",
+  "passed": true,
+  "summary": {
+    "batch_dir": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\runs\\shadow_corrected_canonical_batch_60d_local_batch_2025-08-27_2025-11-28_20260420T140500Z",
+    "total_days": 60,
+    "completed_days": 0,
+    "skipped_existing_days": 60,
+    "failed_days": 0,
+    "unique_trade_dates": true,
+    "monotonic_trade_dates": true,
+    "canonical_enabled": true,
+    "packet_run_status_counts": {
+      "GO": 60
+    },
+    "batch_result_counts": {
+      "skipped_existing": 60
+    },
+    "max_abs_net_return_diff_bps": 0.14207436593098935,
+    "max_abs_gross_return_diff_bps": 0.12721656751299437,
+    "max_abs_cost_return_diff_bps": 0.015095336523000998
+  },
+  "issue_counts": {
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
+  "output_paths": {
+    "daily_packet_audit_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_canonical_60d_local_20260420T140453Z\\stages\\replay_validation\\daily_packet_audit.csv",
+    "status_counts_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_canonical_60d_local_20260420T140453Z\\stages\\replay_validation\\status_counts.csv",
+    "alert_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_canonical_60d_local_20260420T140453Z\\stages\\replay_validation\\alert_summary.csv",
+    "risk_gate_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_canonical_60d_local_20260420T140453Z\\stages\\replay_validation\\risk_gate_summary.csv",
+    "canonical_reconciliation_summary_csv": "C:\\Users\\shiro\\OneDrive\\ドキュメント\\Spyder\\MISOCP\\investment\\artifacts\\shadow_ops\\shadow_ops_canonical_60d_local_20260420T140453Z\\stages\\replay_validation\\canonical_reconciliation_summary.csv"
+  }
+}
